@@ -1,0 +1,430 @@
+
+body{
+    
+}
+.rec.rec-dot{
+    /* ba? */
+    box-shadow: 0 0 1px 3px #22c8ba;
+    
+}
+.rec.rec-dot_active{
+    background-color: #1eb2a685;
+}
+.rec.rec-swipable{
+    justify-content: space-between;
+}
+
+@media screen and (min-width:500px) {
+    .rec.rec-carousel-item{
+        margin: 0 10px;
+    }
+}
+
+.react_pageComponent{position: relative;}
+.backArrowIcon{
+    color: #22c8ba;
+    padding: .9rem;
+    position: absolute;
+    /* background-color: red; */
+    top: 50px;
+    left: 2px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.backArrowIcon:hover{
+    color: white;
+    background-color:#22c8ba ;
+}
+
+.social-media:hover spanm,.social-media:hover i{
+    color: white;
+}
+
+
+.text-left{
+    text-align: left;
+}
+nav{
+    position: relative;
+}
+
+.container-xl.subNav{
+    width: 100%;
+    margin: unset;
+    max-width: unset;
+}
+#custom-Navdropdown{
+    display: none;
+    background-color: white;
+    border:1px solid transparent;
+    padding: 1.8rem;
+    position: absolute !important;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    transform: translateY(250px);
+    /* transition: all 1s ease-in-out; */
+}
+
+#custom-Navdropdown h4{
+    color: #22c8ba;
+}
+
+
+.custom-Nav_LinksGrid__container{
+    border-bottom:  1px solid #22c8ba;
+    margin: 1rem 0;
+}
+
+.show#custom-Navdropdown{
+    display: block;
+}
+
+.show#custom-Navdropdown:hover{
+    /* display: block; */
+}
+
+#custom_dropdown{
+    position: relative;
+}
+
+.custom_dropdownView_more{
+    display: none;
+}
+
+
+@media screen and (min-width:1024px) {
+        .custom-Nav__LinksGrid{
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            /* border: 1px solid red; */
+            gap: 40px;
+        }
+        .show#custom-Navdropdown{
+            display: flex;
+            width: 80%;
+            border-radius: 10px;
+            margin: 0 auto;
+
+            position: absolute;
+            top: 101%; right: 50%;
+            transform: translate(15%,0);
+
+        }
+
+        .custom-Nav_LinksGrid__container{
+            border-bottom:  1px solid transparent;
+            margin: unset;
+        }
+
+        
+.custom_dropdownView_more{
+    display: block;
+        width: 40%;
+  background-color: #f3f8fe;
+  padding: 1rem;
+
+}
+.custom_dropdownImage{
+    width: 100%;
+
+}
+    .custom_dropdownImage img{
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+    }    
+}
+
+
+
+
+
+/* form styles */
+.signIn_signUp form{
+    padding: 1.2rem;
+}
+.signIn_signUp form h2{
+    text-align: center;
+    
+}
+.form-group label{
+    color: black;
+    font-size: 1rem;
+
+}
+
+.signIn_signUp_image_container{
+    display: none;
+}
+
+@media screen and (min-width:800px){
+    .signIn_signUp_image_container{
+        display: block;
+        width: 40%;
+        height: 100%;
+        /* background-color: black; */
+        position: relative;
+    }
+    .signIn_signUp_image_container::after{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0,.4);
+        width: 100%;
+        height: 100%;
+        
+    }
+    .signIn_signUp_image_container img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+    }
+    .form_heading{
+        text-align: center;
+        padding-top: 2rem;
+    }
+    .signIn_signUp{
+
+        margin: unset;
+        display: flex;
+        justify-content: space-between;
+        width: 100vw;
+        height: 100vh;
+        /* border: 1px solid yellow; */
+    }
+    .signIn_signUp form{
+        width: 55%;
+        /* border: 1px solid red; */
+        margin: 0 auto;
+        height: 100%;
+        justify-self: center;
+        align-self: center;
+
+    }
+}
+
+.courseDetailHeroCard{
+    padding: 1rem .8rem;
+    background-color: #22596b;
+}
+
+.courseDetailHeroCard p{
+    color: rgba(255, 255, 255,.6);
+}
+
+.courseDetailHeroCard h2{
+    color: white;
+}
+
+.courseDetailHeroCard__content__duration_details_container{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    max-width: 300px;
+}
+
+.courseDetailHeroCard__content__little_info{
+    padding: 1rem 0;
+    border-bottom: 1px solid  rgba(255, 255, 255,.6);
+}
+
+.courseDetailHeroCard__image_container{
+    margin: 0;
+    padding: 0;
+    transform: translateY(120px);
+}
+.courseDetailHeroCard__image_container img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+.courseDetailHeroCard__content__btn_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* border: 1px solid red; */
+}
+
+.courseDetailHeroCard__content__btn_container button{
+    margin: .6rem 0;
+    text-transform: capitalize;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.danload_brochureContainer{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem ;
+    border-radius: 10px;
+    justify-content: space-between;
+    box-shadow: -7px 21px 13px -10px rgba(0,0,0,0.21);
+    -webkit-box-shadow: -7px 21px 13px -10px rgba(0,0,0,0.21);
+    -moz-box-shadow: -7px 21px 13px -10px rgba(0,0,0,0.21);
+}
+
+
+.danload_brochureContainer h4{
+    text-align: center;
+    padding: 1rem 0;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+.courseviewContainer{
+    padding: 1rem;
+    max-width: 1000px;
+    margin-top: 3%;
+    
+}
+
+.paymentTypePageContainer.remove{
+    display: none;
+}
+.paymentTypePageContainer{
+    position: fixed;
+    /* display: block; */
+
+    z-index: 100;
+    background-color: white;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100vw;
+    /* padding: 1rem; */
+}
+/* .paymentTypePageContainer::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: red;
+    height: 100vh;
+    width: 100%;
+    z-index: -9;
+} */
+
+.paymentTypePageContainer h2,h3{
+    color: #22c8ba;
+
+
+}
+.paymentTypePageContainer__content{
+    padding: 1.4rem;
+    position: relative;
+}
+.paymentTypePageContainer p,li{
+    color: black;
+}
+.paymentType__btn{
+    display: flex;
+    /* justify-content:left; */
+    justify-content: space-between;
+    padding: 1rem 0;
+    max-width: 300px;
+}
+
+.paymentType__btn button:nth-child(1){
+    color: #22c8ba;
+    border: 1px solid    #22c8ba;
+}
+
+.paymentType__btn button:nth-child(2){
+    color: #fdcd37;
+    border: 1px solid    #fdcd37;
+}
+
+.paymentTypePageContainer__image{
+    display: none;
+}
+.paymentTypePageContainer__image img{
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+}
+
+#close_paymentTypePageContainer{
+    display: block;
+    font-size: 1.3rem;
+    position: absolute;
+    top: 10px;
+    right: 60px;
+    color:  #22c8ba;
+    background-color: white;
+    /* border: 1px solid red; */
+    padding: .6rem ;
+    border-radius: 40px;
+    box-shadow: 1px 3px 147px 4px rgba(0,0,0,0.49);
+}
+
+@media screen and (min-width:1024px){
+    .courseDetailHeroCard{
+        display: flex;
+        justify-content: space-between;
+        /* justify-content: spa; */
+    }
+    .courseDetailHeroCard__content{
+        width: 50%;
+        /* border: 1px solid red; */
+        text-align: left;
+        /* padding: 1.4rem; */
+        /* margin-right: 5%; */
+        padding: 1rem 2rem;
+    }
+    .courseDetailHeroCard h2{
+        font-size: 2rem;
+    }
+
+    .courseDetailHeroCard__image_container{
+        width: 40%;
+        /* border: 1px solid red; */
+    transform: translateY(-12%);
+    }
+
+    .courseDetailHeroCard__image_container img{
+        height: 80%;
+        object-fit: cover;
+    }
+    .courseDetailHeroCard__image_container p{
+        padding: .8rem 0;
+    }
+    .courseDetailHeroCard__content__btn_container  button{
+        padding-top: .8rem !important;
+        padding-bottom: .8rem !important;
+    }
+    .courseDetailHeroCard__content__btn_container  button:nth-child(1){
+        width: 50%;
+    }
+    .courseDetailHeroCard__content__btn_container  button:nth-child(2){
+        width: 40%;
+    }
+    .courseDetailHeroCard__content__btn_container{
+        flex-direction: row;
+        /* max-width: 500px; */
+    }
+
+    .danload_brochureContainer{
+       flex-direction: row;
+       max-width: 700px;
+       align-items: center;
+    }
+    .danload_brochureContainer h4{
+        width: 50%;
+        text-align: left;
+        font-weight: 3400;
+        opacity: .9;
+    }
+    .danload_brochureContainer button{
+        width: 30%;
+    }
+
+    .paymentTypePageContainer__image{
+        display: block;
+    }
+
+    .paymentTypePageContainer{
+        display: flex;
+        flex-direction: row-reverse;
+    }
+}

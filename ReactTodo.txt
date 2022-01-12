@@ -1,0 +1,119 @@
+Arrange the Ui in react
+ceos for roud table -> c suite
+thinking out loud
+Two Section:
+    Landing Page
+        index Page -- some Content
+        all Schools Page (Paginated)   done execpt pagination 
+        all course (Paginated)  done execpt pagination
+        course Detail --- done except link to whatapp  
+
+        Work On  
+                intern Should Have his Login Page When He tries Auth Views
+            intern -- seach functionaily !important
+                when he searches in detail Page if he clicks on any of the course
+                    it takes him to his dasboard
+
+
+
+first content to aws
+
+student Dashboard Desgins
+    view paid courses ->done
+    student danload assignment --> done
+    view certificates --> done
+    list payment history --> done
+
+
+student detail page
+    allow admin to see using student id --> done
+    optional params  if it there use it to get the profile else use the localstorage  --done
+employer:
+    search intern -- done
+    send intrested intern -- done
+    student of intrest Status -list of Hirer table showing the hirer what he is ment to see --done
+
+protected route -- done
+
+tutor:
+    work on the signin and out -- done
+    work on the nav bar
+
+    back end--done /front end     
+        danloading assignment -- danloading  -- done
+        on live buttons --toogle live buttons --done
+        putting zooom link --done
+
+General Stuff
+    change password -->
+    profile  --> done except --
+    your Qualification-->done except deleteing
+    and change passwowrd
+    pay half
+
+
+first page to be seen in the Dashboard is the Profile.. make it in a way without form
+    there should be a link to edit
+
+in the first page the Profiel should Have
+
+buttons -> ongoing course,completed course and open courses
+two boxes for header
+profile || picture
+....
+country:
+state
+
+Name of Qualification  |
+Engament STatus:
+    Open for Opptunites
+    Not for Opptunites
+other data
+ABout
+Student Qualification:
+1.)
+2.)
+3.)
+Dob
+---- >there should be a Link for
+    :completed Courses
+    On GOing Courses dashboard:-> for courses paid for
+    open courses -> exculiding the course paid for  
+
+For Course Pane
+ongoing classes
+    Course Title
+    course -date and end date
+    course outline -link to the detail page
+    Danload Course Material
+    Danload Assignment
+    Upload Assignment
+    Join class -> wont be availbe ontill any day of the class is live and completed must be false
+completed classes:
+
+    Course Title
+    course outline  -link to the detail page
+    danload certificates
+
+open courses
+    Course Title
+    course -date and end date
+    course outline -link to the detail page
+    payment
+
+you must have boudanload certificates
+
+
+danload courses
+
+
+
+
+
+
+
+school Desgins -->https://utiva.io/school/design-school
+
+course desgins -->https://utiva.io/courses/data-science-fellowship
+
+
