@@ -6,12 +6,14 @@ import { isLoggedIN } from "../redux/actions/userAuthActions";
 import { setMessage } from "../redux/actions/messageAction";
 import { getAllCourses } from "../redux/actions/courseAction";
 import axios from "axios";
+import { CgMenu } from "react-icons/cg";
 import dataService from "../services/data.service";
 
 const Nav = () => {
     // const [activeLink,SetactiveLink] = useState(false)
     const [isLoading, setIsLoading] = useState(true)
     const [dropDown, setDropdown] = useState(false);
+    const [isActive, setActive] = useState(2);
     const [mobileDropDown, SetmobileDropDown] = useState(false)
     const dispatch = useDispatch()
     const { user } = useSelector(state => state)
@@ -58,32 +60,33 @@ const Nav = () => {
             dispatch(setMessage(error.response.message, false))
         })
     }, [])
-
-
     return (
         <nav className="navbar navbar-expand-lg  ftco-navbar-light " >
             <div className="container-xl subNav pt-4" style={{ backgroundColor: "white" }}>
 
                 {
-                    user.isLoggedIn == true ?
-                        <>
-                            <Link to={user.user.data.user_type == 'student' ? "/student" :
-                                (user.user.data.user_type == 'hirer') ? "employer/" : (user.user.data.user_type == 'tutor') ? "tutor/" :
-                                    "#"
-                            } className="btn-custom order-lg-last" style={{ cursor: "pointer" }}>
-                                Dashboard
-                            </Link>
-                        </>
-                        :
-                        // ()
-                        <>
-                            {/* <Link to='/signin' className="btn-custom order-lg-last" style={{ cursor: "pointer" }}>
+                    // user.isLoggedIn == true ?
+                    //     <>
+                    //         <Link to={user.user.data.user_type == 'student' ? "/student" :
+                    //             (user.user.data.user_type == 'hirer') ? "employer/" : (user.user.data.user_type == 'tutor') ? "tutor/" :
+                    //                 "#"
+                    //         } className="order-lg-last" style={{ cursor: "pointer" }}>
+
+                    //             <div className="nav-link" href="intern.html" style={{ color: '#fff', backgroundColor: '#052B38', padding: '0.3rem 1rem', borderRadius: '50px', textAlign: 'center' }}>{user.user.data.first_name[0]}</div>
+                    //         </Link>
+                    //     </>
+                    //     :
+                    // ()
+                    <>
+                        {/* <Link to='/signin' className="btn-custom order-lg-last" style={{ cursor: "pointer" }}>
                                 Sign in
                             </Link>
                             <Link to='/signup' className="btn-custom order-lg-last" style={{ cursor: "pointer" }}>
                                 Sign up
                             </Link> */}
-                        </>
+                        {/* <div className="nav-item order-lg-last"><Link to="/signin" className="nav-link" href="intern.html" style={{ color: '#fff', backgroundColor: '#052B38', padding: '0.6rem 2rem', borderRadius: '15px', textAlign: 'center' }}>Login</Link></div> */}
+
+                    </>
                 }
 
                 <button className="navbar-toggler" type="button"
@@ -92,8 +95,8 @@ const Nav = () => {
                 //   aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
 
                 >
-                    <span className="fa fa-bars" style={{ color: "black" }}></span>
-                    <span style={{ color: "black" }}>Menu</span>
+                    <span style={{ color: "black", marginRight: '1rem' }}><CgMenu size='30' /></span>
+                    {/* <span style={{ color: "black" }}>Menu</span> */}
                 </button>
                 <div className={`collapse navbar-collapse  ${mobileDropDown == true ? "show" : ""}`} id="navbarSupportedContent"
                     style={{ transition: "all .7s ease-in-out" }}
@@ -108,12 +111,12 @@ const Nav = () => {
 
                     </ul>
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
-                        <li className="nav-item order-lg-last"><Link to="/" className="nav-link active">Home</Link></li>
+                        <li className="nav-item order-lg-last"><Link to="/" className={isActive == 0 ? "nav-link active" : "nav-link text-dark"}>Home</Link></li>
                         <li className="nav-item order-lg-last">
-                            <a className="nav-link " href="#" id="custom_dropdown" style={{ color: 'black' }}
+                            <a className={isActive == 1 ? "nav-link active" : "nav-link text-dark"} href="#" id="custom_dropdown" style={{ color: 'black' }}
                                 // onMouseOver={()=>handleDropDown(dropDown,setDropdown)}
                                 // onMouseLeave={()=>handleDropDown(dropDown,setDropdown)}
-                                onClick={() => handleDropDown(dropDown, setDropdown)}
+                                onClick={() => { handleDropDown(dropDown, setDropdown); setActive(1) }}
                             >
                                 Schools
                             </a>
@@ -167,12 +170,18 @@ const Nav = () => {
                             </div>
                         </li>
 
-                        <li className="nav-item order-lg-last"><Link to="/" className="nav-link" href="intern.html" style={{ color: 'black' }}>Solutions</Link></li>
-                        <li className="nav-item order-lg-last"><Link to="/" className="nav-link" href="intern.html" style={{ color: 'black' }}>Insight &#38; Research</Link></li>
-                        <li className="nav-item order-lg-last"><Link to="/" className="nav-link" href="intern.html" style={{ color: 'black' }}>About</Link></li>
-                        <li className="nav-item order-lg-last"><Link to="/" className="nav-link" href="intern.html" style={{ color: 'black' }}>Contact</Link></li>
-                        <li className="nav-item order-lg-last"><Link to="/signin" className="nav-link" href="intern.html" style={{ color: '#fff', backgroundColor: '#052B38', padding: '1rem 2rem', borderRadius: '15px', marginLeft: '2rem', textAlign: 'center' }}>Login</Link></li>
+                        <li className="nav-item order-lg-last"><Link to="/" className={isActive == 2 ? "nav-link active" : "nav-link text-dark"} onClick={() => setActive(2)} href="intern.html" style={{ color: 'black' }}>Solutions</Link></li>
+                        <li className="nav-item order-lg-last"><Link to="/" className={isActive == 3 ? "nav-link active" : "nav-link text-dark"} onClick={() => setActive(3)} href="intern.html" style={{ color: 'black' }}>Insight &#38; Research</Link></li>
+                        <li className="nav-item order-lg-last"><Link to="/" className={isActive == 4 ? "nav-link active" : "nav-link text-dark"} onClick={() => setActive(4)} href="intern.html" style={{ color: 'black' }}>About</Link></li>
+                        <li className="nav-item order-lg-last"><Link to="/" className={isActive == 5 ? "nav-link active" : "nav-link text-dark"} onClick={() => setActive(5)} href="intern.html" style={{ color: 'black' }}>Contact</Link></li>
                         {/* <li className="nav-item nav-link"><a className="nav-link" href="contact.html">Contact</a></li> */}
+                        {!user.isLoggedIn ?
+                            <div className="nav-item order-lg-last"><Link to="/signin" className="nav-link" href="intern.html" style={{ color: '#fff', backgroundColor: '#052B38', padding: '0.6rem 2rem', borderRadius: '15px', textAlign: 'center' }}>Login</Link></div>
+                            : <div className="nav-item order-lg-last"><Link to={user.user.data.user_type == 'student' ? "/student" :
+                                (user.user.data.user_type == 'hirer') ? "employer/" : (user.user.data.user_type == 'tutor') ? "tutor/" :
+                                    "#"} className="nav-link" href="intern.html" style={{ color: '#fff', backgroundColor: '#052B38', padding: '0.6rem 2rem', borderRadius: '15px', textAlign: 'center' }}>My Dashboard</Link></div>
+
+                        }
                     </ul>
                 </div>
             </div>

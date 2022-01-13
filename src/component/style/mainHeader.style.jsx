@@ -11,7 +11,7 @@ export const StyledmainHeaderWrapper = styled.div`
 /* display: flex;
 flex-direction: column; */
 max-width: 100%;
-max-height:60vh;
+/*max-height:60vh;*/
 padding: 2rem 1rem;
 margin:0 auto;
 /*background-image: url(${heroBg});*/
@@ -28,10 +28,25 @@ background-repeat: no-repeat;
 
 @media screen and (max-width:1024px) {
     display: flex;
+    width: 100%;
+    height:100%;
+    margin: 0;
+}
+@media screen and (max-width:900px) {
+    display: flex;
     flex-direction: column-reverse;
-    min-height:90vh;
+   
     padding:0.5rem;
     width: 100%;
+    margin: 0;
+}
+
+@media screen and (max-width:800px) {
+    display: flex;
+    flex-direction: column-reverse;
+ 
+    padding:0.5rem;
+    width: 120%;
     margin: 0;
 }
 `
@@ -39,6 +54,11 @@ export const Spacer = styled.div`
 width:100%;
 height: 5rem;
 background-color:#fff;
+
+@media screen and (max-width:800px) {
+    height:0.2rem;
+  
+}
 `
 
 export const StyledmainHeaderContentPane = styled.div`
@@ -78,7 +98,13 @@ p{
 }
 
 
-
+@media screen and (max-width:1024px) {
+  
+    width: 90%;
+    margin:0;
+    padding:1rem;
+    
+}
 
 @media screen and (min-width: 1026px) {
     width: 50%;
@@ -122,8 +148,8 @@ export const StyledImageHeaderContainer = styled.div`
 }
 
 @media screen and (max-width: 1024px){
-    width: 40%;
-    height: 45vh;
+    width: 70%;
+    height: 48vh;
 }
 
 
@@ -145,7 +171,7 @@ export const StyledHeaderImage = styled.img`
 
 @media screen and (min-width: 1026px) {
     /*transform: translateY(-30px) translateX(-80px);*/
-    height: 100%;
+    height: 80%;
             object-fit:contain;
             border-radius: 10px;
     
@@ -193,6 +219,17 @@ img{
 }
 `
 
+export const ButtonContainer = styled.div`
+display: flex; 
+flex-direction: row
+paddingTop: '0.7rem';
+
+@media screen and (max-width: 800px){
+    flex-direction: column;
+}
+
+`
+
 export const StyledButton = styled.div`
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600;700;800&display=swap');
     width: 50%;
@@ -204,6 +241,12 @@ export const StyledButton = styled.div`
     margin: 0 auto;
     border-radius:20px;
     text-align: center;
+
+    @media screen and (max-width: 800px){
+    width:100%;
+    border-radius:10px;
+
+}
 
        @media screen and (max-width: 380px){
     margin-bottom: 1rem;
@@ -220,6 +263,12 @@ export const OutlineButton = styled.div`
     color:#22596B;
     padding: 1rem 0rem;
     text-align: center;
+
+    @media screen and (max-width: 800px){
+    width:100%;
+    border: 1px #22596B dotted;
+    border-radius:10px;
+}
 
     @media screen and (max-width: 380px){
     font-size: 14px;

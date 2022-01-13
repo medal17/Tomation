@@ -2,7 +2,7 @@ import { FlexWap } from "./style/flexWap.style"
 import {
     StyledHeaderImage, Spacer,
     StyledImageHeaderContainer, StyledTestimonialHeader,
-    StyledmainHeaderWrapper, StyledmainHeaderContentPane, StyledButton, OutlineButton
+    StyledmainHeaderWrapper, StyledmainHeaderContentPane, StyledButton, OutlineButton, ButtonContainer
 } from "./style/mainHeader.style"
 import svgLine from '../assets/svg/line.svg'
 import imageHeader from '../assets/images/herobg.jpg'
@@ -11,9 +11,10 @@ import MtnImage from '../assets/images/mtnImage.png'
 import zenithImage from '../assets/images/zenith.png'
 import { BsFillVinylFill, BsFillLightbulbFill } from 'react-icons/bs';
 import { Link } from "react-router-dom"
+import { useHistory } from "react-router-dom"
 const MainHeader = ({ heading, content }) => {
 
-
+    const history = useHistory()
     return (
 
         <>
@@ -36,11 +37,11 @@ const MainHeader = ({ heading, content }) => {
                         </p>
                         <p > <BsFillVinylFill color="#F55608" size={21} style={{ marginRight: '0.5rem' }} /> You will also have the option of a flexible payment arrangement</p>
                     </div>
-                    <div style={{ display: 'flex', paddingTop: '0.7rem' }}>
+                    <ButtonContainer>
 
-                        <StyledButton style={{ cursor: "pointer" }}>Get Started</StyledButton>
+                        <StyledButton style={{ cursor: "pointer" }} onClick={() => history.push('/signup')}>Get Started</StyledButton>
                         <OutlineButton style={{ cursor: "pointer" }}> <BsFillLightbulbFill color="#22596B" size={21} style={{ marginRight: '0.5rem' }} /> Contact Support</OutlineButton>
-                    </div>
+                    </ButtonContainer>
                 </StyledmainHeaderContentPane>
 
                 <StyledImageHeaderContainer>
