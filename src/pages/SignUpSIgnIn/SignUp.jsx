@@ -7,6 +7,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { setMessage, clearMessage } from '../../redux/actions/messageAction';
 import { register } from '../../redux/actions/userAuthActions';
 import { MdKeyboardBackspace } from 'react-icons/md'
+import Footer from '../../component/footer';
+import Nav from '../../component/nav';
 
 
 const SignUp = () => {
@@ -82,141 +84,149 @@ const SignUp = () => {
 
 
   return (
+    <>
+      <div className=" row justify-content-around" >
+        <Nav />
 
-    <div className="signIn_signUp" >
-
-
-      <div className="signIn_signUp_image_container">
+        {/* <div className="signIn_signUp_image_container">
         <img src={SideImageOFFORM} alt="" />
-      </div>
-
-      <form style={{ overflowY: "scroll" }} onSubmit={(e) => handleRegistration(e)}
-
-      >
-
-
-        <div className="heading-section">
-          <div class="react_pageComponent">
-            <a onClick={() => history.goBack()}>
-              <MdKeyboardBackspace size={25} />
-            </a>
-
-          </div>
-          <h2 className="form_heading">Create a new account</h2>
+      </div> */}
+        <div className='signIn_signUp col-lg-8'>
+          <form onSubmit={(e) => handleRegistration(e)}
+            className='bg-white px-10 my-5 rounded '
+          >
 
 
+            <div className="heading-section">
+              <div class="react_pageComponent">
+                <a onClick={() => history.goBack()}>
+                  <MdKeyboardBackspace size={25} />
+                </a>
 
-        </div>
-        <br />
-        <div className="form-group">
+              </div>
+              <h4 className="form_heading">Create a new account</h4>
 
-          <div className="row">
-            <div className="col">
 
-              <div className="form-group">
-                <label htmlFor="exampleInputPassword1">First Name </label>
-                <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} className="form-control" id="exampleInputPassword1" placeholder="First Name" required />
+
+            </div>
+            <br />
+            <div className="form-group row">
+
+              <div className="row">
+                <div className="col">
+
+                  <div className="form-group">
+                    <label htmlFor="exampleInputPassword1 " className='fs-4'>First Name </label>
+                    <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} className="form-control bg-light rounded" id="exampleInputPassword1" placeholder="First Name" required />
+                  </div>
+                </div>
+                <div className="col">
+
+                  <div className="form-group">
+                    <label htmlFor="lastName">Last Name</label>
+                    <input type="text"
+                      value={lastName} onChange={(e) => setLastName(e.target.value)}
+                      className="form-control bg-light rounded" id="lastName" placeholder="Last Name" required />
+                  </div>
+                </div>
+              </div>
+
+              {/* <br /> */}
+              <div className='row'>
+                <label htmlFor="exampleInputEmail1 " className=' '>Email address</label>
+                <div className='col'>
+                  <input type="email"
+                    value={email} onChange={(e) => setEmail(e.target.value)}
+                    className="form-control bg-light rounded" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required />
+                </div>
               </div>
             </div>
-            <div className="col">
-
-              <div className="form-group">
-                <label htmlFor="lastName">Last Name</label>
-                <input type="text"
-                  value={lastName} onChange={(e) => setLastName(e.target.value)}
-                  className="form-control" id="lastName" placeholder="Last Name" required />
-              </div>
-            </div>
-          </div>
-
-          <br />
-          <label htmlFor="exampleInputEmail1">Email address</label>
-          <input type="email"
-            value={email} onChange={(e) => setEmail(e.target.value)}
-            className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required />
-        </div>
-        <br />
+            {/* <br /> */}
 
 
-        {
-          isHirer == false ?
+            {
+              isHirer == false ?
+                <div className="form-group">
+                  {/* {jobOpportunity} */}
+                  <label htmlFor="">Are you Open For Job Opportunity</label>
+                  <input type="checkbox"
+                    defaultChecked={jobOpportunity}
+                    onChange={(e) =>
+                      setJobOpportunity(!jobOpportunity)}
+
+                    style={{ marginLeft: "10px" }}
+
+                  />
+
+                  <br />
+                  <small id="emailHelp" className="form-text text-muted">You can Change this Data in your Profile</small>
+                </div>
+                :
+                ""
+            }
+
+
+
             <div className="form-group">
               {/* {jobOpportunity} */}
-              <label htmlFor="">Are you Open For Job Opportunity</label>
+              <label htmlFor="">Create Employer Account</label>
               <input type="checkbox"
-                defaultChecked={jobOpportunity}
+                defaultChecked={isHirer}
                 onChange={(e) =>
-                  setJobOpportunity(!jobOpportunity)}
+                  setIsHirer(!isHirer)}
 
                 style={{ marginLeft: "10px" }}
 
               />
 
               <br />
-              <small id="emailHelp" className="form-text text-muted">You can Change this Data in your Profile</small>
-            </div>
-            :
-            ""
-        }
-
-
-
-        <div className="form-group">
-          {/* {jobOpportunity} */}
-          <label htmlFor="">Create Employer Account</label>
-          <input type="checkbox"
-            defaultChecked={isHirer}
-            onChange={(e) =>
-              setIsHirer(!isHirer)}
-
-            style={{ marginLeft: "10px" }}
-
-          />
-
-          <br />
-          <small id="emailHelp" className="form-text text-muted">
-            If you just want to employe please check this box
-          </small>
-        </div>
-
-
-
-
-        <div className="row">
-          <div className="col">
-
-            <div className="form-group">
-              <label htmlFor="exampleInputPassword1">Password</label>
-              <input type="password"
-                value={password} onChange={(e) => setPassword(e.target.value)}
-
-                className="form-control" id="exampleInputPassword1" placeholder="Password"
-                required
-              />
+              <small id="emailHelp" className="form-text text-muted">
+                If you just want to employe please check this box
+              </small>
             </div>
 
-          </div>
-          <div className="col">
 
-            <div className="form-group">
-              <label htmlFor="exampleInputPassword1">Confirm Password</label>
-              <input type="password"
-                value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}
 
-                className="form-control" id="exampleInputPassword1" placeholder="Confirm Password" required />
+
+            <div className="row">
+              <div className='col'>
+                <div className="row">
+
+                  <div className="form-group">
+                    <label htmlFor="exampleInputPassword1">Password</label>
+                    <input type="password"
+                      value={password} onChange={(e) => setPassword(e.target.value)}
+
+                      className="form-control bg-light rounded" id="exampleInputPassword1" placeholder="Password"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="col">
+                <div className='row'>
+                  <div className="form-group row">
+                    <label htmlFor="exampleInputPassword1">Confirm Password</label>
+                    <input type="password"
+                      value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}
+
+                      className="form-control bg-light rounded" id="exampleInputPassword1" placeholder="Confirm Password" required />
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <br />
-        <div style={{ 'display': 'flex', "justifyContent": "space-between", "flexWrap": "wrap" }}>
+            <br />
+            <div style={{ 'display': 'flex', "justifyContent": "space-between", "flexWrap": "wrap" }}>
 
-          <button type="submit" className="btn btn-primary">Submit</button>
+              <button type="submit" className="btn btn-primary">Submit</button>
 
-          <Link className="btn btn-secondary" to="/signin">Already Have An Account?</Link>
-        </div>
-      </form>
+              <Link className="btn btn-secondary" to="/signin">Already Have An Account?</Link>
+            </div>
+          </form></div>
+      </div>
+      <Footer />
 
-    </div>
+    </>
   )
 }
 

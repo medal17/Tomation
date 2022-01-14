@@ -48,6 +48,10 @@ nav{
     position: relative;
 }
 
+.list{
+    color:white;
+}
+
 .container-xl.subNav{
     width: 100%;
     margin: unset;
@@ -70,6 +74,22 @@ nav{
     color: #22c8ba;
 }
 
+#rcustom-Navdropdown{
+    display: none;
+    background-color: white;
+    border:1px solid transparent;
+    padding: 1.8rem;
+    position: absolute !important;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    transform: translateY(250px);
+    /* transition: all 1s ease-in-out; */
+}
+
+#rcustom-Navdropdown h4{
+    color: #22c8ba;
+}
 
 .custom-Nav_LinksGrid__container{
     border-bottom:  1px solid #22c8ba;
@@ -80,11 +100,19 @@ nav{
     display: block;
 }
 
+.show#rcustom-Navdropdown{
+    display: block;
+}
+
 .show#custom-Navdropdown:hover{
     /* display: block; */
 }
 
 #custom_dropdown{
+    position: relative;
+}
+
+#rcustom_dropdown{
     position: relative;
 }
 
@@ -186,12 +214,13 @@ nav{
         padding-top: 2rem;
     }
     .signIn_signUp{
-
+        padding: 3rem 1px;
         margin: unset;
         display: flex;
         justify-content: space-between;
-        width: 100vw;
-        height: 100vh;
+        justify-self: center;
+        /* width: 60vw; */
+        /* height: 100vh; */
         /* border: 1px solid yellow; */
     }
     .signIn_signUp form{

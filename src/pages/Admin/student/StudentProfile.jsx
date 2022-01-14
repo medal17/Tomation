@@ -361,14 +361,14 @@ const StudentProfile = () => {
 
 
 
-                                 <div className="form-group">
+                                 {/* <div className="form-group">
                                     <label for="lastName">Company Name</label>
                                     <input type="text"
                                        value={allData.company_name}
                                        onChange={(e) => setAllData({ ...allData, "company_name": e.target.value })}
-                                       className="form-control" id="companyName" aria-describedby="companyName" placeholder="Enter Company Name" />
-                                    {/* <!-- <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small> --> */}
-                                 </div>
+                                       className="form-control" id="companyName" aria-describedby="companyName" placeholder="Enter Company Name" /> */}
+                                 {/* <!-- <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small> --> */}
+                                 {/* </div> */}
 
                                  <div className="form-row">
                                     <div class="col">
