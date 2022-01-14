@@ -52,7 +52,7 @@ background-repeat: no-repeat;
 `
 export const Spacer = styled.div`
 width:100%;
-height: 5rem;
+height: 1rem;
 background-color:#fff;
 
 @media screen and (max-width:800px) {
