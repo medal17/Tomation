@@ -20,6 +20,7 @@ const Dashboard = () => {
 
     let studentID = null;
     const user = JSON.parse(localStorage.getItem("user"));
+    console.log(user)
     if (user && user.data.user_type == 'student') {
         // check if the user is logged and check if he is student 
         studentID = user.data.student_id
