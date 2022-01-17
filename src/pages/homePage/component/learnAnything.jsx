@@ -11,13 +11,13 @@ const LearnAnything = () => {
 
                     <div className="row g-xl-5">
                         {/* data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000" */}
-                        <div className="col-md-4 d-flex align-items-stretch" >
+                        <div className="col-md-4 col-sm-100 d-flex align-items-stretch" >
                             <div className="img w-100" style={{ backgroundImage: `url(${mainImage})` }}>
                             </div>
                         </div>
 
                         {/* data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000" */}
-                        <div className='col-8 '>
+                        <div className='col-lg-8 col-md-12 col-xs-12'>
                             <div className='heading-section  align-items-center'>
                                 <span className="subheading">Learn Anything</span>
                                 <h2 className="mb-2 ">Benefits of Savvy School learning expertise</h2>

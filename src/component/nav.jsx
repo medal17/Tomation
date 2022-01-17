@@ -184,7 +184,8 @@ const Nav = () => {
 
 
                         <li className="nav-item order-lg-last">
-                            <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                            <div class="" id="navbarNavDarkDropdown">
+                                {/* <div class="collapse navbar-collapse" id="navbarNavDarkDropdown"> */}
                                 <ul class="navbar-nav">
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -206,8 +207,6 @@ const Nav = () => {
 
 
 
-
-
                         {/* <li className="nav-item order-lg-last"><Link to="/" className={isActive == 2 ? "nav-link active" : "nav-link text-dark"} onClick={() => setActive(2)} href="intern.html" style={{ color: 'black' }}>Solutions</Link></li> */}
                         {/* <li className="nav-item order-lg-last"><Link to="/" className={isActive == 3 ? "nav-link active" : "nav-link text-dark"} onClick={() => setActive(3)} href="intern.html" style={{ color: 'black' }}>Insight &#38; Research</Link></li> */}
 
@@ -225,7 +224,8 @@ const Nav = () => {
                             </div>
                         </li> */}
                         <li className="nav-item order-lg-last">
-                            <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                            <div class="" id="navbarNavDarkDropdown">
+                                {/* <div class="collapse navbar-collapse" id="navbarNavDarkDropdown"> */}
                                 <ul class="navbar-nav">
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
