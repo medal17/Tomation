@@ -70,6 +70,7 @@ const Dashboard = () => {
     const history = useHistory();
     return (
         <>
+
             <h1>{isLoading ? <p>Is loading</p>
                 :
                 (studentProfile.length != 0) ?
@@ -79,30 +80,34 @@ const Dashboard = () => {
 
                         {
                             studentProfile.is_owner ?
-                                <div class="paymentType__btn" style={{
+                                <div class="" style={{
                                     display: 'flex', "justifyContent": "space-between",
                                     maxWidth: "600px", "margin": "0 auto", "flexWrap": "wrap"
                                 }}>
-                                    <button class="btn" onClick={(e) => history.push(`/student/courses/Ongoing`)}>ongoing course</button>
-                                    <button class="btn" onClick={(e) => history.push(`/student/courses/Completed`)}>completed course(s) </button>
                                     <button className='btn' onClick={(e) => history.push(`/student/courses/Open`)} style={{ border: "1px solid green", color: "green" }}> Open  courses</button>
+                                    <button class="btn" onClick={(e) => history.push(`/student/courses/Ongoing`)} style={{ border: "1px solid gold", backgroundColor: 'gold', color: "black" }}>ongoing course</button>
+                                    <button class="btn" onClick={(e) => history.push(`/student/courses/Completed`)} style={{ border: "1px solid red", color: "red" }}>completed course(s) </button>
+
                                 </div>
                                 : ""
                         }
 
 
 
-                        <div className="dashboard__intro_pane">
-                            <p style={{ textAlign: "left" }}>Name: {studentProfile.first_name + ' ' + studentProfile.last_name} <br /> <br />
-                                <div style={{ fontSize: '.9rem' }}>
-                                    <strong>Country:</strong>Nigera   <br />
-                                    <strong>State:</strong>Lagos
+                        <div className="dashboard__intro_pane mt-2">
+                            <p style={{ textAlign: "left", }}>
+                                <h2 style={{ fontFamily: 'Quicksand', fontWeight: 500 }}>
+                                    {studentProfile.first_name + ' ' + studentProfile.last_name}
+                                </h2> <br />
+                                <div style={{ fontSize: '.9rem' }} className='row'>
+                                    <div className='col'><strong>Country:</strong>   Nigera </div>
+                                    <div className='col'><strong>State:</strong>   Lagos</div>
                                 </div>
                             </p>
 
-                            <div className="dashboard_intro_pane__image">
+                            {/* <div className="dashboard_intro_pane__image">
                                 <img src={image} alt="" />
-                            </div>
+                            </div> */}
                         </div>
 
 

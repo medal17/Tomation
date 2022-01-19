@@ -18,7 +18,7 @@ const MainHeader = ({ heading, content }) => {
     return (
 
         <>
-            <Spacer />
+            {/* <Spacer /> */}
             <StyledmainHeaderWrapper>
 
                 <StyledmainHeaderContentPane >

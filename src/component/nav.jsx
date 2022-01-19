@@ -192,12 +192,12 @@ const Nav = () => {
                                             Solutions
                                         </a>
                                         <ul class="dropdown-menu dropdown-menu-dark " aria-labelledby="navbarDarkDropdownMenuLink">
-                                            <li><a class="dropdown-item nav-item" href="https://savvyng.com/solution-detail/1/">Performance Management</a></li>
-                                            <li><a class="dropdown-item" href="https://savvyng.com/solution-detail/2/">Internship and Workforce Placement</a></li>
-                                            <li><a class="dropdown-item" href="https://savvyng.com/solution-detail/3/">Recruitment</a></li>
-                                            <li><a class="dropdown-item" href="https://savvyng.com/solution-detail/4/">Training</a></li>
-                                            <li><a class="dropdown-item" href="https://savvyng.com/solution-detail/5/">Appraisal Data Generational Framework</a></li>
-                                            <li><a class="dropdown-item" href="https://savvyng.com/solution-detail/6/">Key Performance Indicators Analytics (KPI)</a></li>
+                                            <li><a class="dropdown-item nav-item" href="https://savvyng.com/solution-detail/1/" target="_blank">Performance Management</a></li>
+                                            <li><a class="dropdown-item" href="https://savvyng.com/solution-detail/2/" target="_blank">Internship and Workforce Placement</a></li>
+                                            <li><a class="dropdown-item" href="https://savvyng.com/solution-detail/3/" target="_blank">Recruitment</a></li>
+                                            <li><a class="dropdown-item" href="https://savvyng.com/solution-detail/4/" target="_blank">Training</a></li>
+                                            <li><a class="dropdown-item" href="https://savvyng.com/solution-detail/5/" target="_blank">Appraisal Data Generational Framework</a></li>
+                                            <li><a class="dropdown-item" href="https://savvyng.com/solution-detail/6/" target="_blank">Key Performance Indicators Analytics (KPI)</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -232,10 +232,10 @@ const Nav = () => {
                                             Insight &amp; Research
                                         </a>
                                         <ul class="dropdown-menu dropdown-menu-dark " aria-labelledby="navbarDarkDropdownMenuLink">
-                                            <li><a class="dropdown-item nav-item" href="https://savvyng.com/insight-detail/1/">Radical Thinking for Growth</a></li>
-                                            <li><a class="dropdown-item" href="https://savvyng.com/insight-detail/2/">Achieving Maximum Performance through Employee Motivation</a></li>
-                                            <li><a class="dropdown-item" href="https://savvyng.com/insight-detail/3/">Establishing The Right Business Eco-System</a></li>
-                                            <li><a class="dropdown-item" href="https://savvyng.com/insight-detail/4/">Gaining Strategic Competitive Advantage</a></li>
+                                            <li><a class="dropdown-item nav-item" href="https://savvyng.com/insight-detail/1/" target="_blank">Radical Thinking for Growth</a></li>
+                                            <li><a class="dropdown-item" href="https://savvyng.com/insight-detail/2/" target="_blank">Achieving Maximum Performance through Employee Motivation</a></li>
+                                            <li><a class="dropdown-item" href="https://savvyng.com/insight-detail/3/" target="_blank">Establishing The Right Business Eco-System</a></li>
+                                            <li><a class="dropdown-item" href="https://savvyng.com/insight-detail/4/" target="_blank">Gaining Strategic Competitive Advantage</a></li>
                                         </ul>
                                     </li>
                                 </ul>

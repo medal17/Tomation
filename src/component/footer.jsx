@@ -15,36 +15,33 @@ const Footer = () => {
         <StyledfooterContainer>
             <StyledFooterSectionAPart>
                 <StyledFooterIntroContent>
-                    <img src={SavvyLogo} alt="" />
-                    <p>
+                    <img src={SavvyLogo} alt="" height='20px' width='10px' />
+                    <div style={{ fontSize: 12, color: '#fff', marginTop: -5 }}>
                         The set up of Savvy School is built around developing you for the;
                         human resource management, strategy management and business process
                         management work space. Be it that you are changing career or you are
                         interested in further development yourself in these feilds. We are your
                         sure bet for that desired career advancement.
-                    </p>
+                    </div>
 
                 </StyledFooterIntroContent>
 
                 <StyledFooterNavLinkContainer>
                     <ul>
-                        <h4>PROGRAMS</h4>
-                        <li className="list">Human Resource System </li>
-                        <li className="list">Recruitment Management</li>
-                        <li className="list">Employee Egagement</li>
-                        <li className="list">Key Performance Indicator Analytics</li>
-                        <li className="list">Employee Appraisal Management</li>
+                        <h4>SCHOOLS</h4>
+                        <li className="list"><a href="">Human Resource System</a> </li>
+                        <li className="list"><a href="">Recruitment Management</a></li>
+                        <li className="list"><a href="">Employee Egagement</a></li>
+                        <li className="list"><a href="">Key Performance Indicator Analytics</a></li>
                         {/* <li><a href="">Enterprice</a></li> */}
                     </ul>
 
 
                     <ul>
-                        <h4>PROGRAMS</h4>
-                        <li className="list">Business Process Modelling &amp; Analysis</li>
-                        <li className="list"> Business Process Management</li>
-                        <li className="list">Customer Experience Management</li>
-                        <li className="list">Business Process Modelling &amp; Analysis</li>
-                        <li className="list">Strategy Development</li>
+                        <h4>SOLUTIONS</h4>
+                        <li><a href="">Performance Mangement</a></li>
+                        <li><a href="">Internship and Workforce Placement</a></li>
+                        <li><a href="">Recruitement</a></li>
                         {/* <li><a href="">Enterprice</a></li> */}
                     </ul>
                     {/* Performance mangement
@@ -56,9 +53,7 @@ const Footer = () => {
 
                     <ul>
                         <h4>SOLUTIONS</h4>
-                        <li><a href="">Performance Mangement</a></li>
-                        <li><a href="">Internship and Workforce Placement</a></li>
-                        <li><a href="">Recruitement</a></li>
+
                         <li><a href="">Training</a></li>
                         <li><a href="">Appraisal Data Genrational Framework</a></li>
                         <li><a href="">Key Performance Indicators Analytics(KPI)</a></li>
@@ -69,8 +64,8 @@ const Footer = () => {
                         <h4>INSIGHT &amp; LEARNING</h4>
                         <li><a href="">Radical Thinking for Growth</a></li>
                         <li><a href="">Achieving Maximum Performance through Employee Motivation</a></li>
-                        <li><a href="">Establishing The Right Business Eco-System</a></li>
-                        <li><a href="">Gaining Strategic Competitive Advantage</a></li>
+                        {/* <li><a href="">Establishing The Right Business Eco-System</a></li> */}
+                        {/* <li><a href="">Gaining Strategic Competitive Advantage</a></li> */}
                         {/* <li><a href="">Scholarship</a></li> */}
                         {/* <li><a href="">Enterprice</a></li> */}
                     </ul>
@@ -88,7 +83,7 @@ const Footer = () => {
                     <li><i></i></li>
                 </StyledFooterSocial> */}
 
-                <p>@2021 Elearning.All right reserved.</p>
+                <p className="pt-5">@2021 Elearning.All right reserved.</p>
             </StyledFooterSectionBPart>
         </StyledfooterContainer>
     )
