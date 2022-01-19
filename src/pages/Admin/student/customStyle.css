@@ -26,7 +26,8 @@
     /* -webkit-box-shadow: -7px 21px 13px -10px rgba(0,0,0,0.21);
     -moz-box-shadow: -7px 21px 13px -10px rgba(0,0,0,0.21); */
     padding: 1rem;
-    border-radius: 10%;    
+    border-radius: 10px;   
+    border: 1px solid rgb(218, 218, 218) 
 }
 
 
