@@ -11,7 +11,7 @@ import Nav from '../../component/nav';
 
 const Signin = () => {
   const history = useHistory();
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("")
   const { message } = useSelector(state => state.message);
@@ -21,7 +21,7 @@ const Signin = () => {
   const handleLogin = (e) => {
 
     e.preventDefault();
-
+    setIsLoading(true);
     dispatch(login(email, password))
       .then(response => {
         // console.log(response)
@@ -90,7 +90,7 @@ const Signin = () => {
           <div className='col'>
             <div className='col'>
               <div style={{ 'display': 'flex', "justifyContent": "space-between", "flexWrap": "wrap" }}>
-                <button type="submit" className="btn btn-primary">Submit</button>
+                {!isLoading ? <button type="submit" className="btn btn-primary">Submit</button> : <button type="submit" className="btn btn-secondary">Loading</button>}
                 {/* <a >Sign Up</a> */}
                 <Link className="btn btn-secondary" to='/signup'>Sign Up </Link>
               </div>

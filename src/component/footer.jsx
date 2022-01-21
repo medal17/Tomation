@@ -39,9 +39,9 @@ const Footer = () => {
 
                     <ul>
                         <h4>SOLUTIONS</h4>
-                        <li><a href="">Performance Mangement</a></li>
-                        <li><a href="">Internship and Workforce Placement</a></li>
-                        <li><a href="">Recruitement</a></li>
+                        <li className="list"><a href="">Performance Mangement</a></li>
+                        <li className="list"><a href="">Internship and Workforce Placement</a></li>
+                        <li className="list"><a href="">Recruitement</a></li>
                         {/* <li><a href="">Enterprice</a></li> */}
                     </ul>
                     {/* Performance mangement
@@ -54,16 +54,16 @@ const Footer = () => {
                     <ul>
                         <h4>SOLUTIONS</h4>
 
-                        <li><a href="">Training</a></li>
-                        <li><a href="">Appraisal Data Genrational Framework</a></li>
-                        <li><a href="">Key Performance Indicators Analytics(KPI)</a></li>
+                        <li className="list"><a href="">Training</a></li>
+                        <li className="list"><a href="">Appraisal Data Genrational Framework</a></li>
+                        <li className="list"><a href="">Key Performance Indicators Analytics(KPI)</a></li>
                         {/* <li><a href="">Enterprice</a></li> */}
                     </ul>
 
                     <ul>
                         <h4>INSIGHT &amp; LEARNING</h4>
-                        <li><a href="">Radical Thinking for Growth</a></li>
-                        <li><a href="">Achieving Maximum Performance through Employee Motivation</a></li>
+                        <li className="list"><a href="">Radical Thinking for Growth</a></li>
+                        <li className="list"><a href="">Achieving Maximum Performance through Employee Motivation</a></li>
                         {/* <li><a href="">Establishing The Right Business Eco-System</a></li> */}
                         {/* <li><a href="">Gaining Strategic Competitive Advantage</a></li> */}
                         {/* <li><a href="">Scholarship</a></li> */}

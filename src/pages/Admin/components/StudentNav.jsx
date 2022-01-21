@@ -5,10 +5,13 @@ import { setMessage } from "../../../redux/actions/messageAction";
 import { GoDashboard, GoListOrdered, GoPerson } from 'react-icons/go'
 import { FaShoppingCart } from 'react-icons/fa'
 import { MdSchool, MdLogout } from 'react-icons/md'
+import Swal from 'sweetalert2'
+import { logout } from "../../../redux/actions/userAuthActions";
 
 const StudentNav = () => {
     const dispatch = useDispatch()
     const user = JSON.parse(localStorage.getItem('user'));
+
     let userType = null
     // the user type is Gotten  From the LocalStorage
     if (user) {
@@ -21,6 +24,7 @@ const StudentNav = () => {
 
     return (
         <nav id="sidebar">
+
             <div className="sidebar_blog_1">
                 <div className="sidebar-header">
                     <div className="logo_section">
@@ -105,7 +109,27 @@ const StudentNav = () => {
                     }
 
                     <li className="active">
-                        <Link  >
+                        <Link onClick={() => Swal.fire({
+                            title: 'Wish to Logou?',
+                            text: "COnfirm you wish to Log out",
+                            icon: 'question',
+                            showCancelButton: true,
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: 'Yes'
+                        }).then((result) => {
+
+                            logout();
+                            window.location.href = "/"
+                            // if (result.isConfirmed) {
+                            //     Swal.fire(
+                            //         'Deleted!',
+                            //         'Your file has been deleted.',
+                            //         'success'
+                            //     )
+                            // }
+                        })
+                        }>
                             <MdLogout size={20} style={{ marginRight: '0.9rem' }} />
                             <span>Logout</span></Link>
 
