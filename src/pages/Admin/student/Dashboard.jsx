@@ -6,6 +6,10 @@ import axios from "axios"
 import dataService from '../../../services/data.service'
 import { setMessage } from '../../../redux/actions/messageAction'
 import { useDispatch } from 'react-redux'
+import Footer from '../../../component/footer'
+import Nav from '../../../component/nav'
+import DashboardHeader from '../../../component/DashboardHeader'
+import DashboardNavHeader from '../../../component/DashboardNav'
 
 const MainUrl = 'https://emeticslearning-backend.herokuapp.com'
 
@@ -69,8 +73,8 @@ const Dashboard = () => {
     }, [])
     const history = useHistory();
     return (
-        <>
-
+        <div style={{ marginTop: '8rem' }}>
+            <DashboardNavHeader />
             <h1>{isLoading ? <p>Is loading</p>
                 :
                 (studentProfile.length != 0) ?
@@ -223,7 +227,8 @@ const Dashboard = () => {
             }</h1>
 
             {/* <h1>Hel</h1> */}
-        </>
+            <Footer />
+        </div>
 
     )
 }
