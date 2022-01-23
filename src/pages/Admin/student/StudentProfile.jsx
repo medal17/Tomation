@@ -6,6 +6,8 @@ import { useDispatch } from "react-redux";
 import UseStaticImage from '../../../assets/images/campbell-s-photography-sw0-R8wb0MA-unsplash.jpg'
 import { useEffect } from 'react'
 import { BsDashCircle, BsPlus, BsPlusCircle } from "react-icons/bs";
+import DashboardNavHeader from "../../../component/DashboardNav";
+import Footer from "../../../component/footer";
 
 
 const StudentProfile = () => {
@@ -273,7 +275,7 @@ const StudentProfile = () => {
    }
    return (
       <div className="row column1" >
-
+         <DashboardNavHeader/>
          {/* <div className="col-md-2"></div> */}
          <div className="col-md-12" >
             <div className="white_shd full margin_bottom_30" >
@@ -611,6 +613,7 @@ const StudentProfile = () => {
             </div>
             <div className="col-md-2"></div>
          </div>
+         <Footer/>
          {/* <!-- end row --> */}
       </div>
 

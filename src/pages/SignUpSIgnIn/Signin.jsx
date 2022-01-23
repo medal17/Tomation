@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 import SideImageOFFORM from '../../assets/images/sign.jpg'
-import { useHistory } from "react-router-dom";
+import { useHistory, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { login } from '../../redux/actions/userAuthActions';
 import { setMessage } from '../../redux/actions/messageAction';
 import { MdKeyboardBackspace } from 'react-icons/md';
@@ -15,9 +15,23 @@ const Signin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("")
   const { message } = useSelector(state => state.message);
+  const  user  = JSON.parse(localStorage.getItem('user'));
   const dispatch = useDispatch();
+  const [details, setUserDetails] = useState('');
 
+  // console.log(JSON.parse(user).data.token)
+  
 
+  useEffect(()=>{
+   if(user){ user.data.user_type == 'student' ?
+            history.push('/student')
+            : (user.data.user_type == 'hirer') ?
+              history.push('/employer')
+              :
+              // if it none of the above then the person must be a tutor
+              history.push("/tutor")}
+  },[user])
+    // console.log(user)
   const handleLogin = (e) => {
 
     e.preventDefault();
@@ -25,7 +39,10 @@ const Signin = () => {
     dispatch(login(email, password))
       .then(response => {
         // console.log(response)
-        let user = JSON.parse(localStorage.getItem('user'))
+        let user = JSON.parse(localStorage.getItem('user'));
+        // setUserDetails(user)
+    
+    // setIsLoading(false)
 
         setTimeout(() => {
           user.data.user_type == 'student' ?
@@ -47,6 +64,7 @@ const Signin = () => {
   // EnterPresie Metrics
 
   return (
+    
     <div className=" className= row justify-content-around" >
       {/* <div className="signIn_signUp_image_container">
         <img src={`${SideImageOFFORM}`} alt="" />
