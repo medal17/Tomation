@@ -1,7 +1,7 @@
 
 import { StyledCard } from './style/StyledCard.style'
 import CustomButton from './CustomButton'
-const Card =(props)=>{
+const Card = (props) => {
 
     return (
         <StyledCard>
@@ -10,12 +10,12 @@ const Card =(props)=>{
             <h4>{props.heading}</h4>
 
             <p>
-                {props.content}
+                {props.content.length <= 200 ? props.content : props.content.substring(0, 197) + '...'}
             </p>
             <a href={props.pry_btn___link}>{props.pry_btn_content}</a>
 
             {/* <button>Enrol Now</button> */}
-                <br />
+            <br />
             {/* <CustomButton link={props.sec_btn__link}
                 {props.sec_btn__content}
             >

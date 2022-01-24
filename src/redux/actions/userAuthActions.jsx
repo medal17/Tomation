@@ -3,9 +3,12 @@ import authService from "../../services/auth.service";
 
 
 
-export const register = (email, firstName, lastName, password, user_type) => (dispatch) => {
+export const register = (email, firstName, lastName, password, user_type, callback) => (dispatch) => {
   return authService.register(email, firstName, lastName, password, user_type).then(
     (response) => {
+      callback(response.data)
+
+      console.log(response.data)
       //   this Means the Request Went Well
       dispatch({
         type: actionTypes.REGISTER_SUCCESS,

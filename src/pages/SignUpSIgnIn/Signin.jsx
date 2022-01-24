@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import SideImageOFFORM from '../../assets/images/sign.jpg'
+import SideImageOFFORM from '../../assets/images/login.jpg'
 import { useHistory, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from 'react';
@@ -15,44 +15,48 @@ const Signin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("")
   const { message } = useSelector(state => state.message);
-  const  user  = JSON.parse(localStorage.getItem('user'));
+  const user = JSON.parse(localStorage.getItem('user'));
   const dispatch = useDispatch();
   const [details, setUserDetails] = useState(false);
 
   // console.log(JSON.parse(user).data.token)
-  
-  const callback=(response)=>{
-    if(response.data){
+
+  const callback = (response) => {
+    if (response.data) {
       response.data.user_type == 'student' ?
-            history.push('/student')
-            : (response.data.user_type == 'hirer') ?
-              history.push('/employer')
-              :
-              // if it none of the above then the person must be a tutor
-              history.push("/tutor")}else{history.push('/signin')
+        history.push('/student')
+        : (response.data.user_type == 'hirer') ?
+          history.push('/employer')
+          :
+          // if it none of the above then the person must be a tutor
+          history.push("/tutor")
+    } else {
+      history.push('/signin')
     }
   }
 
-  useEffect(()=>{
-   if(user){ user.data.user_type == 'student' ?
-            history.push('/student')
-            : (user.data.user_type == 'hirer') ?
-              history.push('/employer')
-              :
-              // if it none of the above then the person must be a tutor
-              history.push("/tutor")}else{history.push('/signin')}
-  },[user])
-    // console.log(user)
+  useEffect(() => {
+    if (user) {
+      user.data.user_type == 'student' ?
+        history.push('/student')
+        : (user.data.user_type == 'hirer') ?
+          history.push('/employer')
+          :
+          // if it none of the above then the person must be a tutor
+          history.push("/tutor")
+    } else { history.push('/signin') }
+  }, [user])
+  // console.log(user)
   const handleLogin = (e) => {
 
     e.preventDefault();
     setIsLoading(true);
-      dispatch(login(email, password, callback));
+    dispatch(login(email, password, callback));
   }
-    //   if(connect){
-    //     console.log(connect);
-    //   } 
-    // }catch(error){console.log(error)}}
+  //   if(connect){
+  //     console.log(connect);
+  //   } 
+  // }catch(error){console.log(error)}}
   //   dispatch(login(email, password))
   //     .then(response => {
   //       // console.log(response)
@@ -68,7 +72,7 @@ const Signin = () => {
   //   // setIsLoading(false)
   //   setUserDetails(true)
 
-        
+
   //     })
 
   //     .catch((error) => {
@@ -80,12 +84,15 @@ const Signin = () => {
   // EnterPresie Metrics
 
   return (
-    
-    <div className=" className= row justify-content-around" >
+
+    <div className=" className= row justify-content-around" style={{
+      backgroundImage: `url(${SideImageOFFORM})`, backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat'
+    }} >
       {/* <div className="signIn_signUp_image_container">
         <img src={`${SideImageOFFORM}`} alt="" />
       </div> */}
-      <Nav />
+      < Nav />
       <div className='signIn_signUp col-lg-8'>
         <form onSubmit={handleLogin} className='bg-white px-10 my-5 rounded '>
           <div className="heading-section">
@@ -133,7 +140,7 @@ const Signin = () => {
         </form>
       </div>
       <Footer />
-    </div>
+    </div >
   )
 }
 
