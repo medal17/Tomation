@@ -110,17 +110,18 @@ const StudentNav = () => {
 
                     <li className="active">
                         <Link onClick={() => Swal.fire({
-                            title: 'Wish to Logou?',
-                            text: "COnfirm you wish to Log out",
+                            title: 'Wish to Logout?',
+                            text: "Confirm you wish to Log out",
                             icon: 'question',
                             showCancelButton: true,
                             confirmButtonColor: '#3085d6',
                             cancelButtonColor: '#d33',
                             confirmButtonText: 'Yes'
                         }).then((result) => {
-
-                            logout();
+                            if (result.isConfirmed) {
+                            localStorage.clear();
                             window.location.href = "/"
+                        }
                             // if (result.isConfirmed) {
                             //     Swal.fire(
                             //         'Deleted!',

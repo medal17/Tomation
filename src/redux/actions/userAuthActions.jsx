@@ -47,11 +47,13 @@ export const register = (email, firstName, lastName, password, user_type) => (di
 
 
 
-export const login = (email, password) => (dispatch) => {
+export const login = (email, password, callback) => (dispatch) => {
 
 
   return authService.login(email, password)
     .then((response) => {
+      console.log(response)
+      callback(response)
 
       dispatch({
         type: actionTypes.LOGIN_SUCCESS,
