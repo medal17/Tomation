@@ -5,7 +5,7 @@ import {
 import RandomImage from '../assets/images/ximage_1.jpg.pagespeed.ic.UgmmPhXrdT.jpg'
 import { Link } from 'react-router-dom'
 
-const CourseCard =({data})=>{
+const CourseCard = ({ data }) => {
 
 
 
@@ -20,11 +20,11 @@ const CourseCard =({data})=>{
             </p>
 
             <Link to={`/course-detail/${data.id}`} >Read More</Link>
-<br />
-        <div>
-            <StyledSmallInfo>{data.duration}</StyledSmallInfo>
-            {/* <StyledSmallInfo>For Starters</StyledSmallInfo> */}
-        </div>
+            <br />
+            <div>
+                <StyledSmallInfo>{data.duration}</StyledSmallInfo>
+                {/* <StyledSmallInfo>For Starters</StyledSmallInfo> */}
+            </div>
         </StyledCourseCardContainer>
     )
 }

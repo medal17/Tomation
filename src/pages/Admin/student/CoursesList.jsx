@@ -34,8 +34,8 @@ const CoursesList = () => {
           <th scope="col">Start Time</th>
           <th scope="col">End Time</th>
           <th scope="col">Download Course Material</th>
-          <th scope="col">Download Assginment</th>
-          <th scope="col">Upload Assginment</th>
+          <th scope="col">Download Assignment</th>
+          <th scope="col">Upload Assignment</th>
 
           <th scope="col">Join Training</th>
 
@@ -148,9 +148,9 @@ const CoursesList = () => {
 
       {/* filterCourseBy is Gotten from the useParams  */}
       <DashboardHeader title={filterCourseBy} />
-      <div class="container table-responsive py-5">
-        <table class="table table-bordered ">
-          <thead class="thead-dark">
+      <div class="container table-responsive table-striped py-5 bg-white rounded">
+        <table class="table rounded">
+          <thead class="thead-dark rounded">
             {/* this the header of the table*/}
             {FormToRender}
           </thead>
@@ -169,7 +169,7 @@ const CoursesList = () => {
                         <tr>
                           <th scope="row" key={index}>{index + 1}</th>
                           <td>{data.name}</td>
-                          <td>{data.date ? data.date : ''}</td>
+                          {/* <td>{data.date ? data.date : ''}</td> */}
                           <td>{data.start_date}</td>
                           <td>{data.end_date}</td>
                           {

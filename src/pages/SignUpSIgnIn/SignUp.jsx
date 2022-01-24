@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
-import SideImageOFFORM from '../../assets/images/sign.jpg'
-import { useState } from 'react';
+import SideImageOFFORM from '../../assets/images/login.jpg'
+import { useState, useEffect } from 'react';
 import { useHistory, } from "react-router-dom";
 import PopUpMessage from '../../component/PopUpMessage'
 import { useDispatch, useSelector } from "react-redux";
@@ -21,6 +21,7 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isHirer, setIsHirer] = useState(false);
+  const user = JSON.parse(localStorage.getItem('user'));
 
 
 
@@ -34,6 +35,36 @@ const SignUp = () => {
 
     return password === confirmPassword;
   }
+
+
+  const callback = (response) => {
+    // console.log(response)
+    window.location.reload();
+    if (response.data) {
+      response.data.user_type == 'student' ?
+        history.push('/student')
+        : (response.data.user_type == 'hirer') ?
+          history.push('/employer')
+          :
+          // if it none of the above then the person must be a tutor
+          history.push("/tutor")
+    } else {
+      history.push('/signup')
+    }
+  }
+
+  useEffect(() => {
+    if (user) {
+      console.log(user)
+      user.data.user_type == 'student' ?
+        history.push('/student')
+        : (user.data.user_type == 'hirer') ?
+          history.push('/employer')
+          :
+          // if it none of the above then the person must be a tutor
+          history.push("/tutor")
+    } else { history.push('/signup') }
+  }, [user])
 
   const handleRegistration = (e) => {
     e.preventDefault();
@@ -50,6 +81,7 @@ const SignUp = () => {
     // If Nothing Is Wrong THen Clear the Messages
     dispatch(clearMessage())
 
+
     // this is a Redux SetState Which Has Axios in it to Send Request to Create user In the Server and also to save
     // the data in the localHost
     dispatch(register(
@@ -57,24 +89,26 @@ const SignUp = () => {
       firstName,
       lastName,
       password,
-      isHirer ? "hirer" : "student"
+      isHirer ? "hirer" : "student",
+      callback
 
-    )).then((resp) => {
-      let user = JSON.parse(localStorage.getItem('user'))
+    ))
+    // .then((resp) => {
+    //   let user = JSON.parse(localStorage.getItem('user'))
 
-      setTimeout(() => {
-        user.data.user_type == 'student' ?
-          history.push('/student')
-          : (user.data.user_type == 'hirer') ?
-            history.push('/employer')
-            :
-            // if it none of the above then the person must be a tutor
-            history.push("/tutor")
-      }, 1000);
-    })
-      .catch(() => {
-        console.log("Some Error Occrded")
-      })
+    //   setTimeout(() => {
+    //     user.data.user_type == 'student' ?
+    //       history.push('/student')
+    //       : (user.data.user_type == 'hirer') ?
+    //         history.push('/employer')
+    //         :
+    //         // if it none of the above then the person must be a tutor
+    //         history.push("/tutor")
+    //   }, 1000);
+    // })
+    //   .catch(() => {
+    //     console.log("Some Error Occrded")
+    //   })
 
 
 
@@ -85,13 +119,16 @@ const SignUp = () => {
 
   return (
     <>
-      <div className=" row justify-content-around" >
+      <div className=" row justify-content-around" style={{
+        backgroundImage: `url(${SideImageOFFORM})`, backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat'
+      }} >
         <Nav />
 
         {/* <div className="signIn_signUp_image_container">
         <img src={SideImageOFFORM} alt="" />
       </div> */}
-        <div className='signIn_signUp col-lg-8'>
+        <div className='signIn_signUp col-lg-8' >
           <form onSubmit={(e) => handleRegistration(e)}
             className='bg-white px-10 my-5 rounded '
           >

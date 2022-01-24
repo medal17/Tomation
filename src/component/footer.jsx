@@ -39,9 +39,9 @@ const Footer = () => {
 
                     <ul>
                         <h4>SOLUTIONS</h4>
-                        <li className="list"><a href="">Performance Mangement</a></li>
-                        <li className="list"><a href="">Internship and Workforce Placement</a></li>
-                        <li className="list"><a href="">Recruitement</a></li>
+                        <li className="list"><a href="https://savvyng.com/solution-detail/1/" target="_blank">Performance Mangement</a></li>
+                        <li className="list"><a href="https://savvyng.com/solution-detail/2/" target="_blank">Internship and Workforce Placement</a></li>
+                        <li className="list"><a href="https://savvyng.com/solution-detail/3/">Recruitement</a></li>
                         {/* <li><a href="">Enterprice</a></li> */}
                     </ul>
                     {/* Performance mangement
@@ -54,16 +54,16 @@ const Footer = () => {
                     <ul>
                         <h4>SOLUTIONS</h4>
 
-                        <li className="list"><a href="">Training</a></li>
-                        <li className="list"><a href="">Appraisal Data Genrational Framework</a></li>
-                        <li className="list"><a href="">Key Performance Indicators Analytics(KPI)</a></li>
+                        <li className="list"><a href="https://savvyng.com/solution-detail/4/">Training</a></li>
+                        <li className="list"><a href="https://savvyng.com/solution-detail/5/">Appraisal Data Genrational Framework</a></li>
+                        <li className="list"><a href="https://savvyng.com/solution-detail/6/">Key Performance Indicators Analytics(KPI)</a></li>
                         {/* <li><a href="">Enterprice</a></li> */}
                     </ul>
 
                     <ul>
                         <h4>INSIGHT &amp; LEARNING</h4>
-                        <li className="list"><a href="">Radical Thinking for Growth</a></li>
-                        <li className="list"><a href="">Achieving Maximum Performance through Employee Motivation</a></li>
+                        <li className="list"><a href="https://savvyng.com/insight-detail/1/" target="_blank">Radical Thinking for Growth</a></li>
+                        <li className="list"><a href="https://savvyng.com/insight-detail/2/" target="_blank">Achieving Maximum Performance through Employee Motivation</a></li>
                         {/* <li><a href="">Establishing The Right Business Eco-System</a></li> */}
                         {/* <li><a href="">Gaining Strategic Competitive Advantage</a></li> */}
                         {/* <li><a href="">Scholarship</a></li> */}

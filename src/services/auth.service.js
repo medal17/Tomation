@@ -13,7 +13,8 @@ const register = (email,firstName,lastName,password,user_type='student')=>{
         "last_name":lastName,
         "password":password
     }).then((response)=>{
-
+        console.log(response)
+        // callback(response)
         if(response.data.data.token){
             localStorage.setItem("user",JSON.stringify(response.data))
             // localStorage.setItem("isLogin",JSON.stringify(false))
