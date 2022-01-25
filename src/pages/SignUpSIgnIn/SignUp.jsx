@@ -218,7 +218,7 @@ const SignUp = () => {
 
               <br />
               <small id="emailHelp" className="form-text text-muted">
-                If you just want to employe please check this box
+                If you want to employ, please check this box. Kindly correct this
               </small>
             </div>
 

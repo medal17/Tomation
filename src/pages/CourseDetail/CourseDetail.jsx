@@ -9,6 +9,7 @@ import PaymentPage from '../../component/paymentPage';
 import Nav from "../../component/nav"
 import Footer from '../../component/footer';
 import { FaWhatsapp } from 'react-icons/fa'
+import BackButton from '../../component/BackButton';
 const CourseDetail = () => {
 
     const { courseID } = useParams();
@@ -38,11 +39,11 @@ const CourseDetail = () => {
             dispatch(setMessage(error.response.message, false))
         })
     }, [])
+    // console.log(courseDetail.courseDetail[0].brochure ? courseDetail.courseDetail[0].brochure : 'oh')
     return (
 
         <>
             <Nav />
-
 
             {showPaymentModal && <PaymentPage courseId={courseDetail.courseDetail[0].id} setShowPaymentModel={setShowPaymentModel} />}
 
@@ -55,10 +56,13 @@ const CourseDetail = () => {
                     courseDetail == null ? "" :
                         (
                             <>
+
                                 <div className="container" >
                                     <br /><br />
                                     <div className="courseDetailHeroCard">
                                         <div className="courseDetailHeroCard__content" >
+                                            <BackButton />
+
                                             <p style={{ textTransform: "uppercase", }}>For Experienced Professionals</p>
 
                                             <h2>{courseDetail.courseDetail[0].name}</h2>
@@ -92,13 +96,15 @@ const CourseDetail = () => {
                                                         (
                                                             <>
                                                                 <button onClick={(e) => setShowPaymentModel(true)} className="btn btn-primary p-4 py-3" >Enroll For this course</button>
-                                                                <button className="btn btn-white p-4 py-3">Reach us via <FaWhatsapp size={23} /></button>
+
+                                                                <button className="btn btn-white p-4 py-3"><a href="whatsapp://send?phone=+2347089199545">Reach us via </a><FaWhatsapp size={23} /></button>
                                                             </>
                                                         )
                                                 }
 
 
                                             </div>
+                                            <p >Enroll for the Next Class  ()</p>
 
                                         </div>
 
@@ -113,8 +119,8 @@ const CourseDetail = () => {
                                 {/* <!-- </div> --> */}
                                 <br /><br /><br /><br />
                                 <div className="container danload_brochureContainer" >
-                                    <h4>Learn More about {courseDetail.courseDetail[0].name} programm</h4>
-                                    <a href={courseDetail ? courseDetail.courseDetail[0].brochure + '.pdf' : ''} download className="btn btn-primary p-3 py-3">Download Brochure</a>
+                                    <h4>Learn More about {courseDetail.courseDetail[0].name} program</h4>
+                                    <a href={courseDetail ? courseDetail.courseDetail[0].brochure : ''} download className="btn btn-primary p-3 py-3">Download Brochure</a>
                                 </div>
 
                                 <div className="container courseviewContainer">

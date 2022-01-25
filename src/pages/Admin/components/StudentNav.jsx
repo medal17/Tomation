@@ -3,7 +3,7 @@ import { Link, Redirect } from "react-router-dom"
 import UserImage from "../../../assets/images/xperson_2.jpg.pagespeed.ic.yyrmjBH91b.jpg"
 import { setMessage } from "../../../redux/actions/messageAction";
 import { GoDashboard, GoListOrdered, GoPerson } from 'react-icons/go'
-import { FaShoppingCart } from 'react-icons/fa'
+import { FaShoppingCart, FaUserCircle, FaBackward } from 'react-icons/fa'
 import { MdSchool, MdLogout } from 'react-icons/md'
 import Swal from 'sweetalert2'
 import { logout } from "../../../redux/actions/userAuthActions";
@@ -28,13 +28,21 @@ const StudentNav = () => {
             <div className="sidebar_blog_1">
                 <div className="sidebar-header">
                     <div className="logo_section">
-                        <a href="/students/dashboard.html"><img className="logo_icon img-responsive" src="images/logo/logo_icon.png" alt="#" /></a>
+                        <a href="/students/dashboard.html">
+                            <img className="logo_icon img-responsive" src="images/logo/logo_icon.png" alt="#" />
+                        </a>
                     </div>
                 </div>
                 <div className="sidebar_user_info">
                     <div className="icon_setting"></div>
                     <div className="user_profle_side">
-                        <div className="user_img"><img className="img-responsive" src={UserImage} alt="#" /></div>
+                        <div className="user_img">
+                            {user.data.picture ?
+                                <img className="img-responsive" src={UserImage} alt="#" />
+                                :
+                                <FaUserCircle size={70} />
+                            }
+                        </div>
                         <div className="user_info">
                             <h6>{`${user.data.first_name}  ${user.data.last_name}`}</h6>
                             <p><span className="online_animation"></span>
@@ -42,6 +50,7 @@ const StudentNav = () => {
                             </p>
                         </div>
                     </div>
+                    <a className="btn btn-warning" style={{ backgroundColor: 'white', width: '100%', color: 'green' }}>Upload Picture</a>
                 </div>
             </div>
             <div className="sidebar_blog_2">
@@ -119,9 +128,9 @@ const StudentNav = () => {
                             confirmButtonText: 'Yes'
                         }).then((result) => {
                             if (result.isConfirmed) {
-                            localStorage.clear();
-                            window.location.href = "/"
-                        }
+                                localStorage.clear();
+                                window.location.href = "/"
+                            }
                             // if (result.isConfirmed) {
                             //     Swal.fire(
                             //         'Deleted!',

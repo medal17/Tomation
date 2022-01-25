@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import NavImage from '../assets/images/christina-wocintechchat-com-L85a1k-XqH8-unsplash.jpg'
+import LOGO from '../assets/images/savvy2.png'
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
 import { isLoggedIN } from "../redux/actions/userAuthActions";
@@ -111,9 +112,10 @@ const Nav = () => {
                 <div className={`collapse navbar-collapse  ${mobileDropDown == true ? "show" : ""}`} id="navbarSupportedContent"
                     style={{ transition: "all .7s ease-in-out" }}
                 >
-                    <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
+                    <ul className="navbar-nav me-auto mb-1 mb-lg-0 ">
                         {/* <li className="nav-item"><Link to="/" className="nav-link active">Home</Link></li> */}
-                        <li className="nav-item"><Link to="/" className="nav-link" style={{ marginLeft: '2rem', textAlign: 'center', color: '#052B38', fontSize: '1.4rem', textDecoration: 'bold' }}>Savvy HR Solutions</Link></li>
+                        <li className="nav-item"><Link to="/" className="nav-link" style={{ marginLeft: '2rem', textAlign: 'center', color: '#052B38', fontSize: '1.4rem', textDecoration: 'bold' }}>
+                            <img src={LOGO} height='30rem' /></Link></li>
                         <div>
 
                         </div>
@@ -271,7 +273,7 @@ const Nav = () => {
 
                             </div>
                         </li> */}
-                        <li className="nav-item order-lg-last"><Link to="/" className={isActive == 4 ? "nav-link active" : "nav-link text-dark"} onClick={() => setActive(4)} href="intern.html" style={{ color: 'black' }}>About</Link></li>
+                        {/* <li className="nav-item order-lg-last"><Link to="/" className={isActive == 4 ? "nav-link active" : "nav-link text-dark"} onClick={() => setActive(4)} href="intern.html" style={{ color: 'black' }}>About</Link></li> */}
                         <li className="nav-item order-lg-last"><Link to="/" className={isActive == 5 ? "nav-link active" : "nav-link text-dark"} onClick={() => setActive(5)} href="intern.html" style={{ color: 'black' }}>Contact</Link></li>
 
                         {/* <li className="nav-item nav-link"><a className="nav-link" href="contact.html">Contact</a></li> */}
