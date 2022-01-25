@@ -125,7 +125,9 @@ const LearnAnything = () => {
                                 {/* <!-- <div className="icon"><span className="flaticon-scientist"></span></div> --> */}
                                 <div className="text">
                                     <h2 className='text-center'>Learning in the comfort of your home</h2>
-                                    <p className="mb-0 text-center">The novel corona virus has pushed the frontiers of online teaching and learning an all-time high level. It made people world over realize the importance of technology. Our courses are strictly online and that means that, they can be taken in any part of Nigeria, Africa and the world as a whole at your comfort zone.</p>
+                                    <p className="mb-0 text-center">
+                                        The novel corona virus has pushed the frontiers of online teaching and learning to an all-time high level. It made people world over realize the importance of technology in teaching and learning. Our courses are thus, strictly online and that means that, they can be taken in any part of Nigeria, Africa and the world at large at your comfort zone
+                                    </p>
                                 </div>
                             </div>
                         </div>

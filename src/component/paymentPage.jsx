@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from 'react-router-dom';
 import { FaTimesCircle } from 'react-icons/fa'
 import CourseDetail from '../pages/CourseDetail/CourseDetail';
+import BackButton from './BackButton';
 
 
 const PaymentPage = ({ courseId, setShowPaymentModel }) => {
@@ -77,6 +78,8 @@ const PaymentPage = ({ courseId, setShowPaymentModel }) => {
         <div class=" paymentTypePageContainer d-flex justify-content-center py-lg-5 " >
             <div class="paymentTypePageContainer__content py-lg-5 mt-5 mx-2 bg-light  align-content-center " >
                 <div className='px-lg-5 px-4'>
+                    <BackButton />
+
                     <i
                         onClick={() => setShowPaymentModel(false)}
                         style={{ cursor: "pointer" }} id="close_paymentTypePageContainer">
@@ -94,7 +97,7 @@ const PaymentPage = ({ courseId, setShowPaymentModel }) => {
                 </div>
                 {/* <h3>SELECT SCHOLARSHIP</h3> */}
                 {/* <hr /> */}
-                <div style={{ position: 'absolute', bottom: 0 }} className='row'>
+                <div style={{ position: 'absolute', bottom: 0, margin: 'auto' }} className='row'>
                     <span className='text-center'>Enjoy up to scholarship. Limited slots left</span>
                     <div className='row '>
                         <div class="paymentType__btn col-lg-6 col-12">
@@ -102,7 +105,7 @@ const PaymentPage = ({ courseId, setShowPaymentModel }) => {
                             {/* <button class="btn">Part Payment</button> */}
                         </div>
 
-                        <div class="paymentType__btn-line col-lg-6 pt-3 col-12">
+                        <div class="paymentType__btn-line col-lg-5 pt-3 col-12">
                             <button class="btn " onClick={(e) => handleCourseEnroll(e)}>Pay in Installment</button>
                             {/* <button class="btn">Part Payment</button> */}
                         </div>

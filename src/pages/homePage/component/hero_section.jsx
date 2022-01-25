@@ -26,10 +26,10 @@ const HeroSection = () => {
         <MainHeader
             heading={"Savvy Schools "}
             content={`
-            The set up of Savvy School is built around developing you for the; 
+            The set up of Savvy Schools is built around developing you for the; 
             human resource management, strategy management and business 
             process management work space. Be it that you are changing career 
-            or you are interested in further development yourself in these fields. 
+            or you are interested in further developing yourself in these fields. 
             We are your sure bet for that desired career advancement.
 
 

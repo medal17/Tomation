@@ -1,5 +1,5 @@
 import './customStyle.css'
-import image from '../../../assets/images/christina-wocintechchat-com-L85a1k-XqH8-unsplash.jpg'
+import image from '../../../assets/images/Group 26.png'
 import { useHistory, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from "axios"
@@ -10,6 +10,9 @@ import Footer from '../../../component/footer'
 import Nav from '../../../component/nav'
 import DashboardHeader from '../../../component/DashboardHeader'
 import DashboardNavHeader from '../../../component/DashboardNav'
+import { FaArrowLeft } from 'react-icons/fa'
+    ;
+
 
 const MainUrl = 'https://emeticslearning-backend.herokuapp.com'
 
@@ -73,8 +76,9 @@ const Dashboard = () => {
     }, [])
     const history = useHistory();
     return (
-        <div style={{ marginTop: '8rem' }}>
+        <div style={{ marginTop: '1rem' }}>
             <DashboardNavHeader />
+            <FaArrowLeft size={25} onClick={() => history.goBack()} />
             <h1>{isLoading ? <p>Is loading</p>
                 :
                 (studentProfile.length != 0) ?
@@ -98,16 +102,28 @@ const Dashboard = () => {
 
 
 
-                        <div className="dashboard__intro_pane mt-2">
-                            <p style={{ textAlign: "left", }}>
-                                <h2 style={{ fontFamily: 'Quicksand', fontWeight: 500 }}>
-                                    {studentProfile.first_name + ' ' + studentProfile.last_name}
-                                </h2> <br />
-                                <div style={{ fontSize: '.9rem' }} className='row'>
+                        <div className="row " >
+                            <div className='col-7' style={{ backgroundImage: `url(${image})`, height: '200px', width: '100%' }}>
+                                <img src={image} style={{ zIndex: 1 }} />
+                                <div style={{ backgroundImage: `url(${image})`, height: '200px', }}></div>
+
+                                <p style={{ textAlign: "left", position: 'absolute', top: 50, color: 'white' }} className='ml-5 pt-2'>
+                                    <div style={{ fontFamily: 'Quicksand', fontWeight: 500 }}>
+                                        Welcome,
+                                        <span className='text-lg' style={{ fontFamily: 'Quicksand', fontWeight: 500, fontSize: '20px' }}> {studentProfile.first_name + ' ' + studentProfile.last_name}</span>
+                                    </div>
+                                    {/* <br /> */}
+                                    {/* <div style={{ fontSize: '.9rem' }} className='row'>
                                     <div className='col'><strong>Country:</strong>   Nigera </div>
                                     <div className='col'><strong>State:</strong>   Lagos</div>
-                                </div>
-                            </p>
+                                </div> */}
+                                </p>
+                            </div>
+                            {/* <div className='col-3 bg-white pt-2 mt-3 ml-1' style={{ borderRadius: '20px', height: '20%' }} >
+                                <h2>dsisudisudisu</h2>
+                            </div> */}
+
+
 
                             {/* <div className="dashboard_intro_pane__image">
                                 <img src={image} alt="" />
@@ -120,7 +136,7 @@ const Dashboard = () => {
                             <div className="dashboard__more_info_grid">
 
                                 <div className="dashboard__info">
-                                    <p className="dashboard__info__title_text"><strong>Engament Status</strong></p>
+                                    <p className="dashboard__info__title_text"><strong>Engagement Status</strong></p>
                                     <ul>
                                         <li>
                                             {studentProfile.Job_Opportunity ?
@@ -136,7 +152,7 @@ const Dashboard = () => {
                                 </div>
 
                                 <div className="dashboard__info">
-                                    <p className="dashboard__info__title_text"><strong>Education Qualification</strong></p>
+                                    <p className="dashboard__info__title_text"><strong>Educational Qualification</strong></p>
                                     <ol>
                                         {studentProfile.educational_qualifications != 0 ?
                                             studentProfile.educational_qualifications.map(data => (

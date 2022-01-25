@@ -3,58 +3,64 @@ import TutorPics from '../../assets/images/xauthor-1.jpg.pagespeed.ic.gWpEzQ4x3B
 import { useEffect, useState } from 'react'
 import axios from "axios";
 import { useHistory, useParams } from 'react-router-dom';
-import { useDispatch,useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setMessage } from '../../redux/actions/messageAction';
 import LandingPageCard from '../../component/LandingPageCard';
 import MainHeader from "../../component/mainHeader"
 import Footer from '../../component/footer';
 import IntroToCardList from '../../component/IntroToCardList'
+import { CgArrowLeft } from 'react-icons/cg';
+import Nav from '../../component/nav';
+// import { CgArrowBottomLeft } from 'react-icons/cg'
 
-const SchoolDetail =()=>{
-    const {id} = useParams();
-    const [School_detail,setSchool_detail]= useState([])
+const SchoolDetail = () => {
+    const { id } = useParams();
+    const [School_detail, setSchool_detail] = useState([])
     const dispatch = useDispatch();
-    const [isLoading,setIsLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(true)
     const history = useHistory();
 
-    useEffect(()=>{
-    const API_URL = 'https://emeticslearning-backend.herokuapp.com';
+    useEffect(() => {
+        const API_URL = 'https://emeticslearning-backend.herokuapp.com';
 
-        axios.get(API_URL+`/api/get_course_basedOnSchool/${id}/`).then((response)=>{
-            console.log(response.data.data,'sss')
-            setSchool_detail({...response.data.data})
+        axios.get(API_URL + `/api/get_course_basedOnSchool/${id}/`).then((response) => {
+            console.log(response.data.data, 'sss')
+            setSchool_detail({ ...response.data.data })
 
             setIsLoading(false)
-        }).catch((error)=>{
-            dispatch(setMessage(error.message,false))
+        }).catch((error) => {
+            dispatch(setMessage(error.message, false))
             console.log(error.message)
             setIsLoading(false)
 
         })
-    },[])
+    }, [])
+    console.log(School_detail)
     return (
         <>
- <div className="react_pageComponent">
- <a onClick={(e)=>{e.preventDefault(); return history.goBack()}}>
-     <i className="backArrowIcon fas fa-arrow-left"></i>
- </a>
 
-    <br /><br /> <br />
-    {!isLoading?
-    <>
-        <MainHeader
-        heading={School_detail.name}
-        content={School_detail.about}
-        />
-            <IntroToCardList isSchoolDetail={true} contentList={School_detail.courses} />
-        </>
-:""
-}
+            <Nav />
+            <div className="react_pageComponent">
+                <a onClick={(e) => { e.preventDefault(); return history.goBack() }}>
+                    <i className="backArrowIcon fas fa-arrow-left"><CgArrowLeft size={25} /></i>
+                </a>
+
+                <br /><br /> <br />
+                {!isLoading ?
+                    <>
+                        <MainHeader
+                            heading={School_detail.name}
+                            content={School_detail.about}
+                        />
+                        <IntroToCardList isSchoolDetail={true} contentList={School_detail.courses} />
+                    </>
+                    : ""
+                }
 
 
-</div>
+            </div>
 
-<Footer/>
+            <Footer />
         </>
     )
 }
@@ -79,17 +85,17 @@ export default SchoolDetail
 //             {
 //                 isLoading==true?"Loading..."
 //                 :
-                
+
 //                 courses.length==0?
 //                <h1>Course Currently Unavailable please come back!</h1>
-                
+
 //                 :
-                
+
 //                 (
 //                     courses.map((data,index)=>{
-                        
+
 //                         return( 
-                            
+
 //                             <div className="col-md-6 col-lg-4">
 //                                     <LandingPageCard
 //                                     key={data.id}
@@ -101,7 +107,7 @@ export default SchoolDetail
 //                         </div>
 //                  )
 //                 })
-                
+
 //                 )
 //             } 
 //     </div>
@@ -123,9 +129,9 @@ export default SchoolDetail
 //     </div>
 //     </section>
 
-    
- 
-  
+
+
+
 // </div>
 // </div>
-{/* <!-- end of react_pageComponent  --> */}
+{/* <!-- end of react_pageComponent  --> */ }

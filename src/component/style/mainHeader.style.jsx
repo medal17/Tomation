@@ -84,7 +84,7 @@ background-repeat: no-repeat;
     font-family: "Quicksand", sans-serif !important;
     color:#22596B;
     font-weight:800;
-    font-size:1.5rem;
+    font-size:0.5rem;
     margin-bottom: 2rem;
 }
 
@@ -138,6 +138,7 @@ p{
 
 export const StyledImageHeaderContainer = styled.div`
         width:80%;
+        padding-top:1rem;
         margin: 0 auto;
         border-radius:10px;
         /* border: 1px solid yellow; */
@@ -163,6 +164,7 @@ export const StyledImageHeaderContainer = styled.div`
 }
 `
 export const StyledHeaderImage = styled.img`
+
      width: 100%;
      height:100%;
     /*transform: translateY(-70px);*/
