@@ -8,6 +8,8 @@ import { setMessage } from "../redux/actions/messageAction";
 import { getAllCourses } from "../redux/actions/courseAction";
 import axios from "axios";
 import { CgMenu } from "react-icons/cg";
+import Swal from 'sweetalert2'
+
 import dataService from "../services/data.service";
 
 const Nav = () => {
@@ -283,9 +285,37 @@ const Nav = () => {
                                 <div className="nav-item order-lg-last"><Link to="/signin" className="nav-link" href="intern.html" style={{ color: '#fff', backgroundColor: '#052B38', padding: '0.6rem 2rem', borderRadius: '15px', textAlign: 'center' }}>Login</Link></div>
                                 <div className="nav-item order-lg-last"><Link to="/signup" className="nav-link" href="intern.html" style={{ color: '#052B39', padding: '0.6rem 2rem', borderRadius: '15px', textAlign: 'center' }}>Sign up</Link></div>
                             </div>
-                            : <div className="nav-item order-lg-last"><Link to={user.user.data.user_type == 'student' ? "/student" :
-                                (user.user.data.user_type == 'hirer') ? "employer/" : (user.user.data.user_type == 'tutor') ? "tutor/" :
-                                    "#"} className="nav-link" href="intern.html" style={{ color: '#fff', backgroundColor: '#052B38', padding: '0.6rem 2rem', borderRadius: '15px', textAlign: 'center' }}>My Dashboard</Link></div>
+                            : <div className="order-lg-last" style={{ margin: '0 auto', display: 'flex' }}>
+                                <div className="nav-item order-lg-last"><Link to={user.user.data.user_type == 'student' ? "/student" :
+                                    (user.user.data.user_type == 'hirer') ? "employer/" : (user.user.data.user_type == 'tutor') ? "tutor/" :
+                                        "#"} className="nav-link" href="intern.html" style={{ color: '#fff', backgroundColor: '#052B38', padding: '0.6rem 2rem', borderRadius: '15px', textAlign: 'center' }}>My Dashboard</Link>
+                                </div>
+                                <div className="nav-item order-lg-last px-2"><Link onClick={() => Swal.fire({
+                                    title: 'Wish to Logout?',
+                                    text: "Confirm you wish to Log out",
+                                    icon: 'question',
+                                    showCancelButton: true,
+                                    confirmButtonColor: '#3085d6',
+                                    cancelButtonColor: '#d33',
+                                    confirmButtonText: 'Yes'
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        localStorage.clear();
+                                        window.location.href = "/"
+                                    }
+                                    // if (result.isConfirmed) {
+                                    //     Swal.fire(
+                                    //         'Deleted!',
+                                    //         'Your file has been deleted.',
+                                    //         'success'
+                                    //     )
+                                    // }
+                                })
+                                } className="nav-link" href="intern.html" style={{ color: '#fff', backgroundColor: '#139DCA', padding: '0.6rem 2rem', borderRadius: '15px', textAlign: 'center' }}>Logout</Link>
+                                </div>
+                                {/* <div className="nav-item order-lg-last"><Link to="/signup" className="nav-link" href="intern.html" style={{ color: '#052B39', padding: '0.6rem 2rem', borderRadius: '15px', textAlign: 'center' }}>Sign up</Link></div> */}
+
+                            </div>
 
                         }
                     </ul>

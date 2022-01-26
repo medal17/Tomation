@@ -22,6 +22,21 @@ body{
     .rec.rec-carousel-item{
         margin: 0 10px;
     }
+
+    
+}
+ @media screen and (max-width:450px) {
+     .dash-image{
+        height: 8rem;
+        width:'100%';
+        margin: 0;
+        padding: 0;
+    }
+ }
+
+.data-info{
+    color:#000000;
+    font-weight: 500;
 }
 
 .react_pageComponent{position: relative;}
@@ -173,7 +188,10 @@ nav{
 
 
 
-
+.dash-card  :hover {
+    background-color: red;
+    padding: 5rem, 4rem;
+}
 
 /* form styles */
 .signIn_signUp form{

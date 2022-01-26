@@ -10,8 +10,11 @@ import Footer from '../../../component/footer'
 import Nav from '../../../component/nav'
 import DashboardHeader from '../../../component/DashboardHeader'
 import DashboardNavHeader from '../../../component/DashboardNav'
-import { FaArrowLeft } from 'react-icons/fa'
-    ;
+import { FaArrowLeft } from 'react-icons/fa';
+import { MdOutlineCheck } from 'react-icons/md'
+import { GiOpenBook } from 'react-icons/gi'
+import { AiOutlineLoading3Quarters } from 'react-icons/ai'
+import DashbordCard from '../components/DashbordCard'
 
 
 const MainUrl = 'https://emeticslearning-backend.herokuapp.com'
@@ -86,7 +89,7 @@ const Dashboard = () => {
                     <div className="container dashboardIndex" >
 
 
-                        {
+                        {/* {
                             studentProfile.is_owner ?
                                 <div class="" style={{
                                     display: 'flex', "justifyContent": "space-between",
@@ -99,13 +102,13 @@ const Dashboard = () => {
                                 </div>
                                 : ""
                         }
+ */}
 
 
-
-                        <div className="row " >
-                            <div className='col-7' style={{ backgroundImage: `url(${image})`, height: '200px', width: '100%' }}>
-                                <img src={image} style={{ zIndex: 1 }} />
-                                <div style={{ backgroundImage: `url(${image})`, height: '200px', }}></div>
+                        <div className="row" >
+                            <div className='col-lg-9'>
+                                <img src={image} className='dash-image' style={{ zIndex: 1, width: '100%' }} />
+                                {/* <div style={{ backgroundImage: `url(${image})`, height: '200px', }}></div> */}
 
                                 <p style={{ textAlign: "left", position: 'absolute', top: 50, color: 'white' }} className='ml-5 pt-2'>
                                     <div style={{ fontFamily: 'Quicksand', fontWeight: 500 }}>
@@ -118,10 +121,89 @@ const Dashboard = () => {
                                     <div className='col'><strong>State:</strong>   Lagos</div>
                                 </div> */}
                                 </p>
+                                {
+                                    studentProfile.is_owner ?
+                                        <div className='row '>
+                                            <div className='col-lg-12 row'>
+                                                <DashbordCard title={'Open Courses'} icon={<GiOpenBook size={25} color='#F55608' />} link='/student/courses/Open' count={12} />
+                                                <DashbordCard title={'Ongoing Courses'} icon={<AiOutlineLoading3Quarters size={25} color='#F55608' />} link='/student/courses/Ongoing' count={1} />
+                                                <DashbordCard title={'Completed Courses'} icon={<MdOutlineCheck size={25} color='#F55608' />} link='/student/courses/Completed' count={1} />
+                                            </div>
+
+                                        </div>
+                                        : ""
+                                }
+
+
                             </div>
-                            {/* <div className='col-3 bg-white pt-2 mt-3 ml-1' style={{ borderRadius: '20px', height: '20%' }} >
-                                <h2>dsisudisudisu</h2>
-                            </div> */}
+                            <div className='col-lg-3'  >
+                                <div className='bg-white p-2 mt-4 ml-2 text-center' style={{ borderRadius: '20px' }}>
+                                    <div className='center' style={{ fontWeight: '500', fontSize: '1.3rem', fontFamily: 'Quicksand !important' }}>Student Data</div>
+                                    <hr />
+                                    <div>
+                                        <p>Engagement Status:</p>
+                                        {studentProfile.Job_Opportunity ?
+                                            < p className="dashboard__info__content_text data-info">Open For opportunity</p>
+                                            :
+                                            < p className="dashboard__info__content_text data-info">Not Open For opportunity</p>
+
+                                        }
+                                    </div>
+
+                                    <div>
+                                        <p>Educational Qualification:</p>
+                                        {studentProfile.educational_qualifications != 0 ?
+                                            studentProfile.educational_qualifications.map(data => (
+                                                <p className='data-info'>{`${data.degree_type}.,${data.course_name},${data.institutionName}`}</p>
+
+                                            )) : <p className='data-info'>Nil</p>
+                                        }
+                                    </div>
+
+
+                                    <div>
+                                        <p>Professional Qualification:</p>
+                                        {
+                                            studentProfile.professional_qualifications != 0 ?
+                                                studentProfile.professional_qualifications.map(data => (
+                                                    <p className='data-info'>{`${data.degree_type}.,${data.course_name},${data.institutionName}`}</p>
+
+                                                )) : <p className='data-info'>Nil</p>
+                                        }
+                                    </div>
+                                    <div>
+                                        <p>Work Experience</p>
+                                        {
+                                            studentProfile.work_experience != 0 ?
+                                                studentProfile.work_experience.map(({ work_experience }) => (
+
+                                                    <p className='data-info'>{work_experience}</p>
+                                                ))
+                                                :
+                                                <p className='data-info'>Nil</p>
+                                        }
+                                    </div>
+                                    <div>
+                                        <p>Professional Qualification:</p>
+                                        <p className='data-info'>{studentProfile.dob ? studentProfile.dob : 'Nil'}</p>
+                                    </div>
+
+                                    <div>
+                                        <p>Alumni</p>
+                                        {
+                                            studentProfile.alumni.length == 0 ?
+                                                <p className="dashboard__info__content_text data-info">Nil</p>
+                                                :
+
+                                                studentProfile.alumni.map(data => (
+
+                                                    <p className="dashboard__info__content_text text-bold data-info">{data.course__name}</p>
+                                                ))
+
+                                        }
+                                    </div>
+                                </div>
+                            </div>
 
 
 
@@ -131,7 +213,7 @@ const Dashboard = () => {
                         </div>
 
 
-                        <div className="dashboard__more_info ">
+                        {/* <div className="dashboard__more_info ">
                             <br /><br />
                             <div className="dashboard__more_info_grid">
 
@@ -173,9 +255,9 @@ const Dashboard = () => {
                                                     <li style={{ padding: ".2rem 0" }}><p>{`${data.degree_type}.,${data.course_name},${data.institutionName}`}</p></li>
 
                                                 )) : <p><li>Nil</li></p>
-                                        }
-                                        {/* <li><p>Bsc Mass Communication from University of lagos</p></li> */}
-                                    </ol>
+                                        } */}
+                        {/* <li><p>Bsc Mass Communication from University of lagos</p></li> */}
+                        {/* </ol>
 
                                 </div>
 
@@ -190,8 +272,6 @@ const Dashboard = () => {
                                                 ))
                                                 :
                                                 <li><p>Nil</p></li>
-
-
                                         }
 
                                     </ol>
@@ -226,14 +306,62 @@ const Dashboard = () => {
                                 </div>
 
 
-                            </div>
-                            {/* <div className="dashboard__info">
+                            </div> */}
+                        {/* <div className="dashboard__info">
                    <p className="dashboard__info__title_text"><strong>About ME</strong></p>
 
                <p className="dashboard__info__content_text">
                     {studentProfile.about_me}
                </p>
 </div> */}
+                        {/* </div> */}
+
+                        <div className='row bg-white py-3 px-2 my-4' style={{ borderRadius: '20px' }} >
+                            <h4>Available Courses</h4><hr className='col-lg-10' />
+                            <div className=' row py-2 mx-1 mt-3' style={{ borderRadius: '7px' }}>
+                                <p className='col-lg-9 bg-white py-2' style={{ fontWeight: '500' }}>
+                                    Employee Engagement; Unlocking the Keys to a better Engaged Workforce
+                                </p>
+                                <div className='col-lg-3 flex '>
+                                    <div className='row ml-lg-3'>
+                                        <p className='col-lg-5 bg-dark text-white text-center py-2 px-3 rounded '>View Outline</p>
+                                        <p className=' shadow-lg col-lg-5 bg-white text-center py-2 px-3 ml-lg-1 rounded border'>Pay</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className=' row py-2 mx-1' style={{ borderRadius: '7px' }}>
+                                <p className='col-lg-9 bg-white py-2' style={{ fontWeight: '500' }}>
+                                    Key Performance Indicators Analytics
+                                </p>
+                                <div className='col-lg-3 flex '>
+                                    <div className='row ml-lg-3'>
+                                        <p className='col-lg-5 bg-dark text-white text-center py-2 px-3 rounded '>View Outline</p>
+                                        <p className=' shadow-lg col-lg-5 bg-white text-center py-2 px-3 ml-lg-1 rounded border'>Pay</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className=' row py-2 mx-1' style={{ borderRadius: '7px' }}>
+                                <p className='col-lg-9 bg-white py-2' style={{ fontWeight: '500' }}>
+                                    Understanding Performance Management
+                                </p>
+                                <div className='col-lg-3 flex '>
+                                    <div className='row ml-lg-3'>
+                                        <p className='col-lg-5 bg-dark text-white text-center py-2 px-3 rounded '>View Outline</p>
+                                        <p className=' shadow-lg col-lg-5 bg-white text-center py-2 px-3 ml-lg-1 rounded border'>Pay</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className=' row py-2 mx-1 ' style={{ borderRadius: '7px' }}>
+                                <p className='col-lg-9 bg-white py-2' style={{ fontWeight: '500' }}>
+                                    Employee Appraisal Management
+                                </p>
+                                <div className='col-lg-3 flex'>
+                                    <div className='row ml-lg-3'>
+                                        <p className='col-lg-5 bg-dark text-white text-center py-2 px-3 rounded '>View Outline</p>
+                                        <p className='col-lg-5 bg-white text-center py-2 px-3 ml-lg-1 rounded border'>Pay</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                     </div>
