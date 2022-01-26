@@ -28,6 +28,7 @@ import SecureRoute from './ProtectedRoute'
 import Tutorindex from './pages/Admin/tutor/tutorIndex'
 import DefualtStyle from './component/style/DefualtStyle.style'
 import { ThemeProvider } from 'styled-components'
+import AgentsSignUp from './pages/SignUpSIgnIn/AgentsSignUp'
 const App =()=>{
 
     const { message } = useSelector(state=>state.message)
@@ -79,6 +80,9 @@ const App =()=>{
 
                     <Route exact   path='/signup'>
                         <SignUp />
+                    </Route>
+                    <Route exact   path='/agent-signup'>
+                        <AgentsSignUp />
                     </Route>
                     {/* <Route path="/courses" >
                             <Courses_Page />
