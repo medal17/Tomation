@@ -11,7 +11,7 @@ import Footer from '../../component/footer';
 import Nav from '../../component/nav';
 
 
-const SignUp = () => {
+const AgentsSignUp = () => {
   const history = useHistory();
   // use state states
   const [firstName, setFirstName] = useState("");
@@ -22,7 +22,6 @@ const SignUp = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isHirer, setIsHirer] = useState(false);
   const user = JSON.parse(localStorage.getItem('user'));
-  const [isCorper, setCorper] = useState(false)
 
 
 
@@ -142,7 +141,7 @@ const SignUp = () => {
                 </a>
 
               </div>
-              <h4 className="form_heading">Create a new account</h4>
+              <h4 className="form_heading">Register as an Agent</h4>
 
 
 
@@ -181,42 +180,10 @@ const SignUp = () => {
             </div>
             {/* <br /> */}
 
-            {
-              isCorper ?
-                <>
-                  <div className='row'>
-                    <label htmlFor="exampleInputEmail1 " className=' '>Call up Number </label>
-                    <div className='col'>
-                      <input type="number"
-                        value={email} onChange={(e) => setEmail(e.target.value)}
-                        className="form-control bg-light rounded" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Call up Number" required />
-                    </div>
-                  </div>
-
-                  <div className='row'>
-                    <label htmlFor="exampleInputEmail1 " className=' '>Agent's Referral Code </label>
-                    <div className='col'>
-                      <input type="number"
-                        value={email} onChange={(e) => setEmail(e.target.value)}
-                        className="form-control bg-light rounded" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Call up Number" required />
-                    </div>
-                  </div>
-
-                  <div className='row'>
-                    <label htmlFor="exampleInputEmail1 " className=' '>State of Service</label>
-                    <div className='col'>
-                      <input type="number"
-                        value={email} onChange={(e) => setEmail(e.target.value)}
-                        className="form-control bg-light rounded" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Call up Number" required />
-                    </div>
-                  </div><br />
-                </>
-                : ''}
 
             {
               isHirer == false ?
                 <div className="form-group">
-
                   {/* {jobOpportunity} */}
                   <label htmlFor="">Are you Open For Job Opportunity</label>
                   <input type="checkbox"
@@ -235,23 +202,7 @@ const SignUp = () => {
                 ""
             }
 
-            <div className="form-group">
-              {/* {jobOpportunity} */}
-              <label htmlFor="">Are you a Corps Member?</label>
-              <input type="checkbox"
-                defaultChecked={isHirer}
-                onChange={(e) =>
-                  setCorper(!isCorper)}
 
-                style={{ marginLeft: "10px" }}
-
-              />
-
-              {/* <br />
-              <small id="emailHelp" className="form-text text-muted">
-                If you want to employ, please check this box. Kindly correct this
-              </small> */}
-            </div>
 
             <div className="form-group">
               {/* {jobOpportunity} */}
@@ -316,4 +267,4 @@ const SignUp = () => {
   )
 }
 
-export default SignUp
+export default AgentsSignUp

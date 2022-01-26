@@ -42,6 +42,9 @@ const MainHeader = ({ heading, content }) => {
                         <StyledButton style={{ cursor: "pointer" }} onClick={() => history.push('/signup')}>Get Started</StyledButton>
                         <OutlineButton style={{ cursor: "pointer" }}> <BsFillLightbulbFill color="#22596B" size={21} style={{ marginRight: '0.5rem' }} /> Contact Support</OutlineButton>
                     </ButtonContainer>
+                    <ButtonContainer>
+                        <StyledButton className="mt-2" style={{ cursor: "pointer" }} onClick={() => history.push('/agent-signup')}>Register as an Agent</StyledButton>
+                    </ButtonContainer>
                 </StyledmainHeaderContentPane>
 
                 <StyledImageHeaderContainer>
