@@ -52,7 +52,7 @@ background-repeat: no-repeat;
 `
 export const Spacer = styled.div`
 width:100%;
-height: 1rem;
+height: 0.5rem;
 background-color:#fff;
 
 @media screen and (max-width:800px) {
@@ -236,6 +236,31 @@ export const StyledButton = styled.div`
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600;700;800&display=swap');
     width: 50%;
     background-color: #F55608;
+    font-family: 'Quicksand' !important;
+    font-weight: 600;
+    color:#fff;
+    padding: 1rem 0rem;
+    margin: 0 auto;
+    border-radius:20px;
+    text-align: center;
+
+    @media screen and (max-width: 800px){
+    width:100%;
+    border-radius:10px;
+
+}
+
+       @media screen and (max-width: 380px){
+    margin-bottom: 1rem;
+    padding: 0.5rem 0rem;
+    font-size: 14px;
+}
+`
+
+export const StyledGreenButton = styled.div`
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600;700;800&display=swap');
+    width: 100%;
+    background-color: #052B38;
     font-family: 'Quicksand' !important;
     font-weight: 600;
     color:#fff;

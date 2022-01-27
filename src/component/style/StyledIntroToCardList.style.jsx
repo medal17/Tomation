@@ -27,7 +27,7 @@ export const StyledIntroToCardList = styled.div`
         ul{
             display: grid;
             grid-template-columns: repeat(2,1fr);
-           gap: 10px;
+           gap: 2px;
         }
     }
 

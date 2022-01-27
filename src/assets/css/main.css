@@ -34,6 +34,44 @@ body{
     }
  }
 
+ @media screen and (max-width:1450px) {
+     .course-header{
+        height: 6.5rem;
+        width:'100%';
+        margin: 0;
+        padding: 0;
+    }
+ }
+
+ @media screen and (max-width:1028px) {
+     .course-header{
+        height: 8.5rem;
+        width:'100%';
+        margin: 0;
+        padding: 0;
+    }
+ }
+
+  @media screen and (max-width:800px) {
+     .course-header{
+        height: 4rem;
+        width:'100%';
+        margin: 0;
+        padding: 0;
+    }
+ }
+
+  @media screen and (max-width:450px) {
+     .course-header{
+        height: 10rem;
+        width:'100%';
+        margin: 0;
+        padding: 0;
+    }
+ }
+
+
+ 
 .data-info{
     color:#000000;
     font-weight: 500;

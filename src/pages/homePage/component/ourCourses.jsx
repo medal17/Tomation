@@ -6,36 +6,37 @@ import CustomSlider from '../../../component/CustomSlider'
 import { setMessage } from '../../../redux/actions/messageAction'
 import { getAllCourses } from '../../../redux/actions/courseAction'
 import { useDispatch } from 'react-redux'
-import { useState,useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import IntroToCardList from '../../../component/IntroToCardList'
 
-const OurCourses =()=>{
-    const { courses } = useSelector(state=>state.courses)
+const OurCourses = () => {
+    const { courses } = useSelector(state => state.courses)
 
     const dispatch = useDispatch();
-    const [isLoading,setIsloading] =useState(true)
+    const [isLoading, setIsloading] = useState(true)
 
 
-    useEffect(()=>{
+    useEffect(() => {
         // Note this is a Async CallBack
         dispatch(getAllCourses())
-        .then(response=>{
-            setIsloading(false)
-            console.log(courses,"from slider")
-        })
-        
-    
-    },[])
+            .then(response => {
+                setIsloading(false)
+                console.log(courses, "from slider")
+            })
+
+
+    }, [])
 
 
 
     return (
 
-        
 
-        <IntroToCardList isSchoolDetail={false} contentList={!isLoading?courses:[]} />
+        <div>
+            <IntroToCardList isSchoolDetail={false} contentList={!isLoading ? courses : []} />
+        </div>
 
     )
 }

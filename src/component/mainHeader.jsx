@@ -2,7 +2,7 @@ import { FlexWap } from "./style/flexWap.style"
 import {
     StyledHeaderImage, Spacer,
     StyledImageHeaderContainer, StyledTestimonialHeader,
-    StyledmainHeaderWrapper, StyledmainHeaderContentPane, StyledButton, OutlineButton, ButtonContainer
+    StyledmainHeaderWrapper, StyledmainHeaderContentPane, StyledButton, StyledGreenButton, OutlineButton, ButtonContainer
 } from "./style/mainHeader.style"
 import svgLine from '../assets/svg/line.svg'
 import imageHeader from '../assets/images/herobg.jpg'
@@ -43,7 +43,7 @@ const MainHeader = ({ heading, content }) => {
                         <OutlineButton style={{ cursor: "pointer" }}> <BsFillLightbulbFill color="#22596B" size={21} style={{ marginRight: '0.5rem' }} /> Contact Support</OutlineButton>
                     </ButtonContainer>
                     <ButtonContainer>
-                        <StyledButton className="mt-2" style={{ cursor: "pointer" }} onClick={() => history.push('/agent-signup')}>Register as an Agent</StyledButton>
+                        <StyledGreenButton className="mt-2" style={{ cursor: "pointer" }} onClick={() => history.push('/agent-signup')}>Register as an Agent</StyledGreenButton>
                     </ButtonContainer>
                 </StyledmainHeaderContentPane>
 

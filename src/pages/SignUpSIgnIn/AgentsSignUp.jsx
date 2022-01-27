@@ -63,7 +63,7 @@ const AgentsSignUp = () => {
           :
           // if it none of the above then the person must be a tutor
           history.push("/tutor")
-    } else { history.push('/signup') }
+    } else { history.push('/agent-signup') }
   }, [user])
 
   const handleRegistration = (e) => {
