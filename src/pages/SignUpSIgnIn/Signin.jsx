@@ -131,7 +131,7 @@ const Signin = () => {
           <div className='col'>
             <div className='col'>
               <div style={{ 'display': 'flex', "justifyContent": "space-between", "flexWrap": "wrap" }}>
-                {!isLoading ? <button type="submit" className="btn btn-primary">Submit</button> : <button type="submit" className="btn btn-secondary">Loading</button>}
+                {!isLoading ? <button type="submit" className="btn btn-primary">Submit</button> : <button type="button" className="btn btn-secondary">Loading</button>}
                 {/* <a >Sign Up</a> */}
                 <Link className="btn btn-secondary" to='/signup'>Sign Up </Link>
               </div>

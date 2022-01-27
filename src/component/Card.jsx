@@ -7,10 +7,10 @@ const Card = (props) => {
         <StyledCard>
             <h5>{props.subHead}</h5>
 
-            <h4>{props.heading}</h4>
+            <h4 className='course-header'>{props.heading}</h4>
 
             <p>
-                {props.content.length <= 200 ? props.content : props.content.substring(0, 197) + '...'}
+                {props.content.length <= 200 ? props.content : props.content.substring(0, 210) + '...'}
             </p>
             <a href={props.pry_btn___link}>{props.pry_btn_content}</a>
 
