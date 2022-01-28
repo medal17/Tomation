@@ -82,7 +82,76 @@ const Dashboard = () => {
         <div style={{ marginTop: '1rem' }}>
             <DashboardNavHeader />
             <FaArrowLeft size={25} onClick={() => history.goBack()} />
-            <h1>{isLoading ? <p>Is loading</p>
+            <h1>{isLoading ?
+                <div className='row'>
+                    <div className=' pt-3 center col-lg-8 col-md-12 ml-lg-9 bg-load' >
+                        <div class="card bg-light loading pt-4 col-12 " >
+                            <div class="image pb-5">
+
+                            </div>
+                            <div className='row mt-3'>
+                                <div class="content col-4">
+                                    {/* <h4></h4> */}
+                                    <div class="description" style={{ height: '150px', borderRadius: '40px' }}>
+
+                                    </div>
+                                </div>
+
+                                <div class="content col-4">
+                                    {/* <h4></h4> */}
+                                    <div class="description" style={{ height: '150px', borderRadius: '40px' }}>
+
+                                    </div>
+                                </div>
+                                <div class="content col-4">
+                                    {/* <h4></h4> */}
+                                    <div class="description" style={{ height: '150px', borderRadius: '40px' }}>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+
+
+                    </div>
+                    <div className='col-lg-2 col-md-12 bg-white side loading'>
+                        <div class="content col-12">
+                            <h4></h4>
+                            <h4></h4>
+                            <h4></h4>
+                            <h4></h4>
+                            <h4></h4>
+                            <h4></h4>
+                            <h4></h4>
+                            <h4></h4>
+                            <h4></h4>
+                            <h4></h4>
+                            <h4></h4>
+
+                        </div>
+                    </div>
+                    <div className='row loading bg-white mt-5 col-md-10 table-skel' style={{ borderRadius: '20px' }}>
+                        <div class="decsription pt-5">
+
+                        </div>
+                        <div className='row'>
+                            <div class="content col-12">
+                                <h4></h4>
+                                <h4></h4>
+                                <h4></h4>
+                                <h4></h4>
+                                <h4></h4>
+                                <h4></h4>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
                 :
                 (studentProfile.length != 0) ?
 
