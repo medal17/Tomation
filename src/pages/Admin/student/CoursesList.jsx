@@ -6,6 +6,8 @@ import dataService from "../../../services/data.service"
 import { Link, useHistory, useParams } from 'react-router-dom'
 import DashboardHeader from "../../../component/DashboardHeader";
 import PaymentPage from "../../../component/paymentPage";
+import Footer from "../../../component/footer";
+import MainHeader from "../../../component/mainHeader";
 
 
 let MainUrl = 'https://emeticslearning-backend.herokuapp.com'
@@ -147,7 +149,8 @@ const CoursesList = () => {
     <>
 
       {/* filterCourseBy is Gotten from the useParams  */}
-      <DashboardHeader title={filterCourseBy} />
+      <DashboardHeader title={filterCourseBy} history={history} />
+      <MainHeader />
       <div class="container table-responsive table-striped py-5 bg-white rounded">
         <table class="table rounded">
           <thead class="thead-dark rounded">
@@ -158,7 +161,31 @@ const CoursesList = () => {
 
 
             {
-              isLoading ? <p>Loading..</p>
+              isLoading ?
+                <tr >
+                  <td colSpan={9}>
+                    <div className=' bg-dark loading row bg-white mt-5 col-12' style={{ borderRadius: '20px' }}>
+                      <div class="decsription pt-5 col-md-12 " style={{ width: '100%' }}>
+
+                      </div>
+                      <div className='row col-12'>
+                        <div class="content col-12">
+                          <h4></h4>
+                          <h4></h4>
+                          <h4></h4>
+                          <h4></h4>
+                          <h4></h4>
+                          <h4></h4>
+                          <h4></h4>
+                          <h4></h4>
+                          <h4></h4>
+
+                        </div>
+
+                      </div>
+                    </div>
+                  </td>
+                </tr>
                 :
                 tableData ?
                   tableData.map((data, index) => {
@@ -202,7 +229,7 @@ const CoursesList = () => {
                       return (
                         <tr>
                           <th scope="row" key={index}>{index + 1}</th>
-                          <td>hhfhdhfudhf</td>
+                          <td></td>
                           <td><Link to={`/course-detail/${data.course_id}`}>View Course Outline</Link></td>
                           <td><Link className="btn" onClick={(e) => window.location.href = data.certificate_image} >Download Now</Link></td>
                           <td>{data.end_date ? data.end_date : ''}</td>
@@ -242,6 +269,7 @@ const CoursesList = () => {
           </tbody>
         </table>
       </div>
+      <Footer className='pt-5' />
     </>
   )
 }

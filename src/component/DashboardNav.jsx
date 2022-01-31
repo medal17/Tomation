@@ -9,6 +9,7 @@ import axios from "axios";
 import { CgMenu } from "react-icons/cg";
 import dataService from "../services/data.service";
 import LOGO from '../assets/images/savvy2.png'
+import Swal from "sweetalert2";
 
 
 const DashboardNavHeader = () => {
@@ -279,17 +280,31 @@ const DashboardNavHeader = () => {
                         <li className="nav-item order-lg-last"><Link to="/" className={isActive == 5 ? "nav-link active" : "nav-link text-dark"} onClick={() => setActive(5)} href="intern.html" style={{ color: 'black' }}>Contact</Link></li>
 
                         {/* <li className="nav-item nav-link"><a className="nav-link" href="contact.html">Contact</a></li> */}
-                        {/* {!user.isLoggedIn ?
-                            <div className="order-lg-last" style={{ margin: '0 auto', display: 'flex' }}>
+                        {<div className="nav-item order-lg-last px-2"><Link onClick={() => Swal.fire({
+                            title: 'Wish to Logout?',
+                            text: "Confirm you wish to Log out",
+                            icon: 'question',
+                            showCancelButton: true,
+                            confirmButtonColor: '#3085d6',
+                            cancelButtonColor: '#d33',
+                            confirmButtonText: 'Yes'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                localStorage.clear();
+                                window.location.href = "/"
+                            }
+                            // if (result.isConfirmed) {
+                            //     Swal.fire(
+                            //         'Deleted!',
+                            //         'Your file has been deleted.',
+                            //         'success'
+                            //     )
+                            // }
+                        })
+                        } className="nav-link" href="intern.html" style={{ color: '#fff', backgroundColor: '#139DCA', padding: '0.6rem 2rem', borderRadius: '15px', textAlign: 'center' }}>Logout</Link>
+                        </div>
 
-                                <div className="nav-item order-lg-last"><Link to="/signin" className="nav-link" href="intern.html" style={{ color: '#fff', backgroundColor: '#052B38', padding: '0.6rem 2rem', borderRadius: '15px', textAlign: 'center' }}>Login</Link></div>
-                                <div className="nav-item order-lg-last"><Link to="/signup" className="nav-link" href="intern.html" style={{ color: '#052B39', padding: '0.6rem 2rem', borderRadius: '15px', textAlign: 'center' }}>Sign up</Link></div>
-                            </div>
-                            : <div className="nav-item order-lg-last"><Link to={user.user.data.user_type == 'student' ? "/student" :
-                                (user.user.data.user_type == 'hirer') ? "employer/" : (user.user.data.user_type == 'tutor') ? "tutor/" :
-                                    "#"} className="nav-link" href="intern.html" style={{ color: '#fff', backgroundColor: '#052B38', padding: '0.6rem 2rem', borderRadius: '15px', textAlign: 'center' }}>My Dashboard</Link></div>
-
-                        } */}
+                        }
                     </ul>
                 </div>
             </div>

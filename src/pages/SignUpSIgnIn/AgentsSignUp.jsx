@@ -181,46 +181,8 @@ const AgentsSignUp = () => {
             {/* <br /> */}
 
 
-            {
-              isHirer == false ?
-                <div className="form-group">
-                  {/* {jobOpportunity} */}
-                  <label htmlFor="">Are you Open For Job Opportunity</label>
-                  <input type="checkbox"
-                    defaultChecked={jobOpportunity}
-                    onChange={(e) =>
-                      setJobOpportunity(!jobOpportunity)}
-
-                    style={{ marginLeft: "10px" }}
-
-                  />
-
-                  <br />
-                  <small id="emailHelp" className="form-text text-muted">You can Change this Data in your Profile</small>
-                </div>
-                :
-                ""
-            }
 
 
-
-            <div className="form-group">
-              {/* {jobOpportunity} */}
-              <label htmlFor="">Create Employer Account</label>
-              <input type="checkbox"
-                defaultChecked={isHirer}
-                onChange={(e) =>
-                  setIsHirer(!isHirer)}
-
-                style={{ marginLeft: "10px" }}
-
-              />
-
-              <br />
-              <small id="emailHelp" className="form-text text-muted">
-                If you want to employ, please check this box. Kindly correct this
-              </small>
-            </div>
 
 
 

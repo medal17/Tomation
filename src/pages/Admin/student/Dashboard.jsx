@@ -80,8 +80,7 @@ const Dashboard = () => {
     const history = useHistory();
     return (
         <div style={{ marginTop: '1rem' }}>
-            <DashboardNavHeader />
-            <FaArrowLeft size={25} onClick={() => history.goBack()} />
+            <DashboardNavHeader /><br />
             <h1>{isLoading ?
                 <div className='row'>
                     <div className=' pt-3 center col-lg-8 col-md-12 ml-lg-9 bg-load' >
@@ -175,12 +174,15 @@ const Dashboard = () => {
 
 
                         <div className="row" >
-                            <div className='col-lg-9'>
+                            <div className='col-lg-9 pt-5'>
+
                                 <img src={image} className='dash-image' style={{ zIndex: 1, width: '100%' }} />
                                 {/* <div style={{ backgroundImage: `url(${image})`, height: '200px', }}></div> */}
 
-                                <p style={{ textAlign: "left", position: 'absolute', top: 50, color: 'white' }} className='ml-5 pt-2'>
+                                <p style={{ textAlign: "left", position: 'absolute', top: 120, color: 'white' }} className='ml-5 pt-2'>
                                     <div style={{ fontFamily: 'Quicksand', fontWeight: 500 }}>
+                                        <FaArrowLeft size={20} onClick={() => history.goBack()} /> &nbsp;
+
                                         Welcome,
                                         <span className='text-lg' style={{ fontFamily: 'Quicksand', fontWeight: 500, fontSize: '20px' }}> {studentProfile.first_name + ' ' + studentProfile.last_name}</span>
                                     </div>
@@ -195,7 +197,7 @@ const Dashboard = () => {
                                         <div className='row '>
                                             <div className='col-lg-12 row'>
                                                 <DashbordCard title={'Open Courses'} icon={<GiOpenBook size={25} color='#F55608' />} link='/student/courses/Open' count={12} />
-                                                <DashbordCard title={'Ongoing Courses'} icon={<AiOutlineLoading3Quarters size={25} color='#F55608' />} link='/student/courses/Ongoing' count={1} />
+                                                <DashbordCard title={'Ongoing Courses'} icon={<AiOutlineLoading3Quarters size={23} color='#F55608' />} link='/student/courses/Ongoing' count={1} />
                                                 <DashbordCard title={'Completed Courses'} icon={<MdOutlineCheck size={25} color='#F55608' />} link='/student/courses/Completed' count={1} />
                                             </div>
 
@@ -205,7 +207,7 @@ const Dashboard = () => {
 
 
                             </div>
-                            <div className='col-lg-3'  >
+                            <div className='col-lg-3 pt-5'  >
                                 <div className='bg-white p-2 mt-4 ml-2 text-center' style={{ borderRadius: '20px' }}>
                                     <div className='center' style={{ fontWeight: '500', fontSize: '1.3rem', fontFamily: 'Quicksand !important' }}>Student Data</div>
                                     <hr />
