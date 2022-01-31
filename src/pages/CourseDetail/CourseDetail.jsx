@@ -120,7 +120,7 @@ const CourseDetail = () => {
                                 <br /><br /><br /><br />
                                 <div className="container danload_brochureContainer" >
                                     <h4>Learn More about {courseDetail.courseDetail[0].name} program</h4>
-                                    <a href={courseDetail ? courseDetail.courseDetail[0].brochure : ''} download className="btn btn-primary p-3 py-3">Download Brochure</a>
+                                    <a href={courseDetail ? 'https://emeticslearning-backend.herokuapp.com/' + courseDetail.courseDetail[0].brochure : ''} download className="btn btn-primary p-3 py-3">Download Brochure</a>
                                 </div>
 
                                 <div className="container courseviewContainer">
@@ -141,8 +141,8 @@ const CourseDetail = () => {
 
                                                 return (
                                                     <div className="col-md-3 col-lg-4 aos-init aos-animate" key={id}>
-                                                        <div className="courses">
-                                                            <div className="card" style={{ border: "transparent" }}>
+                                                        <div className="courses ">
+                                                            <div className="card m-1" style={{ borderRadius: '0px', border: "transparent" }}>
                                                                 {/* <!-- <div className="icon"><span className="flaticon-engineer"></span></div> --> */}
                                                                 <h5>{outline_title}</h5>
                                                                 <span className="author">

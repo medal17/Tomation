@@ -208,6 +208,7 @@ const Nav = () => {
                             </div>
                         </li>
 
+                        <br />
 
 
 
@@ -321,6 +322,8 @@ const Nav = () => {
                     </ul>
                 </div>
             </div>
+            <br />
+            <br />
         </nav>
     )
 }

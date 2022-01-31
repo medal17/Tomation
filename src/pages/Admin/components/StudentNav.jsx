@@ -22,6 +22,20 @@ const StudentNav = () => {
         window.location.href = "/signin"
     }
 
+    const fileUpload = () => {
+        document.getElementById("file").click();
+    };
+
+    const changeImage = (event) => {
+        if (event.target.files && event.target.files[0]) {
+            let img = event.target.files[0];
+            // this.setState({
+            //     image: URL.createObjectURL(img)
+            // });
+            console.log(img)
+        }
+    }
+
     return (
         <nav id="sidebar">
 
@@ -50,7 +64,8 @@ const StudentNav = () => {
                             </p>
                         </div>
                     </div>
-                    <a className="btn btn-warning" style={{ backgroundColor: 'white', width: '100%', color: 'green' }}>Upload Picture</a>
+                    <input type='file' id='file' style={{ display: 'none' }} onChange={changeImage} />
+                    <button className="btn btn-warning" onClick={(event) => fileUpload(event)} style={{ backgroundColor: 'white', width: '100%', color: 'green' }}>Upload Picture</button>
                 </div>
             </div>
             <div className="sidebar_blog_2">

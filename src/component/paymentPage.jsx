@@ -93,34 +93,60 @@ const PaymentPage = ({ courseId, setShowPaymentModel }) => {
                     <p>
                         {isLoading ? 'loading' : (courseDetail ? courseDetail.courseDetail[0].about : '')}
                     </p>
-                    <br />
+                    {/* <br /> */}
                 </div>
                 {/* <h3>SELECT SCHOLARSHIP</h3> */}
-                {/* <hr /> */}
-                <div style={{ position: 'absolute', bottom: 0, margin: 'auto' }} className='row'>
-                    <span className='text-center'>Enjoy up to scholarship. Limited slots left</span>
-                    <div className='row '>
-                        <div class="paymentType__btn col-lg-6 col-12">
-                            <button class="btn " onClick={(e) => handleCourseEnroll(e)}>Pay in Full</button>
-                            {/* <button class="btn">Part Payment</button> */}
-                        </div>
+                {/* <hr /> */}<center>
+                    <div style={{ position: 'absolute', bottom: 0, margin: '0 auto' }} className='row container-center px-5'>
 
-                        <div class="paymentType__btn-line col-lg-5 pt-3 col-12">
-                            <button class="btn " onClick={(e) => handleCourseEnroll(e)}>Pay in Installment</button>
-                            {/* <button class="btn">Part Payment</button> */}
+                        {/* <span className='text-center'>Enjoy up to scholarship. Limited slots left</span> */}
+
+                        <div className='row '>
+                            <div className='col-lg-6'>
+                                <div className='row center'>
+                                    <span>Non-corp Members</span>
+                                    <div class=" col-lg-3 pt-3 col-12">
+                                        <button class="btn button-color text-white" onClick={(e) => handleCourseEnroll(e)}>Pay in Full</button>
+                                        {/* <button class="btn">Part Payment</button> */}
+                                    </div>
+
+                                    <div class="col-lg-3 pt-3 col-md-12">
+                                        <button class="btn button-line" onClick={(e) => handleCourseEnroll(e)}>Pay in Installment</button>
+                                        {/* <button class="btn">Part Payment</button> */}
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* </div>
+                        <div className='row '> */}
+                            <div className='col-lg-6 '>
+                                <div className='row center'>
+                                    <span>Corp Members</span>
+
+                                    <div class="col-lg-3 pt-3 col-md-12">
+                                        <button class="btn button-color text-white" onClick={(e) => handleCourseEnroll(e)}>Pay in Full</button>
+                                        {/* <button class="btn">Part Payment</button> */}
+                                    </div>
+
+                                    <div class="col-lg-3 pt-3 col-md-12">
+                                        <button class="btn button-line" onClick={(e) => handleCourseEnroll(e)}>Pay in Installment</button>
+                                        {/* <button class="btn">Part Payment</button> */}
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
-                    </div>
-                    {/* <p>{user}</p> */}
-                    <br />
-                    {/* <span>You will be redirected to payment page after this selection</span> */}
-                    <span><p className='text-center pb-2 text-grey'>Our Payment Gateway is Secure and Safe</p></span>
-                </div>
+                        {/* <p>{user}</p> */}
+                        <br />
+                        {/* <span>You will be redirected to payment page after this selection</span> */}
+                        <span><p className='text-center pb-2 text-grey'>Our Payment Gateway is Secure and Safe</p></span>
+                    </div></center>
             </div>
 
             {/* <div class="paymentTypePageContainer__image">
                 <img src={PaymentHeroImage} alt="" />
             </div> */}
-        </div>
+        </div >
     )
 }
 
