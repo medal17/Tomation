@@ -3,18 +3,58 @@ import authService from "../../services/auth.service";
 
 
 
-export const register = (email, firstName, lastName, password, user_type, callback) => (dispatch) => {
-  return authService.register(email, firstName, lastName, password, user_type).then(
+export const register = (email, firstName, lastName, password, agentCode, isCorper,state, callUp, user_type, callback) => (dispatch) => {
+  return authService.register(email, firstName, lastName, password, agentCode,isCorper, state, callUp, user_type).then(
     (response) => {
-      callback(response.data)
-
-      console.log(response.data)
       //   this Means the Request Went Well
       dispatch({
         type: actionTypes.REGISTER_SUCCESS,
         payload: { user: response.data }
       });
+      callback(response)
 
+      dispatch({
+        type: actionTypes.SET_MESSAGE,
+        payload: { message: response.message, isSuccess: true }
+      });
+
+      return Promise.resolve();
+    },
+    //   so if there was some kind of error
+    (error) => {
+      console.log(error.message)
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      dispatch({
+        type: actionTypes.REGISTER_FAIL,
+      });
+
+      dispatch({
+        type: actionTypes.SET_MESSAGE,
+        payload: { message: message, isSuccess: false }
+
+      });
+
+      return Promise.reject();
+    }
+  );
+};
+
+
+export const registerAgent = (email, firstName, lastName, password, user_type, callback) => (dispatch) => {
+  return authService.registerAgent(email, firstName, lastName, password, user_type).then(
+    (response) => {
+      //   this Means the Request Went Well
+      dispatch({
+        type: actionTypes.REGISTER_SUCCESS,
+        payload: { user: response.data }
+      });
+      callback(response)
 
       dispatch({
         type: actionTypes.SET_MESSAGE,
@@ -55,7 +95,7 @@ export const login = (email, password, callback) => (dispatch) => {
 
   return authService.login(email, password)
     .then((response) => {
-      console.log(response)
+      // console.log(response)
       callback(response)
 
       dispatch({

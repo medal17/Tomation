@@ -5,7 +5,7 @@ import { useHistory, } from "react-router-dom";
 import PopUpMessage from '../../component/PopUpMessage'
 import { useDispatch, useSelector } from "react-redux";
 import { setMessage, clearMessage } from '../../redux/actions/messageAction';
-import { register } from '../../redux/actions/userAuthActions';
+import { registerAgent } from '../../redux/actions/userAuthActions';
 import { MdKeyboardBackspace } from 'react-icons/md'
 import Footer from '../../component/footer';
 import Nav from '../../component/nav';
@@ -47,9 +47,9 @@ const AgentsSignUp = () => {
           history.push('/employer')
           :
           // if it none of the above then the person must be a tutor
-          history.push("/tutor")
+          history.push("/")
     } else {
-      history.push('/signup')
+      history.push('/hirer')
     }
   }
 
@@ -60,6 +60,8 @@ const AgentsSignUp = () => {
         history.push('/student')
         : (user.data.user_type == 'hirer') ?
           history.push('/employer')
+          :(user.data.user_type == 'agent') ?
+          history.push('/hirer')
           :
           // if it none of the above then the person must be a tutor
           history.push("/tutor")
@@ -84,12 +86,12 @@ const AgentsSignUp = () => {
 
     // this is a Redux SetState Which Has Axios in it to Send Request to Create user In the Server and also to save
     // the data in the localHost
-    dispatch(register(
+    dispatch(registerAgent(
       email,
       firstName,
       lastName,
       password,
-      isHirer ? "hirer" : "student",
+      "agent",
       callback
 
     ))
