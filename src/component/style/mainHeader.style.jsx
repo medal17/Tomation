@@ -84,8 +84,8 @@ background-repeat: no-repeat;
     font-family: "Quicksand", sans-serif !important;
     color:#22596B;
     font-weight:800;
-    font-size:0.5rem;
-    margin-bottom: 2rem;
+    font-size:3rem;
+    margin-bottom: 0.8rem;
 }
 
 p{

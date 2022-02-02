@@ -83,7 +83,7 @@ const Footer = () => {
                     <li><i></i></li>
                 </StyledFooterSocial> */}
 
-                <p className="pt-5">@2021 Savy School.All Rights Reserved.</p>
+                <p className="pt-5">@2021 Savvy Schools.All Rights Reserved.</p>
             </StyledFooterSectionBPart>
         </StyledfooterContainer>
     )

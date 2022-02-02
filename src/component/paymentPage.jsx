@@ -117,31 +117,18 @@ const PaymentPage = ({ courseId, setShowPaymentModel }) => {
                 </div>
                 {/* <h3>SELECT SCHOLARSHIP</h3> */}
                 {/* <hr /> */}<center>
-                    <div style={{ position: 'absolute', bottom: 0, margin: '0 auto' }} className='row container-center px-5'>
+                    <div style={{ position: 'absolute', bottom: 0, left:'15%', margin: '0 auto' }} className='row container-center px-5'>
 
                         {/* <span className='text-center'>Enjoy up to scholarship. Limited slots left</span> */}
 
                         <div className='row '>
-                            <div className='col-lg-6'>
-                                <div className='row center'>
-                                    <span>Non-corp Members</span>
-                                    <div class=" col-lg-3 pt-3 col-12">
-                                        <button class="btn button-color text-white" onClick={(e) => handleCourseEnroll(e)}>Pay in Full</button>
-                                        {/* <button class="btn">Part Payment</button> */}
-                                    </div>
-
-                                    <div class="col-lg-3 pt-3 col-md-12">
-                                        <button class="btn button-line" onClick={(e) => handleCourseEnroll(e, true)}>Pay in Installment</button>
-                                        {/* <button class="btn">Part Payment</button> */}
-                                    </div>
-                                </div>
-                            </div>
+                            
 
                             {/* </div>
                         <div className='row '> */}
-                            <div className='col-lg-6 '>
+                            <div className='col-lg-12 '>
                                 <div className='row center'>
-                                    <span>Corp Members</span>
+                                    {/* <span>Corp Members</span> */}
 
                                     <div class="col-lg-3 pt-3 col-md-12">
                                         <button class="btn button-color text-white" onClick={(e) => handleCourseEnroll(e)}>Pay in Full</button>

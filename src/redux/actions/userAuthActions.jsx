@@ -133,6 +133,48 @@ export const login = (email, password, callback) => (dispatch) => {
     )
 }
 
+export const uploadImage = (data,config, callback) => (dispatch) => {
+  // alert("yeah")
+  return authService.uploadImage(data, config).then(
+    (response) => {
+      //   this Means the Request Went Well
+      dispatch({
+        type: actionTypes.REGISTER_SUCCESS,
+        payload: { user: response.data }
+      });
+      callback(response)
+
+      dispatch({
+        type: actionTypes.SET_MESSAGE,
+        payload: { message: response.message, isSuccess: true }
+      });
+
+      return Promise.resolve();
+    },
+    //   so if there was some kind of error
+    (error) => {
+      console.log(error.message)
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      dispatch({
+        type: actionTypes.REGISTER_FAIL,
+      });
+
+      dispatch({
+        type: actionTypes.SET_MESSAGE,
+        payload: { message: message, isSuccess: false }
+
+      });
+
+      return Promise.reject();
+    }
+  );
+};
 
 export const logout = () => (dispatch) => {
 

@@ -40,33 +40,12 @@ const AgentsSignUp = () => {
   const callback = (response) => {
     // console.log(response)
     window.location.reload();
-    if (response.data) {
-      response.data.user_type == 'student' ?
-        history.push('/student')
-        : (response.data.user_type == 'hirer') ?
-          history.push('/employer')
-          :
-          // if it none of the above then the person must be a tutor
-          history.push("/")
-    } else {
+    
       history.push('/hirer')
-    }
   }
 
-  useEffect(() => {
-    if (user) {
-      console.log(user)
-      user.data.user_type == 'student' ?
-        history.push('/student')
-        : (user.data.user_type == 'hirer') ?
-          history.push('/employer')
-          :(user.data.user_type == 'agent') ?
-          history.push('/hirer')
-          :
-          // if it none of the above then the person must be a tutor
-          history.push("/tutor")
-    } else { history.push('/agent-signup') }
-  }, [user])
+  // useEffect(() => {
+  // }, [user])
 
   const handleRegistration = (e) => {
     e.preventDefault();

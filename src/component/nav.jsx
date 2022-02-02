@@ -277,7 +277,7 @@ const Nav = () => {
                             </div>
                         </li> */}
                         {/* <li className="nav-item order-lg-last"><Link to="/" className={isActive == 4 ? "nav-link active" : "nav-link text-dark"} onClick={() => setActive(4)} href="intern.html" style={{ color: 'black' }}>About</Link></li> */}
-                        <li className="nav-item order-lg-last"><Link to="/" className={isActive == 5 ? "nav-link active" : "nav-link text-dark"} onClick={() => setActive(5)} href="intern.html" style={{ color: 'black' }}>Contact</Link></li>
+                        <li className="nav-item order-lg-last"><Link to="/contact" className={isActive == 5 ? "nav-link active" : "nav-link text-dark"} onClick={() => setActive(5)} href="intern.html" style={{ color: 'black' }}>Contact</Link></li>
 
                         {/* <li className="nav-item nav-link"><a className="nav-link" href="contact.html">Contact</a></li> */}
                         {!user.isLoggedIn ?
@@ -287,7 +287,7 @@ const Nav = () => {
                                 <div className="nav-item order-lg-last"><Link to="/signup" className="nav-link" href="intern.html" style={{ color: '#052B39', padding: '0.6rem 2rem', borderRadius: '15px', textAlign: 'center' }}>Sign up</Link></div>
                             </div>
                             : <div className="order-lg-last" style={{ margin: '0 auto', display: 'flex' }}>
-                                <div className="nav-item order-lg-last"><Link to={user.user.data.user_type == 'student' ? "/student" : user.user.data.user_type == 'agent' ? "/hirer" :
+                                <div className="nav-item order-lg-last"><Link to={user.user.data.user_type == 'student' ? "/student" : user.user.data.user_type == 'agent' ? "/student" :
                                     (user.user.data.user_type == 'hirer') ? "employer/" : (user.user.data.user_type == 'tutor') ? "tutor/" :
                                         "#"} className="nav-link" href="intern.html" style={{ color: '#fff', backgroundColor: '#052B38', padding: '0.6rem 2rem', borderRadius: '15px', textAlign: 'center' }}>My Dashboard</Link>
                                 </div>
