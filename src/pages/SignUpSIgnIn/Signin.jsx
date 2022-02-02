@@ -27,6 +27,9 @@ const Signin = () => {
         history.push('/student')
         : (response.data.user_type == 'hirer') ?
           history.push('/employer')
+          
+          :(response.data.user_type == 'agent') ? 
+          history.push('/student') 
           :
           // if it none of the above then the person must be a tutor
           history.push("/tutor")
@@ -41,6 +44,9 @@ const Signin = () => {
         history.push('/student')
         : (user.data.user_type == 'hirer') ?
           history.push('/employer')
+          :
+          (user.data.user_type == 'agent') ? 
+          history.push('/student') 
           :
           // if it none of the above then the person must be a tutor
           history.push("/tutor")

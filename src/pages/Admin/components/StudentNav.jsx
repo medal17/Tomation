@@ -6,7 +6,7 @@ import { GoDashboard, GoListOrdered, GoPerson } from 'react-icons/go'
 import { FaShoppingCart, FaUserCircle, FaBackward } from 'react-icons/fa'
 import { MdSchool, MdLogout } from 'react-icons/md'
 import Swal from 'sweetalert2'
-import { logout } from "../../../redux/actions/userAuthActions";
+import { logout, uploadImage } from "../../../redux/actions/userAuthActions";
 
 const StudentNav = () => {
     const dispatch = useDispatch()
@@ -26,6 +26,12 @@ const StudentNav = () => {
         document.getElementById("file").click();
     };
 
+    const config = {
+        headers: {
+            'content-type': 'multipart/form-data',
+        },
+    };
+    const formData = new FormData();
     const changeImage = (event) => {
         if (event.target.files && event.target.files[0]) {
             let img = event.target.files[0];
@@ -33,7 +39,14 @@ const StudentNav = () => {
             //     image: URL.createObjectURL(img)
             // });
             console.log(img)
+            
+            formData.append("file", img);
+            dispatch(uploadImage(formData,config, callback))
         }
+    }
+
+    const callback =(response)=>{
+        console.log(response)
     }
 
     return (
@@ -64,7 +77,7 @@ const StudentNav = () => {
                             </p>
                         </div>
                     </div>
-                    <input type='file' id='file' style={{ display: 'none' }} onChange={changeImage} />
+                    <input type='file' id='file' multiple="false" accept="image/*" style={{ display: 'none' }} onChange={changeImage} />
                     <button className="btn btn-warning" onClick={(event) => fileUpload(event)} style={{ backgroundColor: 'white', width: '100%', color: 'green' }}>Upload Picture</button>
                 </div>
             </div>

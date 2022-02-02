@@ -150,7 +150,7 @@ const CoursesList = () => {
 
       {/* filterCourseBy is Gotten from the useParams  */}
       <DashboardHeader title={filterCourseBy} history={history} />
-      <MainHeader />
+      {/* <MainHeader /> */}
       <div class="container table-responsive table-striped py-5 bg-white rounded">
         <table class="table rounded">
           <thead class="thead-dark rounded">

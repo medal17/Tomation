@@ -278,6 +278,7 @@ nav{
 
 #custom_dropdown{
     position: relative;
+    z-index: 500;
 }
 
 #rcustom_dropdown{
@@ -298,14 +299,15 @@ nav{
         }
         .show#custom-Navdropdown{
             display: flex;
-            width: 80%;
+            width: 100%;
             border-radius: 10px;
             margin: 0 auto;
-
+            z-index: 1900;
             position: absolute;
             top: 101%; right: 50%;
+            left: -14%;
             transform: translate(15%,0);
-
+            background-color: white;
         }
 
         .custom-Nav_LinksGrid__container{

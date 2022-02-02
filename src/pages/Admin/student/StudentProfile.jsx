@@ -434,7 +434,7 @@ const StudentProfile = () => {
                                                                   </datalist>
                                                                </div>
                                                                <div className="col">
-                                                                  <small id="emailHelp" className="form-text text-muted">Name Of Intuition</small>
+                                                                  <small id="emailHelp" className="form-text text-muted">Name Of Institution</small>
                                                                   <input
 
                                                                      type="text" className="form-control"
