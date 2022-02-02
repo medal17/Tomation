@@ -40,13 +40,15 @@ const PaymentPage = ({ courseId, setShowPaymentModel }) => {
         })
     }, [])
 
-    const handleCourseEnroll = (e) => {
-
+    const handleCourseEnroll = (e, installlment) => {
+        
 
         const user = JSON.parse(localStorage.getItem("user"));
         // console.log(localStorage.getItem("user"))
-
-        if (user) {
+        // if(installlment){
+        //     alert('hey')
+        // }
+        if (user && !installlment) {
             console.log(user.data.token)
             axios.post(`https://emeticslearning-backend.herokuapp.com/api/initialize_payment/${courseId}/`, {}, {
                 headers: {
@@ -66,10 +68,28 @@ const PaymentPage = ({ courseId, setShowPaymentModel }) => {
                     dispatch(setMessage(error.response.data.message, false))
                 })
 
-        }
-        else {
+        } else {
+            if(user && installlment){
+                axios.post(`https://emeticslearning-backend.herokuapp.com/api/initialize_payment/${courseId}/`, {"is_installmental":true}, {
+                    headers: {
+                        'Authorization': `Token ${user.data.token}`
+                    }
+                })
+                    .then((response) => {
+                        console.log(response.data.data.data.authorization_url)
+                        dispatch(setMessage("Redirecting To Payment Page", true))
+                        setTimeout(() => { }, 900)
+                        window.location.href = response.data.data.data.authorization_url
+    
+    
+                    })
+                    .catch((error) => {
+                        console.log(error.response.data)
+                        dispatch(setMessage(error.response.data.message, false))
+                    })
+            }else{
             dispatch(setMessage("You Need To Be Logged In To Buy A Course", false))
-            history.push('/signin')
+            history.push('/signin')}
         }
     }
 
@@ -111,7 +131,7 @@ const PaymentPage = ({ courseId, setShowPaymentModel }) => {
                                     </div>
 
                                     <div class="col-lg-3 pt-3 col-md-12">
-                                        <button class="btn button-line" onClick={(e) => handleCourseEnroll(e)}>Pay in Installment</button>
+                                        <button class="btn button-line" onClick={(e) => handleCourseEnroll(e, true)}>Pay in Installment</button>
                                         {/* <button class="btn">Part Payment</button> */}
                                     </div>
                                 </div>
@@ -129,7 +149,7 @@ const PaymentPage = ({ courseId, setShowPaymentModel }) => {
                                     </div>
 
                                     <div class="col-lg-3 pt-3 col-md-12">
-                                        <button class="btn button-line" onClick={(e) => handleCourseEnroll(e)}>Pay in Installment</button>
+                                        <button class="btn button-line" onClick={(e) => handleCourseEnroll(e, true)}>Pay in Installment</button>
                                         {/* <button class="btn">Part Payment</button> */}
                                     </div>
                                 </div>

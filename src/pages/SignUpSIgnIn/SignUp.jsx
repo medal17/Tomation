@@ -17,6 +17,9 @@ const SignUp = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [agentCode,setAgentCode] = useState("");
+  const [state, setState] = useState("");
+  const [callUp, setCallUp] = useState("");
   const [jobOpportunity, setJobOpportunity] = useState(true);
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -86,12 +89,18 @@ const SignUp = () => {
     // this is a Redux SetState Which Has Axios in it to Send Request to Create user In the Server and also to save
     // the data in the localHost
     dispatch(register(
+      
       email,
       firstName,
       lastName,
       password,
+      agentCode,
+      isCorper,
+      state,
+      callUp,
       isHirer ? "hirer" : "student",
       callback
+
 
     ))
     // .then((resp) => {
@@ -188,7 +197,7 @@ const SignUp = () => {
                     <label htmlFor="exampleInputEmail1 " className=' '>Call up Number </label>
                     <div className='col'>
                       <input type="number"
-                        value={email} onChange={(e) => setEmail(e.target.value)}
+                        value={callUp} onChange={(e) => setCallUp(e.target.value)}
                         className="form-control bg-light rounded" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Call up Number" required />
                     </div>
                   </div>
@@ -196,18 +205,18 @@ const SignUp = () => {
                   <div className='row'>
                     <label htmlFor="exampleInputEmail1 " className=' '>Agent's Referral Code </label>
                     <div className='col'>
-                      <input type="number"
-                        value={email} onChange={(e) => setEmail(e.target.value)}
-                        className="form-control bg-light rounded" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Call up Number" required />
+                      <input type="text"
+                        value={agentCode} onChange={(e) => setAgentCode(e.target.value)}
+                        className="form-control bg-light rounded" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Agent's code" required />
                     </div>
                   </div>
 
                   <div className='row'>
                     <label htmlFor="exampleInputEmail1 " className=' '>State of Service</label>
                     <div className='col'>
-                      <input type="number"
-                        value={email} onChange={(e) => setEmail(e.target.value)}
-                        className="form-control bg-light rounded" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Call up Number" required />
+                      <input type="text"
+                        value={state} onChange={(e) => setState(e.target.value)}
+                        className="form-control bg-light rounded" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter State of service" required />
                     </div>
                   </div><br />
                 </>
