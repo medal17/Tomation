@@ -50,11 +50,15 @@ export const registerAgent = (email, firstName, lastName, password, user_type, c
   return authService.registerAgent(email, firstName, lastName, password, user_type).then(
     (response) => {
       //   this Means the Request Went Well
+      callback(response)
+      // window.location.relhref('/agent')
+
       dispatch({
         type: actionTypes.REGISTER_SUCCESS,
         payload: { user: response.data }
       });
-      callback(response)
+      
+
 
       dispatch({
         type: actionTypes.SET_MESSAGE,

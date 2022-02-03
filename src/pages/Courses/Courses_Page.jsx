@@ -42,10 +42,10 @@ const SchoolDetail = () => {
             <Nav />
             <div className="react_pageComponent">
                 <a onClick={(e) => { e.preventDefault(); return history.goBack() }}>
-                    <i className="backArrowIcon fas fa-arrow-left"><CgArrowLeft size={25} /></i>
+                    <i className="backArrowIcon bg-white ml-2 mt-2" style={{boxShadow:'0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.16)'}}><CgArrowLeft size={25} /></i>
                 </a>
 
-                <br /><br /> <br />
+                <br />
                 {!isLoading ?
                     <>
                         <MainHeader

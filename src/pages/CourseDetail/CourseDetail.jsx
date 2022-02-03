@@ -50,8 +50,36 @@ const CourseDetail = () => {
 
 
             {
-                isLoading == true ? <div style={{ position: "absolute", top: '200px', left: "100px" }} >Loading...</div>
+                isLoading == true ? 
+                <div className='row loading bg-white col-md-10 table-skel' style={{ borderRadius: '20px', height:'90vh', paddingTop:'5rem' }}>
+                        {/* <div class="decsription pt-5">
 
+                        </div> */}
+                        <div className='row'>
+                            <div class="content col-12">
+                                <div className='row d-flex justify-content-between'>
+                                    <div className='col-lg-5 mr-lg-5'>
+                                        <h4></h4>
+                                        <h4></h4>
+                                        <h4></h4>
+                                        <h4></h4>
+                                        <h4></h4>
+                                        <h4></h4>
+                                        <h4></h4>
+                                        <h4></h4>
+                                        <h4></h4>
+                                        <h4></h4>
+                                    </div>
+                                    <div className='col-lg-5 ml-lg-5 description right' style={{height:'50vh'}}>
+
+                                    </div>
+                                </div>
+                                
+                               
+                            </div>
+
+                        </div>
+                    </div>
                     :
                     courseDetail == null ? "" :
                         (

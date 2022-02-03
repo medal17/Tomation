@@ -35,7 +35,7 @@ const Schools = () => {
             <Nav />
             <div className="react_pageComponent">
                 <a onClick={(e) => { e.preventDefault(); return history.goBack() }}>
-                    <i className="backArrowIcon fas fa-arrow-left"><CgArrowLeftR size={30} /></i>
+                    <i className="backArrowIcon"><CgArrowLeftR size={30} /></i>
                 </a>
 
                 <div className="container">

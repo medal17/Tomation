@@ -39,11 +39,11 @@ const AgentsSignUp = () => {
 
   const callback = (response) => {
     // console.log(response)
-    window.location.reload();
-    
-      history.push('/hirer')
+    if(response.data) {
+      // window.location.href('/agent')      
+      history.push('/agent')
+    }  
   }
-
   // useEffect(() => {
   // }, [user])
 
