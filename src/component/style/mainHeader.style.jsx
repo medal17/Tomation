@@ -66,7 +66,7 @@ export const StyledmainHeaderContentPane = styled.div`
 
 /* background-color:; */
 /*background-color:#22596B;*/
-padding:5rem 8rem 8rem 8rem;
+padding:5rem 8rem 8rem 3rem;
 border-radius: 10px;
 width:94%;
 /* min-width: 80%; */
@@ -107,7 +107,7 @@ p{
 }
 
 @media screen and (min-width: 1026px) {
-    width: 50%;
+    width: 70%;
 /* padding: rem 1rem; */
     display: flex;
     flex-direction: column;

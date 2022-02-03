@@ -8,6 +8,7 @@ import DashboardHeader from "../../../component/DashboardHeader";
 import PaymentPage from "../../../component/paymentPage";
 import Footer from "../../../component/footer";
 import MainHeader from "../../../component/mainHeader";
+import MainHeaderDash from "../../../component/mainHeaderDash";
 
 
 let MainUrl = 'https://emeticslearning-backend.herokuapp.com'
@@ -150,7 +151,7 @@ const CoursesList = () => {
 
       {/* filterCourseBy is Gotten from the useParams  */}
       <DashboardHeader title={filterCourseBy} history={history} />
-      {/* <MainHeader /> */}
+      <MainHeaderDash />
       <div class="container table-responsive table-striped py-5 bg-white rounded">
         <table class="table rounded">
           <thead class="thead-dark rounded">

@@ -277,7 +277,7 @@ const DashboardNavHeader = () => {
                             </div>
                         </li> */}
                         {/* <li className="nav-item order-lg-last"><Link to="/" className={isActive == 4 ? "nav-link active" : "nav-link text-dark"} onClick={() => setActive(4)} href="intern.html" style={{ color: 'black' }}>About</Link></li> */}
-                        <li className="nav-item order-lg-last"><Link to="/" className={isActive == 5 ? "nav-link active" : "nav-link text-dark"} onClick={() => setActive(5)} href="intern.html" style={{ color: 'black' }}>Contact</Link></li>
+                        <li className="nav-item order-lg-last"><Link to="/contact" className={isActive == 5 ? "nav-link active" : "nav-link text-dark"} onClick={() => setActive(5)} href="intern.html" style={{ color: 'black' }}>Contact</Link></li>
 
                         {/* <li className="nav-item nav-link"><a className="nav-link" href="contact.html">Contact</a></li> */}
                         {<div className="nav-item order-lg-last px-2"><Link onClick={() => Swal.fire({
