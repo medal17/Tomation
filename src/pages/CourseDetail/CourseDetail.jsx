@@ -98,7 +98,7 @@ const CourseDetail = () => {
                                                 {courseDetail.courseDetail[0].about}
                                             </p>
 
-                                            <div className="courseDetailHeroCard__content__duration_details_container">
+                                            <div className="courseDetailHeroCard__content__little_info ">
                                                 {/* this code below checks if the person has completed the Course if Yes tell them  */}
                                                 {
                                                     courseDetail.isCompletedCourse ?
@@ -106,7 +106,15 @@ const CourseDetail = () => {
                                                         :
                                                         (
                                                             <div className='container'>
-                                                                <p className='item'>4 Weeks (Weekends Only)</p>
+                                                                <p className='item'>4 Weeks (Weekends Only) 
+                                                                
+                                                                &nbsp;&nbsp;- &nbsp;&nbsp; <b>Start Date:</b> {courseDetail.courseDetail[0].start_date}
+                                                <br/>
+                                            
+                                            <b>End Date</b> {courseDetail.courseDetail[0].end_date})</p>
+
+                                            <p ><b>Start Time:</b> {courseDetail.courseDetail[0].start_time}
+                                               </p>
                                                                 <p className='item'>100% Virtual instructor led</p>
                                                             </div>
                                                         )
@@ -132,7 +140,7 @@ const CourseDetail = () => {
 
 
                                             </div>
-                                            <p >Enroll for the Next Class  ()</p>
+                                            <p >Enrol for the Next Class  </p>
 
                                         </div>
 
@@ -140,7 +148,7 @@ const CourseDetail = () => {
                                             {/* <img src={ImageOfManINSuite} alt="" style={{boxShadow: "2px -10px 5px 7px rgba(0,0,0,0.09)"}} /> */}
                                             <img src={courseDetail.course_banner} alt="" style={{ boxShadow: "2px -10px 5px 7px rgba(0,0,0,0.09)" }} />
 
-                                            <p>4 Weeks (Weekends Only)</p>
+                                            <p>4 Weeks (Weekends Only) </p>
                                         </div>
                                     </div>
                                 </div>

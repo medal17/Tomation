@@ -15,6 +15,7 @@ import { MdOutlineCheck } from 'react-icons/md'
 import { GiOpenBook } from 'react-icons/gi'
 import { AiOutlineLoading3Quarters } from 'react-icons/ai'
 import DashbordCard from '../components/DashbordCard'
+import { getCount, getCourseCount } from '../../../redux/actions/courseAction'
 
 
 const MainUrl = 'https://emeticslearning-backend.herokuapp.com'
@@ -25,7 +26,7 @@ const Dashboard = () => {
 
     const [studentProfile, setStudentProfile] = useState([]);
     const [isLoading, setIsLoading] = useState(true)
-
+    const [courseCount, setCourseCount] = useState('');
 
 
     let studentID = null;
@@ -51,10 +52,18 @@ const Dashboard = () => {
         //  so the fill studentID with the urlparams
         studentID = studentid_from_urlParams
     }
-    console.log(studentid_from_urlParams)
+    console.log(courseCount)
+
+    const callback =(response)=>{
+        if(response.data){
+            setCourseCount(response.data)
+        }
+
+    }
 
     useEffect(() => {
 
+        dispatch( getCourseCount(callback));
         axios.get(MainUrl + `/api/user/get_student_profile/${studentID}/`, {
             headers: dataService.authHeader()
         })
@@ -196,9 +205,9 @@ const Dashboard = () => {
                                     studentProfile.is_owner ?
                                         <div className='row '>
                                             <div className='col-lg-12 row'>
-                                                <DashbordCard title={'Open Courses'} icon={<GiOpenBook size={25} color='#F55608' />} link='/student/courses/Open' count={12} />
-                                                <DashbordCard title={'Ongoing Courses'} icon={<AiOutlineLoading3Quarters size={23} color='#F55608' />} link='/student/courses/Ongoing' count={1} />
-                                                <DashbordCard title={'Completed Courses'} icon={<MdOutlineCheck size={25} color='#F55608' />} link='/student/courses/Completed' count={1} />
+                                                <DashbordCard title={'Open Courses'} icon={<GiOpenBook size={25} color='#F55608' />} link='/student/courses/Open' count={courseCount?courseCount.open:0} />
+                                                <DashbordCard title={'Ongoing Courses'} icon={<AiOutlineLoading3Quarters size={23} color='#F55608' />} link='/student/courses/Ongoing' count={courseCount?courseCount.ongoing:0} />
+                                                <DashbordCard title={'Completed Courses'} icon={<MdOutlineCheck size={25} color='#F55608' />} link='/student/courses/Completed' count={courseCount?courseCount.completed:0} />
                                             </div>
 
                                         </div>

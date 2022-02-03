@@ -23,6 +23,7 @@ const Signin = () => {
 
   const callback = (response) => {
     if (response.data) {
+      setIsLoading(false)
       response.data.user_type == 'student' ?
         history.push('/student')
         : (response.data.user_type == 'hirer') ?
@@ -34,6 +35,7 @@ const Signin = () => {
           // if it none of the above then the person must be a tutor
           history.push("/tutor")
     } else {
+      setIsLoading(false)
       history.push('/signin')
     }
   }

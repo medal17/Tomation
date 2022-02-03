@@ -26,6 +26,7 @@ const SignUp = () => {
   const [isHirer, setIsHirer] = useState(false);
   const user = JSON.parse(localStorage.getItem('user'));
   const [isCorper, setCorper] = useState(false)
+  const [loading, setLoading] = useState(false)
 
 
 
@@ -43,7 +44,7 @@ const SignUp = () => {
 
   const callback = (response) => {
     // console.log(response)
-    window.location.reload();
+    // window.location.reload();
     if (response.data) {
       response.data.user_type == 'student' ?
         history.push('/student')
@@ -53,6 +54,7 @@ const SignUp = () => {
           // if it none of the above then the person must be a tutor
           history.push("/tutor")
     } else {
+      setLoading(false)
       history.push('/signup')
     }
   }
@@ -72,7 +74,7 @@ const SignUp = () => {
 
   const handleRegistration = (e) => {
     e.preventDefault();
-
+    setLoading(true)
 
     if (!HandlePassword()) {
 
@@ -196,7 +198,7 @@ const SignUp = () => {
                   <div className='row'>
                     <label htmlFor="exampleInputEmail1 " className=' '>Call up Number </label>
                     <div className='col'>
-                      <input type="number"
+                      <input type="text"
                         value={callUp} onChange={(e) => setCallUp(e.target.value)}
                         className="form-control bg-light rounded" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Call up Number" required />
                     </div>
@@ -313,7 +315,12 @@ const SignUp = () => {
             <br />
             <div style={{ 'display': 'flex', "justifyContent": "space-between", "flexWrap": "wrap" }}>
 
-              <button type="submit" className="btn btn-primary">Submit</button>
+              { !loading ?
+                <button type="submit" className="btn btn-primary">Submit</button>
+              :
+              <button type="button" className="btn btn-primary">Loading...</button>
+              
+              }
 
               <Link className="btn btn-secondary" to="/signin">Already Have An Account?</Link>
             </div>

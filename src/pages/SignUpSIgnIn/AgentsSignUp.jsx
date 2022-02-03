@@ -21,6 +21,7 @@ const AgentsSignUp = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isHirer, setIsHirer] = useState(false);
+  const [isLoadings, setLoading] = useState(false);
   const user = JSON.parse(localStorage.getItem('user'));
 
 
@@ -40,15 +41,19 @@ const AgentsSignUp = () => {
   const callback = (response) => {
     // console.log(response)
     if(response.data) {
+      setLoading(false)
       // window.location.href('/agent')      
       history.push('/agent')
     }  
+    setLoading(false)
   }
   // useEffect(() => {
   // }, [user])
 
   const handleRegistration = (e) => {
     e.preventDefault();
+
+    setLoading(true)
 
 
     if (!HandlePassword()) {
@@ -197,8 +202,14 @@ const AgentsSignUp = () => {
             </div>
             <br />
             <div style={{ 'display': 'flex', "justifyContent": "space-between", "flexWrap": "wrap" }}>
-
-              <button type="submit" className="btn btn-primary">Submit</button>
+            {
+              !isLoadings ?
+            <button type="submit" className="btn btn-primary">Submit</button>
+            :
+            <button type="button"  className="btn">Loading</button>
+            
+            }
+            
 
               <Link className="btn btn-secondary" to="/signin">Already Have An Account?</Link>
             </div>
