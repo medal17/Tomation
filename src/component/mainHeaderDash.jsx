@@ -24,7 +24,7 @@ const MainHeaderDash = ({ heading, content }) => {
                 <StyledmainHeaderContentPane >
 
 
-                    <h1>Welcome to {heading}</h1>
+                    <h1>Welcome to Savvy Schools</h1>
                     <p>
                         {content}
                     </p>
@@ -35,12 +35,12 @@ const MainHeaderDash = ({ heading, content }) => {
                     }}>
                         <p><BsFillVinylFill color="#F55608" size={21} style={{ marginRight: '0.5rem' }} /> Our courses are offered 100% online
                         </p>
-                        <p > <BsFillVinylFill color="#F55608" size={21} style={{ marginRight: '0.5rem' }} /> You will also have the option of a flexible payment arrangement</p>
+                        <p > <BsFillVinylFill color="#F55608" size={21} style={{ marginRight: '0.5rem' }} /> You also have the option of a flexible payment arrangement</p>
                     </div>
                     <ButtonContainer>
 
                         <StyledButton style={{ cursor: "pointer" }} onClick={() => history.push('/signup')}>Get Started</StyledButton>
-                        <OutlineButton style={{ cursor: "pointer" }}> <BsFillLightbulbFill color="#22596B" size={21} style={{ marginRight: '0.5rem' }} /> Contact Support</OutlineButton>
+                        <OutlineButton style={{ cursor: "pointer" }} onClick={() => history.push('/contact')}> <BsFillLightbulbFill color="#22596B" size={21} style={{ marginRight: '0.5rem' }} /> Contact Support</OutlineButton>
                     </ButtonContainer>
                     <ButtonContainer>
                         <StyledGreenButton className="mt-2" style={{ cursor: "pointer" }} onClick={() => history.push('/agent-signup')}>Register as an Agent</StyledGreenButton>

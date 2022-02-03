@@ -42,7 +42,9 @@ const PaymentHistory = () => {
    return (
       <div className="container-fluid">
          <DashboardNavHeader />
-
+         <br/>
+         <br/>
+         <br/>
          <div className="row">
             <div className="white_shd full margin_bottom_30">
                <div className="full graph_head">

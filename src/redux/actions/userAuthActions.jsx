@@ -6,12 +6,12 @@ import authService from "../../services/auth.service";
 export const register = (email, firstName, lastName, password, agentCode, isCorper,state, callUp, user_type, callback) => (dispatch) => {
   return authService.register(email, firstName, lastName, password, agentCode,isCorper, state, callUp, user_type).then(
     (response) => {
+      callback(response)
       //   this Means the Request Went Well
       dispatch({
         type: actionTypes.REGISTER_SUCCESS,
         payload: { user: response.data }
       });
-      callback(response)
 
       dispatch({
         type: actionTypes.SET_MESSAGE,
@@ -22,6 +22,7 @@ export const register = (email, firstName, lastName, password, agentCode, isCorp
     },
     //   so if there was some kind of error
     (error) => {
+      callback(error.message)
       console.log(error.message)
       const message =
         (error.response &&
@@ -70,6 +71,7 @@ export const registerAgent = (email, firstName, lastName, password, user_type, c
     //   so if there was some kind of error
     (error) => {
       console.log(error.message)
+      callback(error.message)
       const message =
         (error.response &&
           error.response.data &&
@@ -119,6 +121,7 @@ export const login = (email, password, callback) => (dispatch) => {
       ,
 
       (error) => {
+        callback(error.message)
         console.log(error.message)
         const message = error.response.data.message;
 

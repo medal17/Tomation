@@ -15,6 +15,7 @@ import { MdOutlineCheck } from 'react-icons/md'
 import { GiOpenBook } from 'react-icons/gi'
 import { AiOutlineLoading3Quarters, AiOutlineUsergroupAdd } from 'react-icons/ai'
 import DashbordCard from '../components/DashbordCard'
+import { getCount } from '../../../redux/actions/courseAction'
 
 
 const MainUrl = 'https://emeticslearning-backend.herokuapp.com'
@@ -25,7 +26,7 @@ const Dashboard = () => {
 
     const [studentProfile, setStudentProfile] = useState([]);
     const [isLoading, setIsLoading] = useState(true)
-
+    const [count, setCount] = useState('')
 
 
     let studentID = null;
@@ -53,30 +54,37 @@ const Dashboard = () => {
     }
     console.log(studentid_from_urlParams)
 
-    // useEffect(() => {
+    const callback=(response)=>{
+        if(response.data){
+            setCount(response.data)
+        }
+    }
 
-    //     axios.get(MainUrl + `/api/user/get_student_profile/${studentID}/`, {
-    //         headers: dataService.authHeader()
-    //     })
-    //         .then(response => {
-    //             console.log(response.data.data)
-    //             setStudentProfile(response.data.data)
-    //             setIsLoading(false)
-    //         })
-    //         .catch((error) => {
-    //             let message;
-    //             try {
-    //                 message = (error.response.data.message || error.response.data.detail)
-    //             } catch {
-    //                 message = error.message
-    //             }
-    //             setIsLoading(false)
+    useEffect(() => {
 
-    //             dispatch(setMessage(message, false))
-    //             console.log(error)
+        dispatch(getCount(callback))
+        // axios.get(MainUrl + `/api/user/get_student_profile/${studentID}/`, {
+        //     headers: dataService.authHeader()
+        // })
+        //     .then(response => {
+        //         console.log(response.data.data)
+        //         setStudentProfile(response.data.data)
+        //         setIsLoading(false)
+        //     })
+        //     .catch((error) => {
+        //         let message;
+        //         try {
+        //             message = (error.response.data.message || error.response.data.detail)
+        //         } catch {
+        //             message = error.message
+        //         }
+        //         setIsLoading(false)
 
-    //         })
-    // }, [])
+        //         dispatch(setMessage(message, false))
+        //         console.log(error)
+
+        //     })
+    }, [])
     const history = useHistory();
     return (
         <div style={{ marginTop: '1rem' }}>
@@ -194,7 +202,7 @@ const Dashboard = () => {
                                     studentProfile.is_owner ? */}
                                         <div className='row '>
                                             <div className='col-lg-12 row'>
-                                                <DashbordCard title={'Registered Students'} icon={<AiOutlineUsergroupAdd size={25} color='#F55608' />} link='/student/courses/Open' count={0} />
+                                                <DashbordCard title={'Registered Students'} icon={<AiOutlineUsergroupAdd size={25} color='#F55608' />} link='/student/courses/Open' count={count?count.count:''} />
                                                 {/* <DashbordCard title={'Ongoing Courses'} icon={<AiOutlineLoading3Quarters size={23} color='#F55608' />} link='/student/courses/Ongoing' count={1} />
                                                 <DashbordCard title={'Completed Courses'} icon={<MdOutlineCheck size={25} color='#F55608' />} link='/student/courses/Completed' count={1} /> */}
                                             </div>
