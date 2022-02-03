@@ -96,7 +96,7 @@ const PaymentPage = ({ courseId, setShowPaymentModel }) => {
     return (
 
         <div class=" paymentTypePageContainer d-flex justify-content-center py-lg-5 " >
-            <div class="paymentTypePageContainer__content py-lg-5 mt-5 mx-2 bg-light  align-content-center " >
+            <div class="paymentTypePageContainer__content py-lg-5 mt-5 mx-2 bg-light  align-content-center col-lg-10 col-md-12" >
                 <div className='px-lg-5 px-4'>
                     <BackButton />
 
@@ -111,12 +111,22 @@ const PaymentPage = ({ courseId, setShowPaymentModel }) => {
                     <hr />
 
                     <p>
-                        {isLoading ? 'loading' : (courseDetail ? courseDetail.courseDetail[0].about : '')}
-                    </p>
-                    {/* <br /> */}
-                </div>
-                {/* <h3>SELECT SCHOLARSHIP</h3> */}
-                {/* <hr /> */}<center>
+                        {isLoading ? 
+                         <div className='row loading center' style={{width:'100%'}}>
+                         <div class="loading col-lg-12 ">
+                             <h4></h4>
+                             <h4></h4>
+                             <h4></h4>
+                             <h4></h4>
+                             <h4></h4>
+                             <h4></h4>
+
+                         </div>
+
+                     </div> : 
+                     <>
+                     {(courseDetail ? courseDetail.courseDetail[0].about : '')}
+                     <center>
                     <div style={{ position: 'absolute', bottom: 0, left:'15%', margin: '0 auto' }} className='row container-center px-5'>
 
                         {/* <span className='text-center'>Enjoy up to scholarship. Limited slots left</span> */}
@@ -148,6 +158,13 @@ const PaymentPage = ({ courseId, setShowPaymentModel }) => {
                         {/* <span>You will be redirected to payment page after this selection</span> */}
                         <span><p className='text-center pb-2 text-grey'>Our Payment Gateway is Secure and Safe</p></span>
                     </div></center>
+                     </>
+                     }
+                    </p>
+                    {/* <br /> */}
+                </div>
+                {/* <h3>SELECT SCHOLARSHIP</h3> */}
+                {/* <hr /> */}
             </div>
 
             {/* <div class="paymentTypePageContainer__image">

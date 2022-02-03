@@ -8,7 +8,7 @@ import { MdSchool, MdLogout } from 'react-icons/md'
 import Swal from 'sweetalert2'
 import { logout, uploadImage } from "../../../redux/actions/userAuthActions";
 
-const StudentNav = () => {
+const AgentNav = () => {
     const dispatch = useDispatch()
     const user = JSON.parse(localStorage.getItem('user'));
 
@@ -181,4 +181,4 @@ const StudentNav = () => {
 }
 
 
-export default StudentNav
+export default AgentNav

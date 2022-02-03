@@ -129,7 +129,7 @@ const DashboardNavHeader = () => {
                         <li className="nav-item order-lg-last"><Link to="/" className={isActive == 0 ? "nav-link active" : "nav-link text-dark"}>Home</Link></li>
 
 
-                        <li className="nav-item order-lg-last">
+                        <li className="nav-item order-lg-last" >
                             <a className={isActive == 1 ? "nav-link active" : "nav-link text-dark"} href="#" id="custom_dropdown" style={{ color: 'black' }}
                                 // onMouseOver={()=>handleDropDown(dropDown,setDropdown)}
                                 // onMouseLeave={()=>handleDropDown(dropDown,setDropdown)}
@@ -141,6 +141,7 @@ const DashboardNavHeader = () => {
                                 className={`${dropDown == true ? "show" : ""}`}
                             // className={`show`} 
                             // onMouseOver={}
+                            style={{position:'relative', zIndex:9000, width:'900px'}}
                             >
                                 <div className="custom-Nav__LinksGrid">
                                     {

@@ -287,8 +287,8 @@ const Nav = () => {
                                 <div className="nav-item order-lg-last"><Link to="/signup" className="nav-link" href="intern.html" style={{ color: '#052B39', padding: '0.6rem 2rem', borderRadius: '15px', textAlign: 'center' }}>Sign up</Link></div>
                             </div>
                             : <div className="order-lg-last" style={{ margin: '0 auto', display: 'flex' }}>
-                                <div className="nav-item order-lg-last"><Link to={user.user.data.user_type == 'student' ? "/student" : user.user.data.user_type == 'agent' ? "/student" :
-                                    (user.user.data.user_type == 'hirer') ? "employer/" : (user.user.data.user_type == 'tutor') ? "tutor/" :
+                                <div className="nav-item order-lg-last"><Link to={user.user.data.user_type == 'student' ? "/student" : user.user.data.user_type == 'agent' ? "/agent" :
+                                    (user.user.data.user_type == 'hirer') ? "employer/" : (user.user.data.user_type == 'tutor') ? "/tutor" :
                                         "#"} className="nav-link" href="intern.html" style={{ color: '#fff', backgroundColor: '#052B38', padding: '0.6rem 2rem', borderRadius: '15px', textAlign: 'center' }}>My Dashboard</Link>
                                 </div>
                                 <div className="nav-item order-lg-last px-2"><Link onClick={() => Swal.fire({

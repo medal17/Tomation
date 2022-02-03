@@ -33,6 +33,8 @@ import { ThemeProvider } from 'styled-components'
 import AgentsSignUp from './pages/SignUpSIgnIn/AgentsSignUp'
 import { RiTwitterLine } from 'react-icons/ri'
 import {  BsWhatsapp } from 'react-icons/bs'
+import AgentIndex from './pages/Admin/agent/AgentIndex'
+// import AgentIndex from './pages/Admin/student/AgentIndex'
 const App =()=>{
 
     const { message } = useSelector(state=>state.message)
@@ -141,6 +143,10 @@ const App =()=>{
 
                     <Route    path='/employer'>
                         <EmployeIndex/>
+                    </Route>
+
+                    <Route    path='/agent'>
+                        <AgentIndex/>
                     </Route>
 
                     <Route  exact   path='/tutor'>
