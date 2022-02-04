@@ -55,8 +55,60 @@ export const getAllCourses = ()=> (dispatch)=>{
 
 }
 
-// get student course count
 
+//Get all course with callback
+export const getAllCoursesCallback = (callback)=> (dispatch)=>{
+
+  return dataService.getAllCourses()
+  .then((response)=>{
+      callback(response.data)
+      // console.log(response.data,'ddddegr')
+      dispatch({
+          type:actionTypes.SET_COURSES,
+          payload:response.data
+      })
+
+      // dispatch({
+      //     type:actionTypes.SET_MESSAGE,
+      //     payload: {message:response.message,isSuccess:true} 
+    
+      //   })
+
+
+      return Promise.resolve();
+  },
+  
+  (error)=>{
+    // console.log(error.response.data.message)
+
+      let message 
+      try {
+        message = (error.response.data.message || error.response.data.detail)
+      } catch  {
+          message = error.message
+      }
+
+    dispatch({
+      type: actionTypes.SET_COURSES_FAIL,
+      payload:[]
+    });
+
+    dispatch({
+      type: actionTypes.SET_MESSAGE,
+      payload: {message:message,isSuccess:false} 
+
+    });
+
+    
+    Promise.reject();
+  }
+
+  )
+
+}
+
+
+// get student course count
 export const getCourseCount = (callback)=> (dispatch)=>{
    
   axios.get(`https://emeticslearning-backend.herokuapp.com/api/get_course_count/`,

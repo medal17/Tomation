@@ -40,7 +40,7 @@ const StudentNav = () => {
             // });
             console.log(img)
             
-            formData.append("file", img);
+            formData.append("image", img);
             dispatch(uploadImage(formData,config, callback))
         }
     }

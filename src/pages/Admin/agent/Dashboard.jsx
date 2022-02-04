@@ -1,6 +1,6 @@
 import './customStyle.css'
 import image from '../../../assets/images/Group 26.png'
-import { useHistory, useParams } from 'react-router-dom'
+import { useHistory, useParams, Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from "axios"
 import dataService from '../../../services/data.service'
@@ -11,11 +11,9 @@ import Nav from '../../../component/nav'
 import DashboardHeader from '../../../component/DashboardHeader'
 import DashboardNavHeader from '../../../component/DashboardNav'
 import { FaArrowLeft } from 'react-icons/fa';
-import { MdOutlineCheck } from 'react-icons/md'
-import { GiOpenBook } from 'react-icons/gi'
-import { AiOutlineLoading3Quarters, AiOutlineUsergroupAdd } from 'react-icons/ai'
+import { AiOutlineUsergroupAdd } from 'react-icons/ai'
 import DashbordCard from '../components/DashbordCard'
-import { getCount } from '../../../redux/actions/courseAction'
+import { getAllCourses, getAllCoursesCallback, getCount } from '../../../redux/actions/courseAction'
 
 
 const MainUrl = 'https://emeticslearning-backend.herokuapp.com'
@@ -27,6 +25,7 @@ const Dashboard = () => {
     const [studentProfile, setStudentProfile] = useState([]);
     const [isLoading, setIsLoading] = useState(true)
     const [count, setCount] = useState('')
+    const [course, setCourse] = useState('')
 
 
     let studentID = null;
@@ -60,31 +59,18 @@ const Dashboard = () => {
         }
     }
 
-    useEffect(() => {
+    const courseCallback=(response)=>{
+        if(response){
+            setCourse(response)
+            // alert('yeah')
+            console.log(response)
+        }
+    }
 
-        dispatch(getCount(callback))
-        // axios.get(MainUrl + `/api/user/get_student_profile/${studentID}/`, {
-        //     headers: dataService.authHeader()
-        // })
-        //     .then(response => {
-        //         console.log(response.data.data)
-        //         setStudentProfile(response.data.data)
-        //         setIsLoading(false)
-        //     })
-        //     .catch((error) => {
-        //         let message;
-        //         try {
-        //             message = (error.response.data.message || error.response.data.detail)
-        //         } catch {
-        //             message = error.message
-        //         }
-        //         setIsLoading(false)
-
-        //         dispatch(setMessage(message, false))
-        //         console.log(error)
-
-        //     })
-    }, [])
+useEffect(() => {
+    dispatch(getCount(callback))
+    dispatch(getAllCoursesCallback(courseCallback))
+}, [])
     const history = useHistory();
     return (
         <div style={{ marginTop: '1rem' }}>
@@ -161,24 +147,6 @@ const Dashboard = () => {
                 {/* (studentProfile.length != 0) ? */}
 
                     <div className="container dashboardIndex" >
-
-
-                        {/* {
-                            studentProfile.is_owner ?
-                                <div class="" style={{
-                                    display: 'flex', "justifyContent": "space-between",
-                                    maxWidth: "600px", "margin": "0 auto", "flexWrap": "wrap"
-                                }}>
-                                    <button className='btn' onClick={(e) => history.push(`/student/courses/Open`)} style={{ border: "1px solid green", color: "green" }}> Open  courses</button>
-                                    <button class="btn" onClick={(e) => history.push(`/student/courses/Ongoing`)} style={{ border: "1px solid gold", backgroundColor: 'gold', color: "black" }}>ongoing course</button>
-                                    <button class="btn" onClick={(e) => history.push(`/student/courses/Completed`)} style={{ border: "1px solid red", color: "red" }}>completed course(s) </button>
-
-                                </div>
-                                : ""
-                        }
- */}
-
-
                         <div className="row" >
                             <div className='col-lg-9 pt-5'>
 
@@ -192,25 +160,17 @@ const Dashboard = () => {
                                         Welcome, &nbsp;
                                         <span className='text-lg' style={{ fontFamily: 'Quicksand', fontWeight: 500, fontSize: '20px' }}> {'Agent '+ user.data.first_name}</span>
                                     </div>
-                                    {/* <br /> */}
-                                    {/* <div style={{ fontSize: '.9rem' }} className='row'>
-                                    <div className='col'><strong>Country:</strong>   Nigera </div>
-                                    <div className='col'><strong>State:</strong>   Lagos</div>
-                                </div> */}
+                                   
                                 </p>
-                                {/* {
-                                    studentProfile.is_owner ? */}
+                                
                                         <div className='row '>
                                             <div className='col-lg-12 row'>
-                                                <DashbordCard title={'Registered Students'} icon={<AiOutlineUsergroupAdd size={25} color='#F55608' />} link='/student/courses/Open' count={count?count.count:''} />
-                                                {/* <DashbordCard title={'Ongoing Courses'} icon={<AiOutlineLoading3Quarters size={23} color='#F55608' />} link='/student/courses/Ongoing' count={1} />
-                                                <DashbordCard title={'Completed Courses'} icon={<MdOutlineCheck size={25} color='#F55608' />} link='/student/courses/Completed' count={1} /> */}
+                                                <DashbordCard title={'Registered Students'} icon={<AiOutlineUsergroupAdd size={25} color='#F55608' />} link='#' count={count?count.count:''} />
+                
                                             </div>
 
                                         </div>
-                                        {/* : ""
-                                } */}
-
+                                        
 
                             </div>
                             <div className='col-lg-3 pt-5'  >
@@ -226,229 +186,42 @@ const Dashboard = () => {
 
                                         }
                                     </div>
-                                    {/* <div>
-                                        <p>Email:</p>
-                                        {user.data.agent_code ?
-                                            < p className="dashboard__info__content_text data-info">{user.data.agent_code}</p>
-                                            :
-                                            < p className="dashboard__info__content_text data-info">Nil</p>
-
-                                        }
-                                    </div> */}
-
-                                    {/* <div>
-                                        <p>Educational Qualification:</p>
-                                        {studentProfile.educational_qualifications != 0 ?
-                                            studentProfile.educational_qualifications.map(data => (
-                                                <p className='data-info'>{`${data.degree_type}.,${data.course_name},${data.institutionName}`}</p>
-
-                                            )) : <p className='data-info'>Nil</p>
-                                        }
-                                    </div>
-
-
-                                    <div>
-                                        <p>Professional Qualification:</p>
-                                        {
-                                            studentProfile.professional_qualifications != 0 ?
-                                                studentProfile.professional_qualifications.map(data => (
-                                                    <p className='data-info'>{`${data.degree_type}.,${data.course_name},${data.institutionName}`}</p>
-
-                                                )) : <p className='data-info'>Nil</p>
-                                        }
-                                    </div>
-                                    <div>
-                                        <p>Work Experience</p>
-                                        {
-                                            studentProfile.work_experience != 0 ?
-                                                studentProfile.work_experience.map(({ work_experience }) => (
-
-                                                    <p className='data-info'>{work_experience}</p>
-                                                ))
-                                                :
-                                                <p className='data-info'>Nil</p>
-                                        }
-                                    </div>
-                                    <div>
-                                        <p>Professional Qualification:</p>
-                                        <p className='data-info'>{studentProfile.dob ? studentProfile.dob : 'Nil'}</p>
-                                    </div>
-
-                                    <div>
-                                        <p>Alumni</p>
-                                        {
-                                            studentProfile.alumni.length == 0 ?
-                                                <p className="dashboard__info__content_text data-info">Nil</p>
-                                                :
-
-                                                studentProfile.alumni.map(data => (
-
-                                                    <p className="dashboard__info__content_text text-bold data-info">{data.course__name}</p>
-                                                ))
-
-                                        }
-                                    </div> */}
+                                    
                                 </div>
                             </div>
 
-
-
-                            {/* <div className="dashboard_intro_pane__image">
-                                <img src={image} alt="" />
-                            </div> */}
                         </div>
 
 
-                        {/* <div className="dashboard__more_info ">
-                            <br /><br />
-                            <div className="dashboard__more_info_grid">
-
-                                <div className="dashboard__info">
-                                    <p className="dashboard__info__title_text"><strong>Engagement Status</strong></p>
-                                    <ul>
-                                        <li>
-                                            {studentProfile.Job_Opportunity ?
-                                                < p className="dashboard__info__content_text">Open For opportunity</p>
-                                                :
-                                                < p className="dashboard__info__content_text">Not Open For opportunity</p>
-
-                                            }
-
-                                        </li>
-
-                                    </ul>
-                                </div>
-
-                                <div className="dashboard__info">
-                                    <p className="dashboard__info__title_text"><strong>Educational Qualification</strong></p>
-                                    <ol>
-                                        {studentProfile.educational_qualifications != 0 ?
-                                            studentProfile.educational_qualifications.map(data => (
-                                                <li style={{ padding: ".2rem 0" }}><p>{`${data.degree_type}.,${data.course_name},${data.institutionName}`}</p></li>
-
-                                            )) : <p><li>Nil</li></p>
-                                        }
-                                    </ol>
-
-                                </div>
-
-                                <div className="dashboard__info">
-                                    <p className="dashboard__info__title_text"><strong>Professional Qualification</strong></p>
-                                    <ol>
-                                        {
-                                            studentProfile.professional_qualifications != 0 ?
-                                                studentProfile.professional_qualifications.map(data => (
-                                                    <li style={{ padding: ".2rem 0" }}><p>{`${data.degree_type}.,${data.course_name},${data.institutionName}`}</p></li>
-
-                                                )) : <p><li>Nil</li></p>
-                                        } */}
-                        {/* <li><p>Bsc Mass Communication from University of lagos</p></li> */}
-                        {/* </ol>
-
-                                </div>
-
-                                <div className="dashboard__info">
-                                    <p className="dashboard__info__title_text"><strong>Work Experience</strong></p>
-                                    <ol>
-                                        {
-                                            studentProfile.work_experience != 0 ?
-                                                studentProfile.work_experience.map(({ work_experience }) => (
-
-                                                    <li><p>{work_experience}</p></li>
-                                                ))
-                                                :
-                                                <li><p>Nil</p></li>
-                                        }
-
-                                    </ol>
-
-                                </div>
-
-
-                                <div className="dashboard__info">
-                                    <p className="dashboard__info__title_text"><strong>DOB</strong></p>
-
-                                    <ul>
-                                        <li className="dashboard__info__content_text"><p className="dashboard__info__content_text">{studentProfile.dob}</p></li>
-
-                                    </ul>
-                                </div>
-                                <div className="dashboard__info">
-                                    <p className="dashboard__info__title_text"><strong>Alumni</strong></p>
-
-                                    <ul>
-                                        {
-                                            studentProfile.alumni.length == 0 ?
-                                                <li className="dashboard__info__content_text"><p className="dashboard__info__content_text">Nil</p></li>
-                                                :
-
-                                                studentProfile.alumni.map(data => (
-
-                                                    <li className="dashboard__info__content_text"><p className="dashboard__info__content_text">{data.course__name}</p></li>
-                                                ))
-
-                                        }
-                                    </ul>
-                                </div>
-
-
-                            </div> */}
-                        {/* <div className="dashboard__info">
-                   <p className="dashboard__info__title_text"><strong>About ME</strong></p>
-
-               <p className="dashboard__info__content_text">
-                    {studentProfile.about_me}
-               </p>
-</div> */}
-                        {/* </div> */}
-
+                    { course ?
                         <div className='row bg-white py-3 px-2 my-4' style={{ borderRadius: '20px' }} >
                             <h4>Available Courses</h4><hr className='col-lg-10' />
-                            <div className=' row py-2 mx-1 mt-3' style={{ borderRadius: '7px' }}>
+                            {course.map((e)=>
+                                <div className=' row py-2 mx-1 mt-3' style={{ borderRadius: '7px' }}>
                                 <p className='col-lg-9 bg-white py-2' style={{ fontWeight: '500' }}>
-                                    Employee Engagement; Unlocking the Keys to a better Engaged Workforce
+                                    {e.name}
                                 </p>
                                 <div className='col-lg-3 flex '>
-                                    <div className='row ml-lg-3'>
-                                        <p className='col-lg-5 bg-dark text-white text-center py-2 px-3 rounded '>View Outline</p>
-                                        <p className=' shadow-lg col-lg-5 bg-white text-center py-2 px-3 ml-lg-1 rounded border'>Pay</p>
-                                    </div>
+                                    <Link className='row ml-lg-3' to={`/course-detail/${e.id}`}>
+                                        <p className='col-lg-12 bg-dark text-white text-center py-2 px-3 rounded '>View Outline</p>
+                                        {/* <p className=' shadow-lg col-lg-5 bg-white text-center py-2 px-3 ml-lg-1 rounded border'>Pay</p> */}
+                                    </Link>
                                 </div>
-                            </div>
-                            <div className=' row py-2 mx-1' style={{ borderRadius: '7px' }}>
-                                <p className='col-lg-9 bg-white py-2' style={{ fontWeight: '500' }}>
-                                    Key Performance Indicators Analytics
-                                </p>
-                                <div className='col-lg-3 flex '>
-                                    <div className='row ml-lg-3'>
-                                        <p className='col-lg-5 bg-dark text-white text-center py-2 px-3 rounded '>View Outline</p>
-                                        <p className=' shadow-lg col-lg-5 bg-white text-center py-2 px-3 ml-lg-1 rounded border'>Pay</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className=' row py-2 mx-1' style={{ borderRadius: '7px' }}>
-                                <p className='col-lg-9 bg-white py-2' style={{ fontWeight: '500' }}>
-                                    Understanding Performance Management
-                                </p>
-                                <div className='col-lg-3 flex '>
-                                    <div className='row ml-lg-3'>
-                                        <p className='col-lg-5 bg-dark text-white text-center py-2 px-3 rounded '>View Outline</p>
-                                        <p className=' shadow-lg col-lg-5 bg-white text-center py-2 px-3 ml-lg-1 rounded border'>Pay</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className=' row py-2 mx-1 ' style={{ borderRadius: '7px' }}>
-                                <p className='col-lg-9 bg-white py-2' style={{ fontWeight: '500' }}>
-                                    Employee Appraisal Management
-                                </p>
-                                <div className='col-lg-3 flex'>
-                                    <div className='row ml-lg-3'>
-                                        <p className='col-lg-5 bg-dark text-white text-center py-2 px-3 rounded '>View Outline</p>
-                                        <p className='col-lg-5 bg-white text-center py-2 px-3 ml-lg-1 rounded border'>Pay</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            </div>)}
+                        </div>:
+                         <div className='col-lg-12 col-md-12 mt-5 bg-white loading' style={{borderRadius:'20px'}}>
+                         <div class="content col-12">
+                             <h4 className='col-3'></h4>
+                             <h4></h4>
+                             <h4></h4>
+                             <h4></h4>
+                             <h4></h4>
+                             <h4></h4>
+                            
+ 
+                         </div>
+                     </div>
+                        }
 
                     </div>
 
