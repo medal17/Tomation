@@ -6,11 +6,12 @@ import { GoDashboard, GoListOrdered, GoPerson } from 'react-icons/go'
 import { FaShoppingCart, FaUserCircle, FaBackward } from 'react-icons/fa'
 import { MdSchool, MdLogout } from 'react-icons/md'
 import Swal from 'sweetalert2'
-import { logout, uploadImage } from "../../../redux/actions/userAuthActions";
+import { getImage, uploadImage } from "../../../redux/actions/userAuthActions";
 
 const AgentNav = () => {
     const dispatch = useDispatch()
     const user = JSON.parse(localStorage.getItem('user'));
+    const [image, setImage] = useState('')
 
     let userType = null
     // the user type is Gotten  From the LocalStorage
@@ -26,9 +27,14 @@ const AgentNav = () => {
         document.getElementById("file").click();
     };
 
+    useEffect(()=>{
+        dispatch(getImage(callback))
+    },[])
+
     const config = {
         headers: {
             'content-type': 'multipart/form-data',
+            Authorization: 'Token ' + user.data.token
         },
     };
     const formData = new FormData();
@@ -46,7 +52,8 @@ const AgentNav = () => {
     }
 
     const callback =(response)=>{
-        console.log(response)
+        // console.log(response)
+        setImage(response.data.image)
     }
 
     return (
@@ -64,8 +71,8 @@ const AgentNav = () => {
                     <div className="icon_setting"></div>
                     <div className="user_profle_side">
                         <div className="user_img">
-                            {user.data.picture ?
-                                <img className="img-responsive" src={UserImage} alt="#" />
+                        {image ?
+                                <img className="img-responsive" src={image} alt="#" />
                                 :
                                 <FaUserCircle size={70} />
                             }

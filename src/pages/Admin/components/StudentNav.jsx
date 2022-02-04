@@ -6,11 +6,16 @@ import { GoDashboard, GoListOrdered, GoPerson } from 'react-icons/go'
 import { FaShoppingCart, FaUserCircle, FaBackward } from 'react-icons/fa'
 import { MdSchool, MdLogout } from 'react-icons/md'
 import Swal from 'sweetalert2'
-import { logout, uploadImage } from "../../../redux/actions/userAuthActions";
+import { getImage, logout, uploadImage } from "../../../redux/actions/userAuthActions";
+import { useState, useEffect } from "react";
 
 const StudentNav = () => {
     const dispatch = useDispatch()
     const user = JSON.parse(localStorage.getItem('user'));
+    const [ImageUploaded, setImageUploaded] = useState('')
+    const [localURL, setLocalURL] = useState({ imgPreview: null });
+    const [image, setImage] = useState('')
+
 
     let userType = null
     // the user type is Gotten  From the LocalStorage
@@ -26,27 +31,35 @@ const StudentNav = () => {
         document.getElementById("file").click();
     };
 
+    useEffect(()=>{
+        dispatch(getImage(callback))
+    },[])
+    // ,{headers:{ Authorization: 'Token ' + user.data.token }}
+
     const config = {
         headers: {
             'content-type': 'multipart/form-data',
+            Authorization: 'Token ' + user.data.token
         },
     };
     const formData = new FormData();
     const changeImage = (event) => {
         if (event.target.files && event.target.files[0]) {
-            let img = event.target.files[0];
+            const img = event.target.files[0];
+            setLocalURL({ imgPreview: URL.createObjectURL(img) })
             // this.setState({
             //     image: URL.createObjectURL(img)
             // });
-            console.log(img)
+            console.log(img.name)
             
-            formData.append("image", img);
+            formData.append('image', event.target.files[0]);
             dispatch(uploadImage(formData,config, callback))
-        }
+        }else{alert('No')}
     }
 
     const callback =(response)=>{
-        console.log(response)
+        setImage(response.data.image)
+        // console.log(response)
     }
 
     return (
@@ -63,9 +76,10 @@ const StudentNav = () => {
                 <div className="sidebar_user_info">
                     <div className="icon_setting"></div>
                     <div className="user_profle_side">
-                        <div className="user_img">
-                            {user.data.picture ?
-                                <img className="img-responsive" src={UserImage} alt="#" />
+                            <div className="user_img">
+                            
+                            {image ?
+                                <img className="img-responsive" src={image} alt="#" />
                                 :
                                 <FaUserCircle size={70} />
                             }

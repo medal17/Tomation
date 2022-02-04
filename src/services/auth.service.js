@@ -78,8 +78,9 @@ const logout = ()=>{
 }
 
 const uploadImage = (data, config)=>{
+    console.log(data, config)
     // THIS function helps to request to the user registration enpoint
-    return axios.post(API_URL+`api/user/upload_my_image/`, 
+    return axios.post(`https://emeticslearning-backend.herokuapp.com/api/user/upload_my_image/`, 
     data, config
     ).then((response)=>{
         console.log(response)

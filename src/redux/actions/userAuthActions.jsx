@@ -1,7 +1,9 @@
+import axios from "axios";
 import actionTypes from "../contants/actionTypes"
 import authService from "../../services/auth.service";
 
 
+const user = JSON.parse(localStorage.getItem('user'));
 
 export const register = (email, firstName, lastName, password, agentCode, isCorper,state, callUp, user_type, callback) => (dispatch) => {
   return authService.register(email, firstName, lastName, password, agentCode,isCorper, state, callUp, user_type).then(
@@ -45,6 +47,46 @@ export const register = (email, firstName, lastName, password, agentCode, isCorp
     }
   );
 };
+
+
+// get student course count
+export const getImage = (callback)=> (dispatch)=>{
+   
+  axios.get(`https://emeticslearning-backend.herokuapp.com/api/user/upload_my_image/`,
+  {headers:{ Authorization: 'Token ' + user.data.token }})
+  .then((response)=>{
+      console.log(response.data,'image')
+     callback(response.data)
+  },
+  
+  (error)=>{
+    // console.log(error.response.data.message)
+
+      let message 
+      try {
+        message = (error.response.data.message || error.response.data.detail)
+      } catch  {
+          message = error.message
+      }
+
+    dispatch({
+      type: actionTypes.SET_COURSES_FAIL,
+      payload:[]
+    });
+
+    dispatch({
+      type: actionTypes.SET_MESSAGE,
+      payload: {message:message,isSuccess:false} 
+
+    });
+
+    
+    Promise.reject();
+  }
+
+  )
+
+}
 
 
 export const registerAgent = (email, firstName, lastName, password, user_type, callback) => (dispatch) => {
@@ -101,9 +143,7 @@ export const login = (email, password, callback) => (dispatch) => {
 
   return authService.login(email, password)
     .then((response) => {
-      // console.log(response)
       callback(response)
-
       dispatch({
         type: actionTypes.LOGIN_SUCCESS,
         payload: { user: response.data }
@@ -145,10 +185,10 @@ export const uploadImage = (data,config, callback) => (dispatch) => {
   return authService.uploadImage(data, config).then(
     (response) => {
       //   this Means the Request Went Well
-      dispatch({
-        type: actionTypes.REGISTER_SUCCESS,
-        payload: { user: response.data }
-      });
+      // dispatch({
+      //   type: actionTypes.REGISTER_SUCCESS,
+      //   payload: { user: response.data }
+      // });
       callback(response)
 
       dispatch({
