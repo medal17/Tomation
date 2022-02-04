@@ -8,6 +8,7 @@ import { useEffect } from 'react'
 import { BsDashCircle, BsPlus, BsPlusCircle } from "react-icons/bs";
 import DashboardNavHeader from "../../../component/DashboardNav";
 import Footer from "../../../component/footer";
+import { FaUserCircle } from "react-icons/fa";
 
 
 const StudentProfile = () => {
@@ -291,7 +292,16 @@ const StudentProfile = () => {
                                     <!-- profile image --> */}
                      <div className="col-lg-12">
                         <div className="full dis_flex center_text">
-                           <div className="profile_img"><img width="180" className="rounded-circle" src={UseStaticImage} alt="#" /></div>
+                           <div className="profile_img">
+                           {allData.picture ?
+                              //   <img className="img-responsive" src={UserImage} alt="#" />
+                              <img width="180" className="rounded-circle" src={UseStaticImage} alt="#" /> 
+
+                                :
+                                <FaUserCircle size={120} />
+                            }
+                              
+                           </div>
                            <div className="profile_contant">
                               <div className="contact_inner">
                                  {/* <h3>John Smith</h3> */}

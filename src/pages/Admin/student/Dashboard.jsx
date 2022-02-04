@@ -1,6 +1,6 @@
 import './customStyle.css'
 import image from '../../../assets/images/Group 26.png'
-import { useHistory, useParams } from 'react-router-dom'
+import { useHistory, useParams, Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from "axios"
 import dataService from '../../../services/data.service'
@@ -15,7 +15,7 @@ import { MdOutlineCheck } from 'react-icons/md'
 import { GiOpenBook } from 'react-icons/gi'
 import { AiOutlineLoading3Quarters } from 'react-icons/ai'
 import DashbordCard from '../components/DashbordCard'
-import { getCount, getCourseCount } from '../../../redux/actions/courseAction'
+import { getAllCoursesCallback, getCount, getCourseCount } from '../../../redux/actions/courseAction'
 
 
 const MainUrl = 'https://emeticslearning-backend.herokuapp.com'
@@ -27,7 +27,7 @@ const Dashboard = () => {
     const [studentProfile, setStudentProfile] = useState([]);
     const [isLoading, setIsLoading] = useState(true)
     const [courseCount, setCourseCount] = useState('');
-
+    const [course, setCourse] = useState('')
 
     let studentID = null;
     const user = JSON.parse(localStorage.getItem("user"));
@@ -52,18 +52,27 @@ const Dashboard = () => {
         //  so the fill studentID with the urlparams
         studentID = studentid_from_urlParams
     }
-    console.log(courseCount)
+    // console.log(courseCount)
 
     const callback =(response)=>{
+        // console.log(response)
         if(response.data){
             setCourseCount(response.data)
         }
 
     }
 
+    const courseCallback =(response)=>{
+        if(response){
+            // console.log(response)
+            setCourse(response)
+        }
+    }
+
     useEffect(() => {
 
         dispatch( getCourseCount(callback));
+        dispatch(getAllCoursesCallback(courseCallback))
         axios.get(MainUrl + `/api/user/get_student_profile/${studentID}/`, {
             headers: dataService.authHeader()
         })
@@ -396,53 +405,23 @@ const Dashboard = () => {
 </div> */}
                         {/* </div> */}
 
-                        <div className='row bg-white py-3 px-2 my-4' style={{ borderRadius: '20px' }} >
+                      { course ?  
+                      <div className='row bg-white py-3 px-2 my-4' style={{ borderRadius: '20px' }} >
                             <h4>Available Courses</h4><hr className='col-lg-10' />
+                            {course.map((e)=>
                             <div className=' row py-2 mx-1 mt-3' style={{ borderRadius: '7px' }}>
-                                <p className='col-lg-9 bg-white py-2' style={{ fontWeight: '500' }}>
-                                    Employee Engagement; Unlocking the Keys to a better Engaged Workforce
+                                <p className='col-lg-8 bg-white py-2' style={{ fontWeight: '500' }}>
+                                    {e.name}
                                 </p>
                                 <div className='col-lg-3 flex '>
-                                    <div className='row ml-lg-3'>
-                                        <p className='col-lg-5 bg-dark text-white text-center py-2 px-3 rounded '>View Outline</p>
-                                        <p className=' shadow-lg col-lg-5 bg-white text-center py-2 px-3 ml-lg-1 rounded border'>Pay</p>
-                                    </div>
+                                    <Link className='row ml-lg-3' to={`/course-detail/${e.id}`}>
+                                        <p className='col-lg-12 bg-dark text-white text-center py-2 px-3 rounded '>View Outline</p>
+                                        {/* <p className=' shadow-lg col-lg-5 bg-white text-center py-2 px-3 ml-lg-1 rounded border'>Pay</p> */}
+                                    </Link>
                                 </div>
-                            </div>
-                            <div className=' row py-2 mx-1' style={{ borderRadius: '7px' }}>
-                                <p className='col-lg-9 bg-white py-2' style={{ fontWeight: '500' }}>
-                                    Key Performance Indicators Analytics
-                                </p>
-                                <div className='col-lg-3 flex '>
-                                    <div className='row ml-lg-3'>
-                                        <p className='col-lg-5 bg-dark text-white text-center py-2 px-3 rounded '>View Outline</p>
-                                        <p className=' shadow-lg col-lg-5 bg-white text-center py-2 px-3 ml-lg-1 rounded border'>Pay</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className=' row py-2 mx-1' style={{ borderRadius: '7px' }}>
-                                <p className='col-lg-9 bg-white py-2' style={{ fontWeight: '500' }}>
-                                    Understanding Performance Management
-                                </p>
-                                <div className='col-lg-3 flex '>
-                                    <div className='row ml-lg-3'>
-                                        <p className='col-lg-5 bg-dark text-white text-center py-2 px-3 rounded '>View Outline</p>
-                                        <p className=' shadow-lg col-lg-5 bg-white text-center py-2 px-3 ml-lg-1 rounded border'>Pay</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className=' row py-2 mx-1 ' style={{ borderRadius: '7px' }}>
-                                <p className='col-lg-9 bg-white py-2' style={{ fontWeight: '500' }}>
-                                    Employee Appraisal Management
-                                </p>
-                                <div className='col-lg-3 flex'>
-                                    <div className='row ml-lg-3'>
-                                        <p className='col-lg-5 bg-dark text-white text-center py-2 px-3 rounded '>View Outline</p>
-                                        <p className='col-lg-5 bg-white text-center py-2 px-3 ml-lg-1 rounded border'>Pay</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            </div>)}
+                            
+                        </div>:''}
 
                     </div>
 

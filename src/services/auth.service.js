@@ -80,7 +80,7 @@ const logout = ()=>{
 const uploadImage = (data, config)=>{
     // THIS function helps to request to the user registration enpoint
     return axios.post(API_URL+`api/user/upload_my_image/`, 
-    data
+    data, config
     ).then((response)=>{
         console.log(response)
         // callback(response)
