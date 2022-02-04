@@ -23,6 +23,7 @@ const Signin = () => {
 
   const callback = (response) => {
     if (response.data) {
+      window.location.reload()
       setIsLoading(false)
       response.data.user_type == 'student' ?
         history.push('/student')
@@ -30,7 +31,7 @@ const Signin = () => {
           history.push('/employer')
           
           :(response.data.user_type == 'agent') ? 
-          history.push('/student') 
+          history.push('/agent') 
           :
           // if it none of the above then the person must be a tutor
           history.push("/tutor")
@@ -48,7 +49,7 @@ const Signin = () => {
           history.push('/employer')
           :
           (user.data.user_type == 'agent') ? 
-          history.push('/student') 
+          history.push('/agent') 
           :
           // if it none of the above then the person must be a tutor
           history.push("/tutor")
