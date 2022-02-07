@@ -11,7 +11,7 @@ const LearnAnything = () => {
     return (
         <>
             <section className="ftco-section ftco-no-pt ftco-no-pb row  m-2 col-lg-11 align-items-stretch" >
-                <h1 className='h1 font-weight-bold text-lg-center'>Benefits of Savvy School learning expertise</h1>
+                <h1 className='h1 font-weight-bold text-lg-center'>Benefits of Savvy Schools learning expertise</h1>
                 <div className=" py-5 d-flex ml-lg-5">
 
 

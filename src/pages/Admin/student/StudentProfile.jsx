@@ -9,11 +9,14 @@ import { BsDashCircle, BsPlus, BsPlusCircle } from "react-icons/bs";
 import DashboardNavHeader from "../../../component/DashboardNav";
 import Footer from "../../../component/footer";
 import { FaUserCircle } from "react-icons/fa";
+import { getImage } from "../../../redux/actions/userAuthActions";
 
 
 const StudentProfile = () => {
    const [isLoading, setIsloading] = useState(true);
    const [allData, setAllData] = useState(false);
+   const [loading, setLoading] = useState(false)
+   const [image, setImage] = useState('')
 
    const [educationQualification, setEducationQualification] = useState([])
    const [professionalQualification, setProfessionalQualification] = useState([])
@@ -25,8 +28,16 @@ const StudentProfile = () => {
    const [triggerUseEffect, setTriggerUseEffect] = useState(1)
    let url = 'https://emeticslearning-backend.herokuapp.com/api/user/update_user/'
 
-   useEffect(() => {
+   const callback=(response)=>{
+      if(response.data){
+         // alert(response.data)
+         // console.log(response.data, 'imagurl')
+         setImage(response.data.image)
+      }
+   }
 
+   useEffect(() => {
+      dispatch(getImage(callback))
       axios.get(url, {
          headers: dataService.authHeader(),
       }).then((response) => {
@@ -255,12 +266,14 @@ const StudentProfile = () => {
       console.log(clean_data)
       axios.post(url, clean_data, { headers: dataService.authHeader() })
          .then((data) => {
+            setLoading(false)
             // this will trigger useEffect to get the data to the page
             setTriggerUseEffect(triggerUseEffect + 1)
             console.log("Data Has Been Goten Yee")
             console.log(data.data)
          })
          .catch((error) => {
+            setLoading(false)
             let message = "Something went Wrong"
             try {
                message = (error.response.data.message || error.response.data)
@@ -293,9 +306,9 @@ const StudentProfile = () => {
                      <div className="col-lg-12">
                         <div className="full dis_flex center_text">
                            <div className="profile_img">
-                           {allData.picture ?
+                           {image ?
                               //   <img className="img-responsive" src={UserImage} alt="#" />
-                              <img width="180" className="rounded-circle" src={UseStaticImage} alt="#" /> 
+                              <img width="180" className="rounded-circle" src={image} alt="#" /> 
 
                                 :
                                 <FaUserCircle size={120} />
@@ -432,7 +445,7 @@ const StudentProfile = () => {
                                                                   <small id="emailHelp" className="form-text text-muted">Degree Type</small>
                                                                   <input
                                                                      onChange={(e) => handleUpdateEducation(e, data.uiID, 'degree_type')}
-                                                                     value={data.degree_type}
+                                                                     value={data.degree_type == 'Nil'?'':data.degree_type}
                                                                      list="educational_qualification" className="form-control" />
                                                                   <datalist type="text" id="educational_qualification"  >
                                                                      {/* this is for the educatioanl Qualification */}
@@ -593,9 +606,15 @@ const StudentProfile = () => {
 
                                  <br />
                                  <div class="paymentType__btn" style={{ flexWrap: "wrap" }}>
-                                    <button class="btn"
-                                       onClick={(e) => { SendProfileToBackEnd() }}
+                                   { loading ?
+                                    <button class="btn btn-secondary"
+                                       // onClick={(e) => { SendProfileToBackEnd(), setLoading(true) }}
+                                    >Updating Data</button>
+                                    :
+                                     <button class="btn"
+                                       onClick={(e) => { SendProfileToBackEnd(); setLoading(true) }}
                                     >Update</button>
+                                 }
                                  </div>
 
                                  {/* end of form card */}

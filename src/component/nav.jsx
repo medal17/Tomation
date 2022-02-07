@@ -11,6 +11,7 @@ import { CgMenu } from "react-icons/cg";
 import Swal from 'sweetalert2'
 
 import dataService from "../services/data.service";
+import ErrorBoundary from "../services/errorBoundary.service";
 
 const Nav = () => {
     // const [activeLink,SetactiveLink] = useState(false)
@@ -68,9 +69,11 @@ const Nav = () => {
 
 
         }).catch((error) => {
+            
             console.log(error.message)
             setIsLoading(false)
-            dispatch(setMessage(error.response.message, false))
+            history.push('/error')
+            // dispatch(setMessage(error.response.message, false))
         })
     }, [])
     return (

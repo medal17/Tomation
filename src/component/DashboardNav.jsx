@@ -70,6 +70,7 @@ const DashboardNavHeader = () => {
         }).catch((error) => {
             console.log(error.message)
             setIsLoading(false)
+            history.push('/error')
             dispatch(setMessage(error.response.message, false))
         })
     }, [])
