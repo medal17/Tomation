@@ -309,7 +309,6 @@ const StudentProfile = () => {
                            {image ?
                               //   <img className="img-responsive" src={UserImage} alt="#" />
                               <img width="180" className="rounded-circle" src={image} alt="#" /> 
-
                                 :
                                 <FaUserCircle size={120} />
                             }
@@ -434,7 +433,7 @@ const StudentProfile = () => {
 
 
                                                          <div className="form-group" style={{ 'position': "relative" }}>
-                                                            <BsDashCircle size={20} style={{ marginRight: '0.9rem' }}
+                                                            <BsDashCircle size={18} style={{ marginRight: '0.9rem' }}
                                                                onClick={(e) => removeEducationQualification(data.uiID, data.id)}
                                                                style={{ color: "red", position: "absolute", right: "0", "cursor": "pointer" }}></BsDashCircle>
                                                             <label htmlFor="" ></label>
@@ -504,9 +503,9 @@ const StudentProfile = () => {
 
                                                          return (
                                                             <div className="form-group" style={{ 'position': "relative" }}>
-                                                               <i class="fas fa-minus-circle"
+                                                               <BsDashCircle size={18}
                                                                   onClick={(e) => deleteProfessional(data.uiID, data.id)}
-                                                                  style={{ color: "red", position: "absolute", right: "0", "cursor": "pointer" }}></i>
+                                                                  style={{ color: "red", position: "absolute", right: "0", "cursor": "pointer" }}/>
                                                                <label htmlFor="" ></label>
 
                                                                <div className="form-row">
@@ -543,7 +542,7 @@ const StudentProfile = () => {
                                                 }
 
 
-                                                <BsPlusCircle size={20}
+                                                <BsPlusCircle size={18}
                                                    onClick={(e) => creatNewProfessionalQulificaationField(e)}
                                                    style={{ color: "green", cursor: "pointer" }}></BsPlusCircle>
                                              </fieldset>
@@ -557,7 +556,7 @@ const StudentProfile = () => {
                                                       return (
                                                          <>
                                                             <div className="form-group" style={{ 'position': "relative" }} key={index}>
-                                                               <BsDashCircle
+                                                               <BsDashCircle size={18}
                                                                   onClick={(e) => deleteWorkExprience(data.uiID, data.id)}
                                                                   style={{ color: "red", position: "absolute", right: "0", "cursor": "pointer" }}></BsDashCircle>
                                                                <label htmlFor="" ></label>

@@ -40,6 +40,13 @@ body {
   min-height: 100vh;
 }
 
+.equal {
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+    /* padding-right: 1; */
+  }
+
 .card {
   width: 320px;
   background-color: rgb(255, 255, 255);
@@ -150,9 +157,9 @@ h4 {
 
 
  @media screen and (min-width:1028px) {
-      .card{
+      /* .card{
           margin-left: 15rem;
-    }
+    } */
     .table-skel{
           margin-left: 8rem;
           padding-right: 3rem;

@@ -71,7 +71,7 @@ const DashboardNavHeader = () => {
             console.log(error.message)
             setIsLoading(false)
             history.push('/error')
-            dispatch(setMessage(error.response.message, false))
+            // dispatch(setMessage(error.response.message, false))
         })
     }, [])
     return (

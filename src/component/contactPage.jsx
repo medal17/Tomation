@@ -34,7 +34,7 @@ const ContactPage = ({ heading, content }) => {
                     </p>
                     {/* <img src={svgLine} alt="" style={{postion:'absolute',top:0}} /> */}
 
-                    <div style={{
+                    <div style={{ backgroundColor:'rgba(255,255,255,0.97)', borderRadius:'10px', padding:'3rem'
 
                     }}>
                         <p > <MdLocationPin color="#F55608" size={28} style={{ marginRight: '0.5rem' }} /> 
