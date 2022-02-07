@@ -39,7 +39,7 @@ const MainHeaderDash = ({ heading, content }) => {
                     </div>
                     <ButtonContainer>
 
-                        <StyledButton style={{ cursor: "pointer" }} onClick={() => history.push('/signup')}>Get Started</StyledButton>
+                        <StyledButton style={{ cursor: "pointer" }} onClick={() => window.scrollBy(0, 500)}>Get Started</StyledButton>
                         <OutlineButton style={{ cursor: "pointer" }} onClick={() => history.push('/contact')}> <BsFillLightbulbFill color="#22596B" size={21} style={{ marginRight: '0.5rem' }} /> Contact Support</OutlineButton>
                     </ButtonContainer>
                     <ButtonContainer>

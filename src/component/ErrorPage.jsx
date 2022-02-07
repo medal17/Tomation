@@ -15,7 +15,7 @@ const ErrorPage =() =>{
                 <br/>
                 <br/>
 
-                <h2>Oops Something Went Wrong</h2>
+                <h4 style={{color:'grey'}}>Oops Something Went Wrong</h4>
                 <br/>
                 <br/>
                 {/* <ButtonContainer>Go Back</ButtonContainer> */}

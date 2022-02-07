@@ -25,7 +25,7 @@ const LearnAnything = () => {
                         {/* data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000" */}
                         <div className='container col-md-8 '>
                             <div className='row  mt-2' >
-                                <div className="col-lg-6  align-items-stretch services-wrap mb-2">
+                                <div className="col-lg-6 equal  align-items-stretch services-wrap mb-2">
                                     <div className="services row ">
                                         <div className="icon center">
                                             <span><i className="flaticon-award"><FaAward /></i></span>
@@ -38,7 +38,7 @@ const LearnAnything = () => {
                                     </div>
                                 </div>
 
-                                <div className="col-lg-6  align-items-stretch services-wrap mb-2 h-100">
+                                <div className="col-lg-6 equal align-items-stretch services-wrap mb-2 h-100">
                                     <div className="services row h-100">
                                         <div className="icon center">
                                             <span><i className="flaticon-scientist"></i></span>
@@ -69,7 +69,7 @@ const LearnAnything = () => {
                                 {/* <div className='row  mt-2' > */}
 
 
-                                <div className="col-lg-6 align-items-stretch services-wrap h-100">
+                                <div className="col-lg-6 equal align-items-stretch services-wrap">
                                     <div className="services row mb-2 mh-100 h-100">
                                         <div className="icon center">
                                             <span><i ><IoSchool /></i></span>
@@ -82,7 +82,7 @@ const LearnAnything = () => {
                                     </div>
                                 </div>
 
-                                <div className="col-lg-6 align-items-stretch services-wrap h-100">
+                                <div className="col-lg-6 equal align-items-stretch services-wrap ">
                                     <div className="services row  pb-2" >
                                         <div className="icon center">
                                             <span><i className=""><FaChalkboardTeacher /></i></span>

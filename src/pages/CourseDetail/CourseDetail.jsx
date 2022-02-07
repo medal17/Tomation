@@ -179,7 +179,7 @@ const CourseDetail = () => {
                                             courseDetail.courseOutline.map(({ id, more_info, outline_title }) => {
 
                                                 return (
-                                                    <div className="col-md-3 col-lg-4 aos-init aos-animate" key={id}>
+                                                    <div className="col-md-3 col-lg-4 aos-init aos-animate equal" key={id}>
                                                         <div className="courses ">
                                                             <div className="card m-1" style={{ borderRadius: '0px', border: "transparent" }}>
                                                                 {/* <!-- <div className="icon"><span className="flaticon-engineer"></span></div> --> */}
