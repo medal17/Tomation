@@ -34,6 +34,8 @@ import AgentsSignUp from './pages/SignUpSIgnIn/AgentsSignUp'
 import { RiTwitterLine } from 'react-icons/ri'
 import {  BsWhatsapp } from 'react-icons/bs'
 import AgentIndex from './pages/Admin/agent/AgentIndex'
+import ErrorBoundary from './services/errorBoundary.service'
+import ErrorPage from './component/ErrorPage'
 // import AgentIndex from './pages/Admin/student/AgentIndex'
 const App =()=>{
 
@@ -63,6 +65,9 @@ const App =()=>{
 
     return (
     <ThemeProvider theme={theme}> 
+    <ErrorBoundary>
+
+    
             <DefualtStyle />
         {  
             message &&
@@ -131,6 +136,10 @@ const App =()=>{
                     <Route exact   path={`/intern`} >
                     <InterPage />
                     </Route>
+
+                    <Route exact path='/error'>
+                        <ErrorPage/>
+                    </Route>
                     
 
                     <Route  exact  path="/wow">
@@ -174,9 +183,8 @@ const App =()=>{
                                 </p>
                             </a>
                         </div>
-                
+        </ErrorBoundary>
     </ThemeProvider> 
-  
             
     )
 }

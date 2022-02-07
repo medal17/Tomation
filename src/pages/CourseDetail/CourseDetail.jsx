@@ -87,6 +87,7 @@ const CourseDetail = () => {
 
                                 <div className="container" >
                                     <br /><br />
+                                    <br />
                                     <div className="courseDetailHeroCard">
                                         <div className="courseDetailHeroCard__content" >
                                             <BackButton />
@@ -111,10 +112,12 @@ const CourseDetail = () => {
                                                                 &nbsp;&nbsp;- &nbsp;&nbsp; <b>Start Date:</b> {courseDetail.courseDetail[0].start_date}
                                                 <br/>
                                             
-                                            <b>End Date</b> {courseDetail.courseDetail[0].end_date})</p>
+                                            <b>End Date</b> {courseDetail.courseDetail[0].end_date}) &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;&nbsp;
+                                            <b>Start Time:</b> {courseDetail.courseDetail[0].start_time}
+                                            </p>
 
-                                            <p ><b>Start Time:</b> {courseDetail.courseDetail[0].start_time}
-                                               </p>
+                                            
+                                               
                                                                 <p className='item'>100% Virtual instructor led</p>
                                                             </div>
                                                         )
@@ -144,9 +147,9 @@ const CourseDetail = () => {
 
                                         </div>
 
-                                        <div className="courseDetailHeroCard__image_container" >
+                                        <div className="courseDetailHeroCard__image_container"  >
                                             {/* <img src={ImageOfManINSuite} alt="" style={{boxShadow: "2px -10px 5px 7px rgba(0,0,0,0.09)"}} /> */}
-                                            <img src={courseDetail.course_banner} alt="" style={{ boxShadow: "2px -10px 5px 7px rgba(0,0,0,0.09)" }} />
+                                            <img src={courseDetail.course_banner} alt="" style={{ boxShadow: "2px -10px 5px 7px rgba(0,0,0,0.09)", width:'120%' }} />
 
                                             <p>4 Weeks (Weekends Only) </p>
                                         </div>
@@ -156,7 +159,7 @@ const CourseDetail = () => {
                                 <br /><br /><br /><br />
                                 <div className="container danload_brochureContainer" >
                                     <h4>Learn More about {courseDetail.courseDetail[0].name} program</h4>
-                                    <a href={courseDetail ? 'https://emeticslearning-backend.herokuapp.com/' + courseDetail.courseDetail[0].brochure : ''} download className="btn btn-primary p-3 py-3">Download Brochure</a>
+                                    {/* <a href={courseDetail ? 'https://emeticslearning-backend.herokuapp.com/' + courseDetail.courseDetail[0].brochure : ''} download className="btn btn-primary p-3 py-3">Download Brochure</a> */}
                                 </div>
 
                                 <div className="container courseviewContainer">
