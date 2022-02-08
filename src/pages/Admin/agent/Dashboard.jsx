@@ -203,7 +203,7 @@ useEffect(() => {
                                 </p>
                                 <div className='col-lg-3 flex '>
                                     <Link className='row ml-lg-3' to={`/course-detail/${e.id}`}>
-                                        <p className='col-lg-12 bg-dark text-white text-center py-2 px-3 rounded '>View Outline</p>
+                                        {/* <p className='col-lg-12 bg-dark text-white text-center py-2 px-3 rounded '>View Outline</p> */}
                                         {/* <p className=' shadow-lg col-lg-5 bg-white text-center py-2 px-3 ml-lg-1 rounded border'>Pay</p> */}
                                     </Link>
                                 </div>

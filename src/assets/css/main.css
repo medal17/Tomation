@@ -40,6 +40,16 @@ body {
   min-height: 100vh;
 }
 
+.social-icon :hover{
+    color: rgb(122, 117, 117);
+    /* background-color: rgb(211, 211, 211); */
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.18), 0 6px 20px 0 rgba(0, 0, 0, 0.16); */
+    height:2.0rem;
+     width:2.0rem; 
+    /* background-color:white;  */
+    border-radius:50px
+}
+
 .equal {
     display: flex;
     display: -webkit-flex;

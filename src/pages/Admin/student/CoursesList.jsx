@@ -199,6 +199,7 @@ const CoursesList = () => {
                           <td>{data.name}</td>
                           {/* <td>{data.date ? data.date : ''}</td> */}
                           <td>{data.start_date}</td>
+                          <td>{data.start_date}</td>
                           <td>{data.end_date}</td>
                           {
                             data.assignmentFIle == "" ?

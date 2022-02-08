@@ -65,7 +65,7 @@ const App =()=>{
 
     return (
     <ThemeProvider theme={theme}> 
-    <ErrorBoundary>
+    {/* <ErrorBoundary> */}
 
     
             <DefualtStyle />
@@ -165,25 +165,25 @@ const App =()=>{
                     
                 <div className='ml-lg-5 mr-lg-5 mt-2' style={{position:'fixed', top:'15%', right:0, zIndex:200 }}>
 
-                            <a href='' className='text-lg  bg-white ph-5' style={{borderRadius:'50px'}}>
+                            <a href='' className='text-lg  bg-white ph-5 social-icon' style={{borderRadius:'50px'}}>
                                 <p className='text-center pl-2 pt-2' style={{ boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.18), 0 6px 20px 0 rgba(0, 0, 0, 0.16)',height:'2.5rem', width:'2.5rem', backgroundColor:'white', borderRadius:'50px'}}>
                                     <FaFacebookF color="#0000FF" size={20} style={{ marginRight: '0.5rem'}} />
                                 </p>
                             </a>
-                            <a href='' className='text-lg '>
-                                <p className='text-center pl-2 pt-2' style={{ boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.18), 0 6px 20px 0 rgba(0, 0, 0, 0.16)',height:'2.5rem', width:'2.5rem', backgroundColor:'white', borderRadius:'50px'}}>
+                            <a href='' className='text-lg social-icon'>
+                                <p className='text-center   pl-2 pt-2' style={{ boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.18), 0 6px 20px 0 rgba(0, 0, 0, 0.16)',height:'2.5rem', width:'2.5rem', backgroundColor:'white', borderRadius:'50px'}}>
                                     <RiTwitterLine color="#187bcd" size={20} style={{ marginRight: '0.5rem' }} />
                                 </p>
                             </a>
                                 {/* <p className='text-center pl-2 pt-2' style={{ boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.18), 0 6px 20px 0 rgba(0, 0, 0, 0.16)',height:'2.5rem', width:'2.5rem', backgroundColor:'white', borderRadius:'50px'}}> */}
 
-                            <a href="whatsapp://send?phone=+2347089199545" className='text-lg'>
+                            <a href="whatsapp://send?phone=+2347089199545" className='text-lg social-icon'>
                                 <p className='text-center pl-2 pt-2' style={{ boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.18), 0 6px 20px 0 rgba(0, 0, 0, 0.16)',height:'2.5rem', width:'2.5rem', backgroundColor:'white', borderRadius:'50px'}}>
                                     <BsWhatsapp color="#00FF00" size={20} style={{ marginRight: '0.5rem' }} />
                                 </p>
                             </a>
                         </div>
-        </ErrorBoundary>
+        {/* </ErrorBoundary> */}
     </ThemeProvider> 
             
     )

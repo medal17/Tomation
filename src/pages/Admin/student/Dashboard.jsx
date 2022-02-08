@@ -7,8 +7,6 @@ import dataService from '../../../services/data.service'
 import { setMessage } from '../../../redux/actions/messageAction'
 import { useDispatch } from 'react-redux'
 import Footer from '../../../component/footer'
-import Nav from '../../../component/nav'
-import DashboardHeader from '../../../component/DashboardHeader'
 import DashboardNavHeader from '../../../component/DashboardNav'
 import { FaArrowLeft } from 'react-icons/fa';
 import { MdOutlineCheck } from 'react-icons/md'
@@ -146,8 +144,8 @@ const Dashboard = () => {
                             <h4></h4>
                             <h4></h4>
                             <h4></h4>
-                            <h4></h4>
-                            <h4></h4>
+                            {/* <h4></h4>
+                            <h4></h4> */}
 
                         </div>
                     </div>

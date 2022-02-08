@@ -41,9 +41,10 @@ const AgentsSignUp = () => {
   const callback = (response) => {
     // console.log(response)
     if(response.data) {
-      setLoading(false)
-      // window.location.href('/agent')      
       history.push('/agent')
+      window.location.reload()      
+
+      setLoading(false)
     }  
     setLoading(false)
   }
