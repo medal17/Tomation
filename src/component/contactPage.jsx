@@ -1,16 +1,8 @@
 import { FlexWap } from "./style/flexWap.style"
-import {
-    StyledHeaderImage, Spacer,
-    StyledImageHeaderContainer, StyledTestimonialHeader,
-    StyledmainHeaderWrapper, StyledmainHeaderContentPane, StyledButton, StyledGreenButton, OutlineButton, ButtonContainer
-} from "./style/mainHeader.style"
-import svgLine from '../assets/svg/line.svg'
-import imageHeader from '../assets/images/herobg.jpg'
+import { StyledHeaderImage, Spacer, StyledImageHeaderContainer,
+    StyledmainHeaderWrapper, StyledmainHeaderContentPane} from "./style/mainHeader.style"
 import heroRight from '../assets/images/Contact Us Vector Illustration Part 02.jpg'
-import MtnImage from '../assets/images/mtnImage.png'
-import zenithImage from '../assets/images/zenith.png'
-import { BsFillVinylFill, BsFillLightbulbFill, BsPhone, BsEnvelopeOpenFill, BsFacebook, BsTwitter, BsWhatsapp } from 'react-icons/bs';
-import { Link } from "react-router-dom"
+import {  BsPhone, BsEnvelopeOpenFill, BsFacebook, BsWhatsapp } from 'react-icons/bs';
 import { useHistory } from "react-router-dom"
 import Nav from "./nav"
 import { MdLocationPin } from "react-icons/md"
