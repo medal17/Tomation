@@ -36,14 +36,15 @@ const register = (email,firstName,lastName,password, agentCode, isCorper,state, 
     })
 }
 
-const registerAgent = (email,firstName,lastName,password,user_type='agent')=>{
+const registerAgent = (email,firstName,lastName,password,stateOfOrigin,stateOfService,user_type='agent')=>{
     // THIS function helps to request to the user registration enpoint
     return axios.post(API_URL+`api/user/registeruser/?user_type=${user_type}`,{
         "email":email,
         "first_name":firstName,
         "last_name":lastName,
         "password":password,
-        
+        "state_of_service":stateOfService,
+        "state_of_origin":stateOfOrigin
     }
     ).then((response)=>{
         console.log(response)

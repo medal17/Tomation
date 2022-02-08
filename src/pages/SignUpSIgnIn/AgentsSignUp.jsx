@@ -9,6 +9,7 @@ import { registerAgent } from '../../redux/actions/userAuthActions';
 import { MdKeyboardBackspace } from 'react-icons/md'
 import Footer from '../../component/footer';
 import Nav from '../../component/nav';
+import state from '../../component/states.json'
 
 
 const AgentsSignUp = () => {
@@ -17,6 +18,8 @@ const AgentsSignUp = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [stateOfOrigin, setOrigin] = useState("");
+  const [statOfRes, setResident] = useState("");
   const [jobOpportunity, setJobOpportunity] = useState(true);
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -24,7 +27,7 @@ const AgentsSignUp = () => {
   const [isLoadings, setLoading] = useState(false);
   const user = JSON.parse(localStorage.getItem('user'));
 
-
+  console.log(state)
 
   // redux states
   const { message } = useSelector(state => state.message);
@@ -76,6 +79,8 @@ const AgentsSignUp = () => {
       firstName,
       lastName,
       password,
+      stateOfOrigin,
+      statOfRes,
       "agent",
       callback
 
@@ -164,6 +169,53 @@ const AgentsSignUp = () => {
                     className="form-control bg-light rounded" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required />
                 </div>
               </div>
+
+              {/* <div className='row'>
+                <label htmlFor="exampleInputEmail2 " className=' '>State of Origin</label>
+                <div className='col'>
+                  <input type="email"
+                    value={stateOfOrigin} onChange={(e) => setOrigin(e.target.value)}
+                    className="form-control bg-light rounded" id="exampleInputEmail2" aria-describedby="emailHelp" placeholder="Enter email" required />
+                </div>
+              </div> */}
+
+              <div className='col-11 ml-lg-2 '>
+                <label className='row py-2'>
+                  State of Origin:
+                  <select className='py-2 form-control bg-light' value={stateOfOrigin} onChange={(e)=>setOrigin(e.target.value)}>            
+                  
+                  {state.map((e)=><option value={e}>{e}</option>)
+                    }
+                    {/* <option value="lime">Lime</option>
+                    <option value="coconut">Coconut</option>
+                    <option value="mango">Mango</option> */}
+                  </select>
+              </label>
+              </div>
+
+              <div className='col-11 ml-lg-2 '>
+                <label className='row '>
+                  State of Service:
+                  <select className='py-2 form-control bg-light' value={statOfRes} onChange={(e)=>setResident(e.target.value)}>            
+                  
+                  {state.map((e)=><option value={e}>{e}</option>)
+                    }
+                    {/* <option value="lime">Lime</option>
+                    <option value="coconut">Coconut</option>
+                    <option value="mango">Mango</option> */}
+                  </select>
+              </label>
+              </div>
+
+              {/* <div className='row'>
+                <label htmlFor="serviceState " className=' '>State of Service</label>
+                <div className='col'>
+                  <input type="email"
+                    value={statOfRes} onChange={(e) => setResident(e.target.value)}
+                    className="form-control bg-light rounded" id="serviceState" aria-describedby="emailHelp" placeholder="Enter email" required />
+                </div>
+              </div> */}
+
             </div>
             {/* <br /> */}
 
@@ -173,6 +225,23 @@ const AgentsSignUp = () => {
 
 
 
+            {/* <div className="col">
+                <small id="emailHelp" className="form-text text-muted">Degree Type</small>
+                <input
+                  value=''
+                    onChange={(e) => handleUpdateEducation(e, data.uiID, 'degree_type')}
+                    value={data.degree_type == 'Nil'?'':data.degree_type}
+                    list="educational_qualification" 
+                    className="form-control" /> */}
+                {/* <datalist type="text" id="educational_qualification"  > */}
+                    {/* this is for the educatioanl Qualification */}
+                    {/* <option value={"BSC"} />
+                    <option name="" id="" value={'BA'}>BA</option>
+                    <option name="" id="" value={'BAed'}>BAed</option>
+                    <option name="" id="" value={'MSC'}>MSC</option>
+                    <option name="" id="" value={'MBA'}>MBA</option>
+                </datalist>
+              </div> */}
 
             <div className="row">
               <div className='col'>

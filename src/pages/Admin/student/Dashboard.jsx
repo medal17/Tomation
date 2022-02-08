@@ -407,7 +407,7 @@ const Dashboard = () => {
                       <div className='row bg-white py-3 px-2 my-4' style={{ borderRadius: '20px' }} >
                             <h4>Available Courses</h4><hr className='col-lg-10' />
                             {course.map((e)=>
-                            <div className=' row py-2 mx-1 mt-3' style={{ borderRadius: '7px' }}>
+                            <div className=' row py-2 mx-1 ' style={{ borderRadius: '7px' }}>
                                 <p className='col-lg-8 bg-white py-2' style={{ fontWeight: '500' }}>
                                     {e.name}
                                 </p>

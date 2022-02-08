@@ -89,8 +89,8 @@ export const getImage = (callback)=> (dispatch)=>{
 }
 
 
-export const registerAgent = (email, firstName, lastName, password, user_type, callback) => (dispatch) => {
-  return authService.registerAgent(email, firstName, lastName, password, user_type).then(
+export const registerAgent = (email, firstName, lastName, password,stateOfOrigin,stateOfService, user_type, callback) => (dispatch) => {
+  return authService.registerAgent(email, firstName, lastName, password, stateOfOrigin, stateOfService, user_type).then(
     (response) => {
       //   this Means the Request Went Well
       callback(response)
